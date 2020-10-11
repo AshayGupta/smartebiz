@@ -1,0 +1,33 @@
+<ion-header>
+  <app-header [headerImg]="headerImg"></app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="payment-summary">
+    <ion-row>
+
+      <div class="header-sec">
+        <h1>Transaction S<span>u</span>ccessful :</h1>
+      </div>
+      <!-- <p class="trans-sec">Transaction ID. #{{transaction_id}}</p> -->
+      <div class="total-amount">
+        <!-- <p>Total A<span>m</span>ount :</p> -->
+        <h2>KSH {{paymentReq.amount}}</h2>
+      </div>
+
+      <div class="all-done-wrap">
+        <p class="all-done">has been transferred to your account(s)</p>
+        <p class="paymt-receive">Look out for the official confirmation notices to be shared via
+          SMS and Email.</p>
+        <p class="paymt-receive">Here are your payment details:</p>
+        <div class="policy-wrap" *ngFor="let policyNumber of policyArray">Policy : <span>{{policyNumber}}</span></div>
+      </div>
+
+    </ion-row>
+  </div>
+</ion-content>
+
+
+<!-- <ion-footer>
+    <button class="m-0 submitBtn padd-0" (click)="downloadReceipt()"> Download Receipt</button>
+</ion-footer> -->

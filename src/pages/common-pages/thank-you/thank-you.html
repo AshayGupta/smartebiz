@@ -1,0 +1,17 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="thanks-wrap" *ngIf="!result">
+    <h2>thanks</h2>
+    <p>Your request is confirmed.</p>
+    <P>Amount will be credited in your account after processing of your request.</P>
+  </div>
+  
+  <div class="thanks-wrap" *ngIf="result">
+    <p>Your request is submitted successfully your SR No is &nbsp;<span>{{result}}</span></p>
+  </div>
+
+</ion-content>

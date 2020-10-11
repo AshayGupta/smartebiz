@@ -1,0 +1,175 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle" (headerOutput3)="goToWithdrawHistory($event)">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="applyPartialForm">
+    <div class="content-part ">
+      <div class="content-part-text">
+
+        <h1 class="subHeader-Wrap">Product : {{processPartialWithdrawalReq.policyName}} -
+          {{processPartialWithdrawalReq.policyNo}}
+        </h1>
+
+        <div class="step-sec">
+          <div class="col-3">
+            <img src="assets/imgs/Step%20One.png">
+          </div>
+          <div class="col-8">
+            <label class="col-3">step 1:</label>
+            <span class="col-9">How much do you want to withdraw?</span>
+          </div>
+        </div>
+
+        <ion-row>
+          <div class="amountSec">
+            <div class="col-6">Maximum Amount:</div>
+            <div class="col-6 pull-right">{{processPartialWithdrawalReq.netValue | number : '1.2'}} KSH</div>
+          </div>
+
+          <div class="amountSec with-amnt-wrapper">
+            <div class="col-6">Withdrawal Amount:</div>
+            <div>
+              <div class="col-6 pull-right withd-amnt-input">
+                <ion-input 
+                  type="number"
+                  placeholder="0.00"
+                  class=" loan-approved"
+                  formControlName="withdrawalAmount" 
+                  min='0' 
+                  [max]='processPartialWithdrawalReq.netValue'
+                  [(ngModel)]="processPartialWithdrawalReq.withdrawalAmount">
+                </ion-input>KSH
+              </div>
+              <div *ngIf="(submitAttempt || applyPartialForm.controls.withdrawalAmount.touched) && applyPartialForm.controls.withdrawalAmount.errors?.partialAmount">
+                <p class="error">{{applyPartialForm.controls.withdrawalAmount.errors?.partialAmount}}</p>
+              </div>
+              <div *ngIf="(submitAttempt || applyPartialForm.controls.withdrawalAmount.touched) && applyPartialForm.controls.withdrawalAmount.errors?.max">
+                <p class="error">Amount must not be exceed from maximum amount.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="range-slider">
+            <ion-range [(ngModel)]="processPartialWithdrawalReq.withdrawalAmount" [ngModelOptions]="{standalone: true}" min="0"
+              [max]="processPartialWithdrawalReq.netValue" [disabled]="processPartialWithdrawalReq.netValue=='0'" snaps="false" pin="true"
+              (ionChange)="rangeSlider($event)">
+            </ion-range>
+          </div>
+          <div class="tax-calculator" (click)="taxCalculatorClicked()"><a>Tax Estimation Calculator</a>
+            <div class="tax-calculator-text">Click To Download Tax Estimation Calculator</div>
+          </div>
+
+          <details class="table-detail-wrapper">
+            <summary><div class="tooltip-wrapper tootip-view-detials"><span>VIEW DETAILS</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">View account 
+              balance details with respect to the 
+              maximum amount available for 
+              withdrawal</span></span></div>
+            </summary>
+            <div class="table-init-withdraw">
+              <h6 class="emlo-reg-unreg">Employee Registered<ion-icon name="information-circle" class="view-stat-info employee-register"></ion-icon></h6>
+              <table>
+                  <thead>
+                    <tr>
+                      <td><div class="tooltip-wrapper"><span>Balance</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount in customer
+                        account</span></span></div></td>
+                      <td><div class="tooltip-wrapper"><span>Locked In Amount</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount inaccessible 
+                        to the customer up until 
+                        retirement</span></span></div></td>
+                      <td><div class="tooltip-wrapper">Available Balance<span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount available for 
+                        withdrawal</span></span></div></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{processPartialWithdrawalReq.totalBalance0 | number : '1.2'}}</td>
+                      <td>{{processPartialWithdrawalReq.lockedInAmount0 | number : '1.2'}}</td>
+                      <td>{{processPartialWithdrawalReq.availableBalance0 | number : '1.2'}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+
+              <h6 class="emlo-reg-unreg">Employer Registered<ion-icon name="information-circle" class="view-stat-info employer-register"></ion-icon></h6>
+              <table>
+                <thead>
+                  <tr>
+                    <td><div class="tooltip-wrapper"><span>Balance</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount in customer
+                      account</span></span></div></td>
+                    <td><div class="tooltip-wrapper"><span>Locked In Amount</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount inaccessible 
+                      to the customer up until 
+                      retirement</span></span></div></td>
+                    <td><div class="tooltip-wrapper">Available Balance<span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount available for 
+                      withdrawal</span></span></div></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{processPartialWithdrawalReq.regEmployerBalance | number : '1.2'}}</td>
+                    <td>{{processPartialWithdrawalReq.regEmployerLockedInAmt | number : '1.2'}}</td>
+                    <td>{{processPartialWithdrawalReq.regEmployerAvailableBal | number : '1.2'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <h6 class="emlo-reg-unreg">Employee Unregistered<ion-icon name="information-circle" class="view-stat-info employee-unregister"></ion-icon></h6>
+              <table>
+                  <thead>
+                    <tr>
+                      <td><div class="tooltip-wrapper"><span>Balance</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount in customer
+                        account</span></span></div></td>
+                      <td><div class="tooltip-wrapper"><span>Locked In Amount</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount inaccessible 
+                        to the customer up until 
+                        retirement</span></span></div></td>
+                      <td><div class="tooltip-wrapper">Available Balance<span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount available for 
+                        withdrawal</span></span></div></td>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>{{processPartialWithdrawalReq.totalBalance1 | number : '1.2'}}</td>
+                      <td>{{processPartialWithdrawalReq.lockedInAmount1 | number : '1.2'}}</td>
+                      <td>{{processPartialWithdrawalReq.availableBalance1 | number : '1.2'}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+
+              <h6 class="emlo-reg-unreg">Employer Unregistered<ion-icon name="information-circle" class="view-stat-info employer-unregister"></ion-icon></h6>
+              <table>
+                <thead>
+                  <tr>
+                    <td><div class="tooltip-wrapper"><span>Balance</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount in customer
+                      account</span></span></div></td>
+                    <td><div class="tooltip-wrapper"><span>Locked In Amount</span><span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount inaccessible 
+                      to the customer up until 
+                      retirement</span></span></div></td>
+                    <td><div class="tooltip-wrapper">Available Balance<span class="icon-tool-wrapper"><ion-icon name="information-circle"></ion-icon><span class="tooltip-text">Total amount available for 
+                      withdrawal</span></span></div></td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>{{processPartialWithdrawalReq.unRegEmployerBalance | number : '1.2'}}</td>
+                    <td>{{processPartialWithdrawalReq.unRegEmployerLockedInAmt | number : '1.2'}}</td>
+                    <td>{{processPartialWithdrawalReq.unRegEmployerAvailableBal | number : '1.2'}}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+            </div>
+          </details>
+
+        </ion-row>
+
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <p>Click ‘Proceed’ to select payout details</p>
+  <!-- <button ion-button full text-uppercase [disabled]="true" class="m-0 submitBtn padd-0"
+    (click)="proceedClicked()">Proceed</button> -->
+    <button ion-button full text-uppercase class="m-0 submitBtn padd-0"
+    (click)="applyPartialForm.valid ? proceedClicked() : submitAttempt=true">Proceed</button>
+</ion-footer>

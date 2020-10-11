@@ -1,0 +1,74 @@
+<!-- <ion-header class="pay-now-head">
+  <ion-row>
+    <ion-col col-12 class="padd-0">
+      <ion-navbar>
+        <ion-row>
+          <ion-col col-2>
+            <ion-buttons left>
+              <button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
+                <ion-icon name="arrow-back"></ion-icon>
+              </button>
+            </ion-buttons>
+          </ion-col>
+          <ion-col col-6>
+            <div class="header-class">
+              <img [src]="britamLogo" alt="Britam logo" />
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-navbar>
+    </ion-col>
+  </ion-row>
+</ion-header> -->
+
+<ion-header>
+    <app-header [headerImg]="headerImg"></app-header>
+  </ion-header>
+
+<ion-content padding>
+  <div class="pay-now">
+    <!-- <div class="black-bg"></div> -->
+    <div class="pay-summary">
+      <ion-row>
+        <div class="policy-listing">
+          <div class="amount-sec">
+            <div class="align-left">Total a<span>m</span>ount</div>
+            <div class="align-right">ksh {{paymentReq.amount}} </div>
+          </div>
+          <div *ngFor="let item of paymentList; let i = index">
+            <h1 clas="amt-head"> {{i+1}}. {{item.accountName}}</h1>
+
+            <div class="listing-sec" *ngIf="item.preminumCheckboxStatus">
+              <div class="align-left">premium sum</div>
+              <div class="align-right">+ksh {{item.premiumAmount}}</div>
+            </div>
+
+            <div class="listing-sec" *ngIf="item.excessCheckboxStatus">
+              <div class="align-left">excess amount</div>
+              <div class="align-right">+ksh {{item.excessAmount}}</div>
+            </div>
+
+            <div class="listing-sec" *ngIf="item.preminumCheckboxStatus">
+              <div class="align-left">policy suspense</div>
+              <div class="align-right">-ksh {{item.suspenseAmount}}</div>
+            </div>
+
+            <div class="listing-sec" *ngIf="item.loanCheckboxStatus">
+              <div class="align-left">loan amount</div>
+              <div class="align-right">+ksh {{item.editLoanAmount}}</div>
+            </div>
+
+            <div class="listing-sec">
+              <div class="align-left">Total amount</div>
+              <div class="align-right">+ksh {{item.productTotalAmount}}</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="btnSec">
+          <button (click)="paySummaryClicked()"> proceed to pay</button>
+        </div>
+      </ion-row>
+    </div>
+  </div>
+</ion-content>

@@ -1,0 +1,328 @@
+page-verify-funds {
+  p,h1,h2,h3,h4,h5{
+      margin:0;
+      padding: 0;
+  }
+  font-family: 'Open Sans', sans-serif;
+  .before-you {
+      color: #0077BE;
+      font-weight: bold;
+      font-size: 24px;
+      font-family: poppins;
+      &+p{
+      color: #657D95;
+      font-size: 16px;
+      font-weight: 300;
+      margin-top: 0;
+      }
+  }
+  .pers-detail-head {
+      letter-spacing: 1.25px;
+      font-size: 14px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #627687;
+  }
+  .personal-details {
+      margin-top: 32px;
+      .name{
+          color: #0077BE;
+          letter-spacing: 0.13px;
+          font-weight: 600;
+          margin-top: 16px;
+      }
+      .personal-detail-list {
+          display: flex;
+          font-size: 14px;
+          color: #627687;
+          letter-spacing: 0.13px;
+          margin-top: 16px;
+          img{
+              margin-right: 12px;
+          }
+      }
+  }
+  .container{
+      padding: 0 15px;
+      margin-top: 32px;
+  }
+  /*Upper part*/
+  ul.state-line {
+      display: flex;
+      justify-content: space-between;
+      margin-left: 0;
+      padding: 0;
+      height: 30px;
+      position: relative;
+      width: 90%;
+      margin-left: auto;
+      margin-top: 34px;
+      .active-circle:before{
+          width: 6px;
+          height: 6px;
+          top: -4px;
+          border: 3px #0077BE solid;
+      }
+      .active-line {
+          background: #0077BE !important;
+      }
+      >li:last-child{
+          width: 10%;
+          flex-grow: 0;
+      }
+      &:before{
+          content: '';
+          position: absolute;
+          background: #0077be;
+          width: 10%;
+          top: 0px;
+          left: -10%;
+          height: 4px;
+      }
+      li.done-circle:before{
+          border: 2px solid #0077be;
+      }
+      .active-text{
+          color: #0077BE;
+      }
+  }
+  ul.state-line li{
+      position: relative;
+      list-style: none;
+      flex-grow: 1;
+      background: #E1F5FE;
+      height: 4px;
+      span{
+        font-size: 9px;
+        position: absolute;
+        top: 15px;
+        font-family: roboto;
+        color: #a4b2be;
+        text-align: center;
+        margin-left: -2px;
+        text-transform: capitalize;
+      }
+  }
+  ul.state-line>li:before{
+      content: '';
+      width: 4px;
+      height: 4px;
+      position: absolute;
+      border-radius: 50%;
+      border: 2px solid #B2E5FC;
+      top: -2px;
+      background: #E1F5FE;
+      z-index: 1;
+  }
+  ul.state-line li:nth-child(1) span {
+    left: -12px;
+    }
+    ul.state-line li:nth-child(2) span {
+        left: -6px;
+    }
+    ul.state-line li:nth-child(3) span {
+        left: -17px;
+    }
+    ul.state-line li:nth-child(4) span {
+        left: -9px;
+    }
+    ul.state-line li:nth-child(5) span {
+        left: -12px;
+    }
+    ul.state-line li:nth-child(6) span {
+      left: -14px;
+    }
+  ul.state-line-inner {
+      display: flex;
+      padding: 0;
+  }
+  h3.bank-detail-head {
+      color: #006699;
+      font-size: 30px;
+      letter-spacing: .18px;
+  }
+  .bank-details-btn{
+      text-decoration: none;
+      padding: 10px;
+      display: block;
+      text-align: center;
+      border: 2px solid #E1F5FE;
+      border-radius: 23px;
+      color: #00A9F5;
+      letter-spacing: 1.25px;
+      background: url(../../../assets/imgs/pdf.svg);
+      background-repeat: no-repeat;
+      background-position: 97% 8px;
+  }
+  .bank-detail-head+p{
+      letter-spacing: 0.4px;
+      color: #657D95;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 12px;
+      margin-bottom: 20px;
+      margin-top: 16px;
+  }
+  h3.bank-detail-head {
+      font-size: 30px;
+      font-weight: bold;
+      letter-spacing: 0.18px;
+      color: #006699;
+      margin-top: 32px;
+  }
+  .upper-part {
+      padding: 0 9px;
+      margin-top: 0px;
+  }
+
+  /*Upper part end*/
+  .personal-detail-list.hash{
+      display: flex;
+      align-items: center;
+  }
+  .personal-detail-list.hash>p:first-child{
+      font-size: 22px;
+      color: #a4b2be;
+      margin-right: 19px;
+      margin-left: 5px;
+  }
+  .line {
+      border: 1px solid #A4B2BE;
+      margin-top: 25px;
+  }
+  .personal-details.bank-details .personal-detail-list:nth-of-type(1) p:first-child {
+      margin-right: 16px;
+  }
+  .bank-detail-name {
+      letter-spacing: 0.15px;
+      color: #627687;
+      font-size: 16px;
+      margin-top: 18px;
+  }
+  button.download{
+      border-radius: 23px;
+      background: none;
+      box-shadow: 0px 3px 6px #81D4FB3D;
+      border: 2px solid #E1F5FE;
+      max-width: 232px;
+      width: 100%;
+      height: 46px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #00A9F5;
+      font-size: 16px;
+      font-weight: 600;
+      margin-top: 32px;
+      margin-left: 10px;
+      img{
+          margin-left: 9px;
+      }
+  }
+  .total-amount {
+      font-size: 24px;
+      font-weight: bold;
+      font-family: poppins;
+      color: #0077BE;
+      margin-top: 42px;
+      margin-bottom: 0;
+      span{
+          color: red;
+      }
+  }
+  .kes-bottom {
+      display: flex;
+      justify-content: space-between;
+      color: #34C409;
+      font-size: 24px;
+      font-weight: 500;
+      font-family: poppins;
+      p{
+          margin-top: 12px;
+          margin-bottom: 0;
+      }
+  }
+  input[id="payment-checkbox"]{
+      display: none;
+  }
+  input[id="payment-checkbox"]+label{
+      width: 20px;
+      height: 20px;
+      border: solid 2px;
+      display: inline-block;
+      color: #707070;
+      border-radius: 2px;
+      position: relative;
+      flex-shrink: 0;
+  }
+  input[id="payment-checkbox"]:checked+label[for="payment-checkbox"]{
+      background: #0077be;
+      color: #fff;
+      position: relative;
+      border: solid 2px #0077be;
+  }
+  ion-icon[name="checkmark"]{
+      font-size: 25px;
+      position: absolute;
+      top: -5px;
+      font-weight: bold;
+      left: 3px;
+      display: none;
+  }
+  input[id="payment-checkbox"]:checked+label[for="payment-checkbox"]>ion-icon[name="checkmark"]{
+      display: block;
+  }
+  .terms-condition{
+      display: flex;
+      width: 80%;
+      margin-left: auto;
+      margin-top: 25px;
+      margin-right: auto;
+      font-weight: 600;
+      p{
+          margin-top: -2px;
+          margin-left: 12px;
+          span{
+              color: #0077BE;
+          }
+      }
+  }
+  button.proceed{
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+      background: #CFD9E2;
+      margin-top: 22px;
+      color: #fff;
+      font-weight: 500;
+      font-size: 14px;
+      letter-spacing: 1.25px;
+      height: 42px;
+      margin-bottom: 40px;
+      box-shadow: none;
+      border: none;
+      border-radius: 8px;
+  }
+  button.proceed.active{
+      background: #0077BE;
+  }
+  .error-div{
+    width: 80%;
+    margin-left: auto;
+    margin-top: 7px;
+    margin-right: auto;
+  }
+  .amount-invest {
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #627687;
+    letter-spacing: 0.13px;
+    margin-top: 16px;
+    p:first-child{
+        margin-right: 15px;
+    }
+    p:last-child{
+        white-space: nowrap;
+    }
+}
+  }

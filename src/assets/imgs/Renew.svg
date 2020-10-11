@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="24" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_5334" data-name="Rectangle 5334" width="24" height="24" transform="translate(-591 -14460)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="icon_action_autorenew_24px" data-name="icon/action/autorenew_24px" d="M8,22l0,0L4,18l4-4v3a5.99,5.99,0,0,0,5.3-8.8l1.46-1.46A7.986,7.986,0,0,1,8,19v3ZM1.24,15.26h0A7.986,7.986,0,0,1,8,3V0l4,4L8,8V5a6.007,6.007,0,0,0-6,6,5.887,5.887,0,0,0,.7,2.8L1.241,15.26Z" transform="translate(4 1)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="inbox" clip-path="url(#clip-path)">
+    <g id="Mask_Group_1507" data-name="Mask Group 1507" transform="translate(591 14460)" clip-path="url(#clip-path-2)">
+      <g id="icon_action_autorenew_24px-2" data-name="icon/action/autorenew_24px" transform="translate(-587 -14459)">
+        <path id="icon_action_autorenew_24px-3" data-name="icon/action/autorenew_24px" d="M8,22l0,0L4,18l4-4v3a5.99,5.99,0,0,0,5.3-8.8l1.46-1.46A7.986,7.986,0,0,1,8,19v3ZM1.24,15.26h0A7.986,7.986,0,0,1,8,3V0l4,4L8,8V5a6.007,6.007,0,0,0-6,6,5.887,5.887,0,0,0,.7,2.8L1.241,15.26Z" transform="translate(0 0)" fill="none"/>
+        <g id="Group_19291" data-name="Group 19291" transform="translate(-4 -1)" clip-path="url(#clip-path-3)">
+          <g id="_Color" data-name="↳ Color">
+            <rect id="_Color_background" data-name="↳ Color background" width="24" height="24" fill="#4c4c4c"/>
+            <rect id="Rectangle" width="24" height="24" fill="#4c4c4c"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

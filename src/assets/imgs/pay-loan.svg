@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="24" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <rect id="Rectangle_5333" data-name="Rectangle 5333" width="24" height="24" transform="translate(-416 -14240)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-3">
+      <path id="icon_action_credit_card_24px" data-name="icon/action/credit_card_24px" d="M18,16H2a2,2,0,0,1-2-2L.01,2A1.974,1.974,0,0,1,2,0H18a2,2,0,0,1,2,2V14A2,2,0,0,1,18,16ZM2,8v6H18V8ZM2,2V4H18V2Z" transform="translate(2 4)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="inbox" clip-path="url(#clip-path)">
+    <g id="Mask_Group_1506" data-name="Mask Group 1506" transform="translate(416 14240)" clip-path="url(#clip-path-2)">
+      <g id="icon_action_credit_card_24px-2" data-name="icon/action/credit_card_24px" transform="translate(-414 -14236)">
+        <path id="icon_action_credit_card_24px-3" data-name="icon/action/credit_card_24px" d="M18,16H2a2,2,0,0,1-2-2L.01,2A1.974,1.974,0,0,1,2,0H18a2,2,0,0,1,2,2V14A2,2,0,0,1,18,16ZM2,8v6H18V8ZM2,2V4H18V2Z" transform="translate(0)" fill="none"/>
+        <g transform="translate(-2 -4)" clip-path="url(#clip-path-3)">
+          <g id="_Color" data-name="↳ Color">
+            <rect id="_Color_background" data-name="↳ Color background" width="24" height="24" fill="#4c4c4c"/>
+            <rect id="Rectangle" width="24" height="24" fill="#4c4c4c"/>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

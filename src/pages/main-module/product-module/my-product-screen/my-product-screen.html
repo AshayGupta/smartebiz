@@ -1,0 +1,91 @@
+<ion-grid>
+  <ion-row *ngFor="let account of inputData" class="my-product-moduled">
+    <div class="contect-sec">
+      <ion-col col-2 *ngIf="fromPayNow">
+        <label class="checkBox" *ngIf="account.status.toLowerCase() == 'active'">
+          <ion-checkbox *ngIf="account.lobSrc.toLowerCase() == 'life'" (ionChange)="selectCheckbox($event, account)">
+          </ion-checkbox>
+          <ion-checkbox *ngIf="account.lobSrc.toLowerCase() == 'pension'" (ionChange)="selectCheckbox($event, account)">
+          </ion-checkbox>
+          <ion-radio *ngIf="account.lobSrc.toLowerCase() == 'gi'" (ionSelect)="selectCheckbox($event, account)">
+          </ion-radio>
+        </label>
+      </ion-col>
+      <ion-col col-8 (click)="goToAccountDetails(account)" class="listing-sec">
+        <h2>{{account.productName}}</h2>
+        <p>Account/Policy No.: <span>{{account.accountNumber}}</span> </p>
+        <p>Status: <strong><span
+              [ngClass]="account.status.toLowerCase() == 'active' ? 'greenText':''">{{account.status}}</span></strong>
+        </p>
+        <p *ngIf="account.lobSrc.toLowerCase() == 'life'">Due Date: <span>{{account.dueDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span> </p>
+        <p *ngIf="account.lobSrc.toLowerCase() == 'asset'">Due Date: <span>{{account.dueDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span> </p>
+        <p *ngIf="account.lobSrc.toLowerCase() == 'gi'">Due Date: <span>{{account.dueDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span> </p>
+        <p *ngIf="account.lobSrc.toLowerCase() == 'pension'">Last Contribution Date: <span>{{account.dueDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span> </p>
+      </ion-col>
+
+      <ion-col *ngIf="!fromPayNow" col-1 class="text-right">
+        <ion-fab #fab>
+          <ion-icon ion-fab name="more" (click)='ionFabClicked(fab)'></ion-icon>
+          <ion-fab-list side="bottom" *ngIf="account.actionItemsResp.fundsList">
+
+            <button
+              *ngIf="(account.actionItemsResp.fundsList[0].loanAllowed && account.status.toLowerCase() == 'active') && account.lobSrc.toLowerCase() == 'life'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); applyLoanClicked(account)">
+              Apply Loan
+            </button>
+
+            <button
+              *ngIf="(account.actionItemsResp.fundsList[0].partialWithdrawalAllowed) && account.lobSrc.toLowerCase() == 'life'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); partialWithdrawClicked(account)">
+              Partial Withdrawal
+            </button>
+
+            <button *ngIf="account.actionItemsResp.fundsList[0].invest && account.lobSrc.toLowerCase() == 'asset'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); topupNowClicked(account)">
+              Top Up
+            </button>
+
+            <button
+              *ngIf="account.actionItemsResp.fundsList[0].partialWithdrawalAllowed && account.lobSrc.toLowerCase() == 'asset'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); withdrawClicked(account)">
+              Withdraw
+            </button>
+
+            <button *ngIf="account.actionItemsResp.fundsList[0].switch && account.lobSrc.toLowerCase() == 'asset'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); switchClicked(account)">
+              Switch
+            </button>
+
+            <button
+              *ngIf="account.actionItemsResp.fundsList[0].updateBeneficiary && account.lobSrc.toLowerCase() == 'pension'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); updateBeneficiaryClicked(account)">
+              Modify Beneficiary
+            </button>
+
+            <button
+              *ngIf="account.actionItemsResp.fundsList[0].viewPolicyStatement && account.lobSrc.toLowerCase() == 'pension'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); viewPolicyStatementClicked(account)"> View Statement
+            </button>
+
+            <button
+              *ngIf="account.actionItemsResp.fundsList[0].partialWithdrawalAllowed && account.lobSrc.toLowerCase() == 'pension'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); pensionWithdrawClicked(account)"> Partial
+              Withdrawal
+            </button>
+
+            <button
+              *ngIf="account.lobSrc.toLowerCase() == 'pension' && account.status.toLowerCase() == 'active'"
+              ion-item fab fab-left fab-fixed (click)="fab.close(); makeContributionClicked(account)"> Make
+              Contribution
+            </button>
+
+            <button ion-item fab fab-left fab-fixed (click)="fab.close(); serviceRequestClicked(account)">
+              Raise Request
+            </button>
+
+          </ion-fab-list>
+        </ion-fab>
+      </ion-col>
+    </div>
+  </ion-row>
+</ion-grid>

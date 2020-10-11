@@ -1,0 +1,33 @@
+page-thank-you {
+	.thanks-wrap{
+		padding:24px;
+		border-radius:10px;
+		margin: 48% 0 auto;
+		box-shadow:0px 1px 7px #00000029;
+		h2{
+			font-size:24px;
+			font-family:roboto;
+			font-weight:500;
+			color:#FF351D;
+			letter-spacing: 0.46px;
+			text-align:center;
+			text-transform:capitalize;
+		}
+		p{
+			font-size:18px;
+			font-family:roboto;
+			font-weight:400;
+			color:#0077BE;
+			letter-spacing: 0.46px;
+			text-align:center;
+			margin-bottom: 0;
+			span{
+				font-size:18px;
+				font-family:roboto;
+				font-weight:400;
+				color:#e42215;
+				letter-spacing: 0.46px;
+			}
+		}
+	}
+}

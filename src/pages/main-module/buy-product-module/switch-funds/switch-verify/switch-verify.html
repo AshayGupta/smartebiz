@@ -1,0 +1,95 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="accnt-no">
+      Account Number :{{switchReq.accountNumber}}
+    </div>
+    <div class="step-1-sec">
+      <img src="../../../assets/imgs/step-2.svg">
+      <p><span class="step-1-text">Step 2 :</span>Verify Application</p>
+    </div>
+    <!-- <div class="tranfer-wrapper">
+    <div>
+      <p>Transfer From</p>
+      <p>Transfer To</p>
+      <p>Amount</p>
+    </div>
+    <div *ngFor="let switch of switchReq.switchOrder;let i=index;">
+      <ng-container *ngFor="let transTo of switch.transferTo;let j=index;">
+        <div>
+          <p>{{switch.transferFrom.fundName}}</p>
+          <p>{{transTo.targetFundName}}</p>
+        </div>
+
+          <p><span>KES</span>{{transTo.amount | number}}</p>
+      </ng-container>
+    </div>
+  </div> -->
+    <div class="icon edit-delete">
+      <button ion-button>
+      <img src="assets/imgs/edit%20icon.svg" (click)="editClicked()">
+      </button>
+      <button ion-button>
+        <img src="assets/imgs/delete.svg" (click)="deleteClicked()">
+      </button>
+    </div>
+    <div class="tranfer-wrapper" *ngFor="let fund of switchReq.switchOrder;let i=index;">
+      <ng-container *ngFor="let transferTo of fund.transferTo;let i=index;">
+        <div class="transf-from-to">
+          <p>Transfer From</p>
+          <p>Transfer To</p>
+        </div>
+        <div class="fund-fund">
+          <p>{{fund.transferFrom.fundName}}</p>
+          <p>{{transferTo.targetFundName}}</p>
+        </div>
+        <div class="amnt-trans">
+          <p>Amount</p>
+          <p><span>KES</span> {{transferTo.amount | number}}</p>
+        </div>
+      </ng-container>
+    </div>
+    <h2 class="ded">Amount To be Deducted</h2>
+    <details>
+      <summary>
+        <p class="more-funds"><span>KES</span>{{switchReq.totalCharges | number}}</p>
+      </summary>
+      <div *ngFor="let fund of switchReq.switchOrder; let i=index;">
+        <div *ngFor="let fundTo of fund.transferTo; let j=index;">
+          <h3 class="fund-name">{{fundTo.targetFundName}}</h3>
+          <div class="detail-content">
+            <p>1. Initial Fee</p>
+            <p>KES {{fundTo.deduction.initialFees |number}}</p>
+          </div>
+          <div class="detail-content">
+            <p>2. Transfer Charge</p>
+            <p>KES {{fundTo.deduction.fundTransfer | number}}</p>
+          </div>
+          <div class="detail-content total">
+            <p>Total</p>
+            <p>KES {{fundTo.deduction.totalCharges | number}}</p>
+          </div>
+        </div>
+      </div>
+    </details>
+    <div class="terms-condition">
+      <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+      <label for="payment-checkbox">
+        <ion-icon name="checkmark"></ion-icon>
+      </label>
+      <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+
+    </div>
+    <div *ngIf="!tnc.checked" class="error-div">
+      <p class="error">Select checkbox to continue</p>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <button ion-button (click)="proceedClicked()">switch funds</button>
+</ion-footer>

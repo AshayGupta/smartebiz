@@ -1,0 +1,101 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="m-0">
+    <p class="buy-simple">We make it simple for you. </p>
+    <p class="buyOnline">BUY NOW! </p>
+  </div>
+  <!-- <ion-item class="m-0 padd-0">
+    <div class="shoping-area">
+      <div class="shop-area-one">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/home.png" alt="" />
+        </div>
+        <p>Home Insurance</p>
+      </div>
+      <div class="shop-area-two">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Motor Insurance.png" alt="" />
+        </div>
+        <p>Motor Insurance</p>
+      </div>
+    </div>
+    <div class="shoping-area">
+      <div class="shop-area-one">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/filled outline.png" alt="" />
+        </div>
+        <p>Home Insurance</p>
+      </div>
+      <div class="shop-area-two">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Market Fund.png" alt="" />
+        </div>
+        <p>Motor Insurance</p>
+      </div>
+    </div>
+    <div class="shoping-area">
+      <div class="shop-area-one">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Pension Plan.png" alt="" />
+        </div>
+        <p>Home Insurance</p>
+      </div>
+      <div class="shop-area-two">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Group 18913.png" alt="" />
+        </div>
+        <p>Motor Insurance</p>
+      </div>
+    </div>
+    <div class="shoping-area">
+      <div class="shop-area-one">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Imarika.png" alt="" />
+        </div>
+        <p>Travel Insurance</p>
+      </div>
+      <div class="shop-area-two">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/Wealth Management.png" alt="" />
+        </div>
+        <p>Wealth</p>
+      </div>
+    </div>
+  </ion-item> -->
+
+  <div>
+    <ion-row class="m-0 padd-0">
+      <ion-col *ngFor="let item of productList; let i=index" col-6 class="m-0 padd-0">
+        <ion-row >
+          <div class="shoping-area" (click)="productDetail(i)">
+            <div class="shop-area-one">
+              <div class="set-maxHeight">
+                <img [src]="item.icon == ''? defaultImage: imageURL+item.icon" alt="" />
+              </div>
+              <p>{{item.productTitle}}</p>
+            </div>
+          </div>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <!-- <ion-grid [ngClass]="{'mar-56-top':isLogedIn === true}" no-padding class="britam-product">
+    <ion-row *ngFor="let products of productList;let i=index">
+      <ion-col col-12 class="heading-bp">{{products.category}}</ion-col>
+      <ion-col col-12>
+        <ion-list>
+          <ion-scroll scrollX="true" direction="x">
+            <ion-item text-wrap *ngFor="let product of products.products;let j=index" (click)="productDetail(i,j)">
+              <div text-center><img [src]="product.icon == ''? defaultImage: imageURL+product.icon"></div>
+              <div text-center text-wrap>{{product.productTitle}}</div>
+            </ion-item>
+          </ion-scroll>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+</ion-content>

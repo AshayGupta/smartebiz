@@ -1,0 +1,28 @@
+<!-- Contect Section -->
+<ion-content padding>
+  <div class="content-part ">
+    <div class="content-part-text">
+
+      <ion-row *ngFor="let list of loanHistoryList" >
+        <div class="loan-history-detail col-12 ">
+          <div class="amountSec">
+            <div class="col-12">{{list.productName}}</div>  
+            </div>
+          <div class="amountSec">
+            <div class="col-12">#1120035</div>  
+            <div class="col-12">Date : {{list.applicationDate}}</div>
+          </div>
+          <div class="amountSec">
+            <div class="col-6">Loan Amount</div>
+            <div class="col-6 pull-right"><span class="loan-approved">{{list.amount}} KSH</span></div>
+          </div>
+          <div class="amountSec">
+            <div class="col-6">Status</div>
+            <div class="col-6 pull-right"><span class="loan-declined">{{list.status}}</span></div>
+          </div>
+        </div>
+      </ion-row>
+
+    </div>
+  </div>
+</ion-content>

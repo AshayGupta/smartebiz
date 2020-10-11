@@ -1,0 +1,40 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+  <div *ngIf="isResponseReceived" text-center style="text-align: center !important; width:100%">
+    <p style="color: #000; margin:15px; font-size:15px; font-weight: bold">No Documents Available</p>
+  </div>
+
+  <div class="container">
+    <div class="media-wrapper" *ngIf="mediaDetails.pension.length > 0">
+      <h2>Pension</h2>
+      <ul>
+        <li *ngFor="let item of mediaDetails.pension">{{item.name}}<button>
+            <ion-icon name="download" (click)="downloadDoc(item.url)"></ion-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="media-wrapper" *ngIf="mediaDetails.gi.length > 0">
+      <h2>GI</h2>
+      <ul>
+        <li><span *ngFor="let item of mediaDetails.gi">{{item.name}}</span><button>
+            <ion-icon name="download" (click)="downloadDoc(item.url)"></ion-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <div class="media-wrapper" *ngIf="mediaDetails.life.length > 0">
+      <h2>Life</h2>
+      <ul>
+        <li><span *ngFor="let item of mediaDetails.life">{{item.name}}</span><button>
+            <ion-icon name="download" (click)="downloadDoc(item.url)"></ion-icon>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</ion-content>

@@ -1,0 +1,84 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content class="raise-req">
+  <form [formGroup]="raiseRequestForm">
+
+    <div class="mr-b">
+      <p class="sp-p">Ticket no. #{{raiseServiceReq.autoIncID}} </p>
+      <ion-label>Policy No.</ion-label>
+      <ion-item>
+        <ion-select formControlName="policyNo" [(ngModel)]="raiseServiceReq.policyNo" (ionChange)="selectPolicyNo(raiseServiceReq.policyNo)" placeholder="Select Policy">
+          <ion-option *ngFor="let list of accountsList" [value]="list.accountNumber">{{list.accountNumber}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="(submitAttempt || raiseRequestForm.controls.policyNo.touched ) && raiseRequestForm.controls.policyNo.errors">
+        <p class="error">Select policy</p>
+      </div>
+
+      <ion-label>What is the type of request?<span style="color: red;">*</span></ion-label>
+      <ion-item>
+        <ion-select formControlName="category" [(ngModel)]="raiseServiceReq.category" (ionChange)="selectCategory(raiseServiceReq.category)" placeholder="Select Category">
+          <ion-option *ngFor="let list of categoryMatrix" [value]="list">{{list.category}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="(submitAttempt || raiseRequestForm.controls.category.touched ) && raiseRequestForm.controls.category.errors">
+        <p class="error">Select category</p>
+      </div>
+
+      <!-- <ion-label>Sub Category</ion-label>
+      <ion-item class="padd-0 p-r-0">
+        <ion-input formControlName="subCategory" type="text" placeholder="Sub Category" [(ngModel)]="raiseServiceReq.subCategory" disabled>
+        </ion-input>
+      </ion-item>
+      <div *ngIf="(submitAttempt || raiseRequestForm.controls.subCategory.touched) && raiseRequestForm.controls.subCategory.errors">
+        <p class="error">Select subCategory</p>
+      </div> -->
+
+      <ion-list class="bt">
+        <ion-label class="msg-label"><span class="txt1">Message<span style="color: red;">*</span></span></ion-label>
+        <ion-item>
+          <ion-textarea formControlName="message" [(ngModel)]="raiseServiceReq.message" rows="6" placeholder="Type Your Message Here">
+          </ion-textarea>
+        </ion-item>
+      </ion-list>
+      <div *ngIf="(submitAttempt || raiseRequestForm.controls.message.touched) && raiseRequestForm.controls.message.errors">
+        <p class="error">Enter message</p>
+      </div>
+      <!-- <span class="fo">
+        Supported file types should be of not more than 3 mb’s and should be in JPG, PNG, PDF format’s only
+      </span> -->
+
+      <!-- <ion-label class="net attachment">
+        <input type="file" #input_file (change)="handleFileUpload($event)">
+        Attach Files
+      </ion-label>
+       <div class="choose-file" *ngFor="let file of raiseServiceReq.fileAttachment">
+           <p>{{file.fileName}}<span><ion-icon name="close" ios="ios-close" md="md-close" (click)='deleteFile(file)'></ion-icon></span></p>
+        </div> -->
+        <!-- <div class="choose-file">
+           <p>sadsadasd<span><ion-icon name="close" ios="ios-close" md="md-close"></ion-icon></span></p>
+        </div>
+        <div class="choose-file">
+           <p>sadsadasd<span><ion-icon name="close" ios="ios-close" md="md-close"></ion-icon></span></p>
+        </div>
+        <div class="choose-file">
+           <p>sasd<span><ion-icon name="close" ios="ios-close" md="md-close"></ion-icon></span></p>
+        </div>
+        <div class="choose-file">
+           <p>sadsadasd<span><ion-icon name="close" ios="ios-close" md="md-close"></ion-icon></span></p>
+        </div>
+        <div class="choose-file">
+           <p>sadsadasd<span><ion-icon name="close" ios="ios-close" md="md-close"></ion-icon></span></p>
+        </div> -->
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <div class="submit">
+    <button type="submit" class="btn-f" (click)="raiseRequestForm.valid ? submitClicked() : submitAttempt = true">PROCEED</button>
+    <!-- <button type="submit" class="btn-f" (click)="submitClicked()">PROCEED</button> -->
+  </div>
+</ion-footer>

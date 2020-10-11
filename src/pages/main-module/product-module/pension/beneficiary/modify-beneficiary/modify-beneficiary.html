@@ -1,0 +1,23 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+  <div class="pension-plan">
+    <span>Product : &lt;{{beneficiaryDetails.productName}}&gt; - {{beneficiaryDetails.policyNumber}}</span>
+  </div>
+</ion-header>
+
+<ion-content padding>
+  <edit-beneficiary 
+    [beneficiaryMode]="beneficiaryMode" 
+    [beneficiaryDetails]="beneficiaryDetails" 
+    [copyBeneficiaryDetails]="copyBeneficiaryDetails"
+    (beneficiaryAction)="beneficiaryAction($event)" 
+    (revertChanges)="revertChangesClicked($event)"
+    (deleteBeneficiary)="deleteBeneficiaryClicked($event)">
+  </edit-beneficiary>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar (click)="updateDetailsClicked()">
+    <ion-title>Update Details</ion-title>
+  </ion-toolbar>
+</ion-footer>

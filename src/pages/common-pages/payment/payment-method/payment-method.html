@@ -1,0 +1,72 @@
+<div class="pay-payment">
+	<ion-row>
+		<div class="payment-method">
+			<h1>Select a payment method</h1>
+			<div tappable [ngClass]="className" class="payment-card"
+				(click)="selectPaymentOption(paymentOptions.mpesa)">
+				<img value="mpesa" name="mpesa" id="mpesa" alt="icon_one" src="assets/imgs/bank.png">
+				<p>M-Pesa</p>
+			</div>
+			<!-- <div tappable class="payment-card" (click)="selectPaymentoption('creditcard')">
+					<img  name="creditcard" id="creditcard"
+						value="creditcard" alt="icon_one" src="assets/imgs/credit-card.png">
+					<p>Credit Card</p>
+				</div> -->
+		</div>
+		<div class="BtnFooter">
+			<div class="btnText">
+				<div class="amt-sec">KSH {{amount}}</div>
+				<!-- <div (click)="viewPaymentDetails()" class="view-detail">view detail</div> -->
+			</div>
+			<div class="btnSec">
+				<button [disabled]="!isenabled" (click)="proceedToPay()">PROCEED TO PAY</button>
+			</div>
+		</div>
+		<div class="payment-process">
+      <div class="note">Note: In-case Mpesa menu does not automatically show on your phone, please follow the manual process</div>
+			<div class="payment-cardImg">
+				<img alt="icon_one" src="assets/imgs/Mpesa.jpg">
+			</div>
+			<div class="payment-step">
+				<div class="label">step 1:</div>
+				<div class="textWrap">Go to the Lipa na M-PESA Menu</div>
+			</div>
+			<div class="payment-step">
+				<div class="label">step 2:</div>
+				<div class="textWrap">Select Pay Bill</div>
+			</div>
+			<div class="payment-step">
+				<div class="label">step 3:</div>
+				<div class="textWrap">Enter Business No.899885</div>
+			</div>
+			<div class="payment-step">
+				<div class="label">step 4:</div>
+				<div class="textWrap"> Enter Account No.BAXXXXXX (Where XXXXXX is your Britam Account number)</div>
+			</div>
+			<div class="payment-step">
+				<div class="label">step 5:</div>
+				<div class="textWrap">Enter the Amount</div>
+			</div>
+			<div class="payment-step">
+				<div class="label">step 6:</div>
+				<div class="textWrap">Enter your M-Pesa PIN then send</div>
+			</div>
+			<!-- <div class="note">Note: In-case Mpesa menu does not automatically show on your phone, please follow the manual process</div> -->
+		</div>
+		<!-- 	<div class="support-wrap">
+				<p>support</p>
+			</div> -->
+	</ion-row>
+</div>
+
+<!-- <ion-footer>
+	<div class="BtnFooter">
+		<div class="btnText">
+			<div class="amt-sec">KSH {{amount}}</div>
+
+		</div>
+		<div class="btnSec">
+			<button [disabled]="!isenabled" (click)="proceedToPay()">PROCEED TO PAY</button>
+		</div>
+	</div>
+</ion-footer> -->

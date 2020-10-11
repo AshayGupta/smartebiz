@@ -1,0 +1,67 @@
+page-pay-now-payment-summary {
+    .scroll-content{
+    	padding:0 ! important
+    }
+    .alertBx{
+        .black-bg{
+	         background: #000000;
+	        opacity: 0.3;
+	        height: 100vh;
+	        position: fixed;
+	        width: 100vw;
+	        z-index: 0;
+	    }    
+    	.custom-alert{
+		    width: 85%;
+		    padding: 24px;
+		    border-radius: 4px;
+		    box-shadow: 0px 1px 3px #707070;
+		    z-index: 1;
+		    background: #fff;
+		    position: absolute;
+		    transform: translate(9%, 90%);
+	        p{
+	        	color:#0077BE;
+	        	font-size:18px;
+	        	font-weight:bold;
+	        	font-family:poppins;
+	        	margin:0 0 10px
+	        }
+	        .total-sum{
+	        	color:#0077BE;
+	        	font-size:18px;
+	        	font-weight:bold;
+	        	font-family:poppins;
+	        	span{
+	        		color:#E42312;
+		        	font-size:18px;
+		        	font-weight:bold;
+		        	font-family:poppins;
+	        	}
+	        	.green-col{
+		        	font-size:18px;
+		        	font-weight:bold;
+		        	font-family:poppins;
+		        	color:#34C409;
+		        	font-weight:500;
+	        	}
+	        }
+	        .btnSec{
+	         	width:100%;
+	         	margin-top: 20px;
+	         	.pay-via{
+	         	 background: #34C409;
+				    color: #fff;
+				    border-radius: 4px;
+				    font-family: roboto;
+				    font-weight: 500;
+				    font-size: 14px;
+				    width: 100%;
+				    height: 36px;
+				    letter-spacing: 1.25px;
+				    text-transform: uppercase;
+	         	}
+	        }
+		}
+    }
+}

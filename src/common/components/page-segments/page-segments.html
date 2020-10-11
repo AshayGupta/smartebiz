@@ -1,0 +1,7 @@
+<ion-scroll scrollX='true' class="myproduct-top">
+    <ion-segment [(ngModel)]="segment">
+        <ion-segment-button *ngFor="let data of segmentData" value={{data.name}} (ionSelect)="segmentBtnClicked(data)">
+            {{data.name}}
+        </ion-segment-button>
+    </ion-segment>
+</ion-scroll>

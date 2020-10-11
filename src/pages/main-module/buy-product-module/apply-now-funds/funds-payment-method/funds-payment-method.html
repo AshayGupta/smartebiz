@@ -1,0 +1,11 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+  <button ion-button icon-only (click)="viewCtrl.dismiss()">
+    <ion-icon name="arrow-back"></ion-icon>
+  </button>
+</ion-header>
+
+<ion-content padding>
+  <page-payment-method [amount]="buyProductReq.investment.totalAmount" (payClicked)="proceedPayment($event)">
+  </page-payment-method>
+</ion-content>

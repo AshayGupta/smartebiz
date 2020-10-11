@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_5376" data-name="Rectangle 5376" width="24" height="24" transform="translate(254 199)" fill="none"/>
+    </clipPath>
+    <clipPath id="clip-path-2">
+      <path id="icon_image_edit_24px" data-name="icon/image/edit_24px" d="M3.75,18h0L0,18v-3.75L11.06,3.192l3.75,3.75ZM15.88,5.872h0L12.13,2.122,13.96.292a1,1,0,0,1,1.41,0l2.34,2.34a1,1,0,0,1,0,1.41L15.88,5.872Z" transform="translate(3 2.997)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="edit_icon" data-name="edit icon" transform="translate(-254 -199)" clip-path="url(#clip-path)">
+    <g id="icon_image_edit_24px-2" data-name="icon/image/edit_24px" transform="translate(256 202)">
+      <path id="icon_image_edit_24px-3" data-name="icon/image/edit_24px" d="M3.75,18h0L0,18v-3.75L11.06,3.192l3.75,3.75ZM15.88,5.872h0L12.13,2.122,13.96.292a1,1,0,0,1,1.41,0l2.34,2.34a1,1,0,0,1,0,1.41L15.88,5.872Z" transform="translate(0 0)" fill="none"/>
+      <g id="Group_345" data-name="Group 345" transform="translate(-3 -2.998)" clip-path="url(#clip-path-2)">
+        <g id="_Color" data-name="↳ Color">
+          <rect id="_Color_background" data-name="↳ Color background" width="24" height="24" fill="rgba(0,0,0,0)"/>
+          <rect id="Rectangle" width="24" height="24" fill="#0088d2"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

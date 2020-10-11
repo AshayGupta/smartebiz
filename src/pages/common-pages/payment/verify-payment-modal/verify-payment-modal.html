@@ -1,0 +1,14 @@
+<ion-content>
+  <div class="container">
+    <div class="verify-transaction">
+      <ion-icon ios="md-close" md="md-close" class="close-icon" (click)="viewCtrl.dismiss()"></ion-icon>
+      <h2>{{verifyPayment.title}}</h2>
+      <p class="continue">Continue to Pay via {{verifyPayment.payVia}} ?</p>
+      <div class="kes">
+        <p>KES</p>
+        <p>{{verifyPayment.amount}}</p>
+      </div>
+      <button (click)="clickToPay()">Pay Via {{verifyPayment.payVia}}</button>
+    </div>
+  </div>
+</ion-content>

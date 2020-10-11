@@ -1,0 +1,327 @@
+page-investment-amount{
+    font-family: 'Open Sans', sans-serif;
+.container {
+    padding: 0 15px;
+}
+.scroll-content{
+    margin-top: 45px !important;
+    margin-bottom: 75px !important;
+    padding-bottom: 130px !important;
+}
+
+form{
+    .label{
+        text-transform: capitalize;
+        letter-spacing: .25px;
+        margin-bottom: 4px !important;
+        font-size: 13px !important;
+    }
+  ion-input{
+        // border-bottom: solid 1px #CCCCCC;
+        color: #0077BE;
+        font-size: 13px;
+        padding-left: 16px;
+    }
+    .kes-inest{
+        display: flex;
+        font-size: 16px;
+        color: #A4B2BE;
+        border-bottom: 1px solid #CFD9E2;
+        font-family: poppins;
+        align-items: center;
+        justify-content: space-between;
+
+        input{
+            text-align: right;
+            width: 200px;
+            margin-bottom: 8px;
+        }
+        ion-input{
+            flex-grow: 0;
+        }
+    }
+    .min-invest {
+        display: flex;
+        justify-content: space-between;
+        color: #A4B2BE;
+        font-size: 12px;
+        p{
+            margin: 0;
+            margin-top: 8px;
+        }
+    }
+    .line {
+        border: 1px solid #A4B2BE;
+        margin-top: 24px;
+    }
+    .more-funds {
+        font-size: 14px;
+        text-transform: uppercase;
+        color: #627687;
+        font-weight: 600;
+        margin-top: 24px;
+        letter-spacing: 1.25px;
+        margin-bottom: 0;
+        display: inline-block;
+    }
+    .how-much-head.below-head {
+        margin-top: 16px !important;
+    }
+    summary{
+        position: relative;
+    }
+    details summary::-webkit-details-marker {
+        position: absolute;
+        right: 20px;
+        top: 31px;
+        color: #A4B2BE;
+        font-size: 13px;
+        transform: rotate(-209deg);
+    }
+    details[open] summary::-webkit-details-marker {
+        transform: rotate(0deg);
+        top: 29px;
+    }
+}
+
+.proceed-text {
+    font-size: 16px;
+    text-align: center;
+    color: #454545DE;
+    margin-top: -10px;
+    margin-bottom: 5px;
+}
+.button {
+    color: white;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    height: 48px;
+    margin: 0;
+    border-radius: 0;
+}
+ .label{
+  display: block;
+}
+.investment-amount-head {
+    font-family: poppins;
+    margin-top: 32px !important;
+    color: #0077BE;
+    font-weight: bold;
+}
+.investment-amount-head+p {
+    margin: 0;
+    color: #657D95;
+    font-size: 16px;
+    font-weight: 300;
+}
+.how-much-head{
+    letter-spacing: 0.13px;
+    color: #0077BE;
+    font-size: 14px;
+    margin-top: 12px !important;
+}
+.total-amount {
+    font-size: 24px;
+    font-weight: bold;
+    font-family: poppins;
+    color: #0077BE;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0 31px;
+    background: #fff;
+    padding-top: 5px;
+    span{
+        color: red;
+    }
+}
+.kes-bottom {
+    display: flex;
+    justify-content: space-between;
+    color: #34C409;
+    font-size: 24px;
+    font-weight: 500;
+    font-family: poppins;
+    padding: 0 31px;
+    background: #fff;
+    p{
+        margin-top: 3px;
+        margin-bottom: 0;
+    }
+}
+ion-footer p {
+    font-size: unset;
+    font-family: unset;
+    font-weight: unset;
+    letter-spacing: unset;
+    color: unset;
+    opacity: unset;
+    text-align: unset;
+    margin-bottom: unset;
+}
+button.proceed{
+    width: 77% !important;
+    margin: 16px auto 0 auto !important;
+    height: 42px !important;
+    border-radius: 8px !important;
+    background: #CFD9E2 !important;
+    margin-bottom: 16px !important;
+    box-shadow: 0px 3px 6px #00000029;
+    &.active{
+        background: #0077BE !important;
+    }
+}
+.select-fund {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1.07px;
+    color: #627687;
+    font-weight: 600;
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+.balance-fund {
+    color: #627687;
+    font-family: poppins;
+    font-size: 16px;
+    font-weight: 300;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    span:first-child {
+        margin-right: 19px;
+    }
+}
+/*Upper part*/
+ul.state-line {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+    padding: 0;
+    height: 30px;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-top: 34px;
+    .active-circle:before{
+        width: 6px;
+        height: 6px;
+        top: -4px;
+        border: 3px #0077BE solid;
+    }
+    .active-line {
+        background: #0077BE !important;
+    }
+    >li:last-child{
+        width: 10%;
+        flex-grow: 0;
+    }
+    &:before{
+        content: '';
+        position: absolute;
+        background: #0077be;
+        width: 10%;
+        top: 0px;
+        left: -10%;
+        height: 4px;
+    }
+    li.done-circle:before{
+        border: 2px solid #0077be;
+    }
+    .active-text{
+        color: #0077BE;
+    }
+}
+ul.state-line li{
+    position: relative;
+    list-style: none;
+    flex-grow: 1;
+    background: #E1F5FE;
+    height: 4px;
+    span{
+        font-size: 9px;
+        position: absolute;
+        top: 15px;
+        font-family: roboto;
+        color: #a4b2be;
+        text-align: center;
+        margin-left: -2px;
+        text-transform: capitalize;
+    }
+}
+ul.state-line>li:before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #B2E5FC;
+    top: -2px;
+    background: #E1F5FE;
+    z-index: 1;
+}
+ul.state-line li:nth-child(1) span {
+    left: -12px;
+}
+ul.state-line li:nth-child(2) span {
+    left: -6px;
+}
+ul.state-line li:nth-child(3) span {
+    left: -17px;
+}
+ul.state-line li:nth-child(4) span {
+    left: -9px;
+}
+ul.state-line li:nth-child(5) span {
+    left: -12px;
+}
+ul.state-line li:nth-child(6) span {
+    left: -14px;
+}
+ul.state-line-inner {
+    display: flex;
+    padding: 0;
+}
+h3.bank-detail-head {
+    color: #006699;
+    font-size: 30px;
+    letter-spacing: .18px;
+}
+.bank-details-btn{
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    border: 2px solid #E1F5FE;
+    border-radius: 23px;
+    color: #00A9F5;
+    letter-spacing: 1.25px;
+    background: url(../../../assets/imgs/pdf.svg);
+    background-repeat: no-repeat;
+    background-position: 97% 8px;
+}
+.bank-detail-head+p{
+    letter-spacing: 0.4px;
+    color: #657D95;
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+}
+h3.bank-detail-head {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0.18px;
+    color: #006699;
+    margin-top: 32px;
+}
+.upper-part {
+    padding: 0 15px;
+    margin-top: 16px;
+}
+/*Upper part end*/
+ion-footer{
+    box-shadow: 0 0 4px #c3c3c3;
+    .button-inner {
+        color: white;
+    }
+}
+}

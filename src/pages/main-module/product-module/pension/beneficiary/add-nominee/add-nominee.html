@@ -1,0 +1,190 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content class="add-ben-wrapper">
+    <form [formGroup]="addNomineeForm" [ngClass]="beneficiaryMode == 'viewMode' ? 'readMode': ''">
+      <ion-grid padding>
+        <ion-row>
+
+          <ion-col col-12>
+            <label>First Name<span style="color: red;">*</span></label>
+            <input type="text" placeholder="Enter First Name" [(ngModel)]="addNominee.firstName" formControlName="firstName" />
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.firstName.touched) && addNomineeForm.controls.firstName.errors">
+              <p class="error">Enter First Name</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12 *ngIf="addNominee.middleName || beneficiaryMode != 'viewMode'">
+            <label>Middle Name</label>
+            <input type="text" placeholder="Enter Middle Name" [(ngModel)]="addNominee.middleName" formControlName="middleName" />
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.middleName.touched) && addNomineeForm.controls.middleName.errors">
+              <p class="error">Enter Middle Name</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <label>Last Name<span style="color: red;">*</span></label>
+            <input type="text" placeholder="Enter Last Name" [(ngModel)]="addNominee.lastName" formControlName="lastName"/>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.lastName.touched) && addNomineeForm.controls.lastName.errors">
+              <p class="error">Enter Last Name</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <ion-label>Nationality<span style="color: red;">*</span></ion-label>
+            <ion-item>
+              <ion-select formControlName="nationality" [(ngModel)]="addNominee.nationality"  placeholder="Select Nationality">
+                <ion-option *ngFor="let country of countryCodes" [value]="country.countryName">{{country.countryName}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.nationality.touched) && addNomineeForm.controls.nationality.errors">
+              <p class="error">Select Nationality</p>
+            </div>
+          </ion-col>          
+
+          <ion-col col-12>
+            <ion-item>
+              <ion-label>Date of birth<span style="color: red;">*</span></ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" [(ngModel)]="addNominee.birthDate" formControlName="dob" (ionChange)="dobChange($event)"></ion-datetime>
+            </ion-item>
+            <ion-icon name="md-calendar"></ion-icon>
+            <!-- <span class="underage-red">* Beneficiary underage please add nominee</span> -->
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.dob.touched) && addNomineeForm.controls.dob.errors">
+              <p class="error">Select Date of birth</p>
+            </div>
+          </ion-col>
+          
+          <ion-col col-12>
+            <label>Mobile No.</label>
+            <input type="tel" maxlength="10" placeholder="Eg: 0123456789" [(ngModel)]="addNominee.mobileNo" formControlName="mobile"/>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.mobile.touched) && addNomineeForm.controls.mobile.errors">
+              <p class="error">Enter 10 digit Mobile No. starts with 0</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <div class="label">Gender<span style="color: red;">*</span></div>
+            <ion-row>
+              <ion-col>
+                <input type="radio" name="gender" value="MALE" id="male_nominee" [(ngModel)]="addNominee.gender" formControlName="gender"/>
+                <label for="male_nominee">
+                  <span class="radio">Male</span>
+                </label>
+              </ion-col>
+              <ion-col>
+                <input type="radio" name="gender" value="FEMALE" id="female_nominee" [(ngModel)]="addNominee.gender" formControlName="gender"/>
+                <label for="female_nominee">
+                  <span class="radio">Female</span>
+                </label>
+              </ion-col>
+              <!-- <ion-col>
+                <input type="radio" name="gender" value="OTHERS" id="others_nominee" [(ngModel)]="addNominee.gender" formControlName="gender"/>
+                <label for="others_nominee">
+                  <span class="radio">Others</span>
+                </label>
+              </ion-col> -->
+            </ion-row>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.gender.touched) && addNomineeForm.controls.gender.errors">
+              <p class="error">Select Gender</p>
+            </div>
+          </ion-col>
+
+          <!-- <ion-col col-12>
+            <label for="first-name">Relation<ion-icon name="information-circle" class="view-stat-info relation-info"></ion-icon></label>
+            <input type="text" placeholder="Enter Relation" formControlName="relation" [(ngModel)]="addNominee.relationshipType"/>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.relation.touched) && addNomineeForm.controls.relation.errors">
+              <p class="error">Enter Relation</p>
+            </div>
+          </ion-col> -->
+
+          <ion-col col-12>
+            <ion-label>Relation<span style="color: red;">*</span><ion-icon name="information-circle" class="view-stat-info relation-info"></ion-icon></ion-label>
+            <ion-item>
+              <ion-select formControlName="relation" [(ngModel)]="addNominee.relationshipType" placeholder="Select Relation">
+                <ion-option value='HUSBAND'>Husband</ion-option>
+                <ion-option value='SON'>Son</ion-option>
+                <ion-option value='MOTHER'>Mother</ion-option>
+                <ion-option value='BROTHER'>Brother</ion-option>
+                <ion-option value='DAUGHTER'>Daughter</ion-option>
+                <ion-option value='WIFE'>Wife</ion-option>
+                <ion-option value='SISTER'>Sister</ion-option>
+                <ion-option value='FATHER'>Father</ion-option>
+                <ion-option value='OTHER'>Other</ion-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.relation.touched) && addNomineeForm.controls.relation.errors">
+              <p class="error">Select Relation</p>
+            </div>
+          </ion-col>
+
+          <!-- <ion-col col-12>
+            <label>Email</label>
+            <input type="text" placeholder="abc@xyz.com" [(ngModel)]="addNominee.email" formControlName="email"/>
+            <div *ngIf="(submitAttempt || addNomineeForm.controls.email.touched) && addNomineeForm.controls.email.errors">
+              <p class="error">Enter Email</p>
+            </div>
+          </ion-col> -->
+
+          <ion-row *ngIf="showFields">
+            <ion-col col-12>
+              <ion-label>Document type<span style="color: red;">*</span><ion-icon name="information-circle" class="view-stat-info doc-type"></ion-icon></ion-label>
+              <ion-item>
+                <ion-select formControlName="documentType" [(ngModel)]="addNominee.documentType" placeholder="Select Document Type">
+                  <!-- <ion-option *ngFor="let type of docType" [value]="type.docType">{{type.docType}}</ion-option> -->
+                  <ion-option value='Passport'>Passport</ion-option>
+                  <ion-option value='Application Form'>Application Form</ion-option>
+                  <ion-option value='National ID'>National ID</ion-option>
+                  <ion-option value='Photo'>Photo</ion-option>
+                  <ion-option value='Birth Certificate'>Birth Certificate</ion-option>
+                </ion-select>
+              </ion-item>
+              <div *ngIf="(submitAttempt || addNomineeForm.controls.documentType.touched) && addNomineeForm.controls.documentType.errors">
+                <p class="error">Select Document Type</p>
+              </div>
+            </ion-col>
+
+            <ion-col col-12>
+              <label for="first-name">Document Number<span style="color: red;">*</span></label>
+              <input type="tel" maxlength="8" placeholder="Document Number" formControlName="documentNumber" [(ngModel)]="addNominee.documentNumber" />
+              <div *ngIf="(submitAttempt || addNomineeForm.controls.documentNumber.touched) && addNomineeForm.controls.documentNumber.errors">
+                <p class="error">Enter a Valid Document Number</p>
+              </div>
+            </ion-col>
+            
+            <ion-col col-12>
+              <div class="label">Upload Document<span style="color: red;">*</span><ion-icon name="information-circle" class="view-stat-info upload-file-info"></ion-icon></div>
+              <input type="file" id="benef-file1" (click)="browsefileClick($event)" (change)="handleFileUpload($event)" />
+              <label for="benef-file1">Browse</label><label (click)="uploadFileClicked()" class="upload-benef">Upload</label>
+              <div>
+                <p *ngIf="selectFile" class="error">Select file</p>
+                <p *ngIf="fileEvent">{{fileEvent?.target.files[0].name}}</p>
+              </div>
+              <div class="file-size" style="color: red;">Recommended file size less than 5 MB</div>
+            </ion-col>
+
+            <ion-col col-12>
+              <div class="label">Attachments<span style="color: red;">*</span></div>
+              <div class="upload-file-name" *ngIf="addNominee.uploadDocuments">
+                <p *ngFor="let obj of addNominee.uploadDocuments">{{obj.fileName}}</p>
+              </div>
+              <div *ngIf="(submitAttempt) && addNomineeForm.controls.document.errors">
+                <p class="error">No Document uploaded yet</p>
+              </div>
+            </ion-col>
+
+          </ion-row>
+
+        </ion-row>
+      </ion-grid>
+    </form>
+</ion-content>
+
+<ion-footer *ngIf="beneficiaryMode != 'viewMode'">
+  <div class="submit">
+    <button type="submit" class="proceed" (click)="validateform()">PROCEED</button>
+  </div>
+</ion-footer>
+

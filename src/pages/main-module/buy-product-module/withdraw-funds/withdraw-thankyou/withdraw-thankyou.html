@@ -1,0 +1,29 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <h3>Withdrawal R<span class="red">e</span>quest Completed</h3>
+    <!-- <p class="ttl-amnt">Total Amount</p>
+    <p class="kes-amnt">KES {{withdrawReq.amount}}</p> -->
+    <!-- <h2>That's it! We're all done here!</h2> -->
+    <p class="look-out">Look out for the official confirmation notices to be shared via SMS and Email.<br>
+      <span>Here are your transfer details:</span></p>
+    <div class="withd-amnt">
+      <p>Withdrawal Amount: </p>
+      <p class="kes-amnt"> KES {{withdrawReq.amount | number : '1.2'}}</p>
+    </div>
+    <p class="trans-date">Transaction Date: {{transactionDate | date}}</p>
+    <div class="policy-tick-wrapper">
+      <div>Reference No: {{srNumber}}</div>
+      <!-- <div *ngFor="let fund of withdrawReq.postedAmount; let i=index;"><span *ngIf="withdrawReq.postedAmount.length>1">{{i+1}}.</span> {{fund.fundName}} : KES {{fund.amount | number : '1.2'}}
+      </div> -->
+    </div>
+    <p>Thank you for choosing us as your investments partner!</p>
+  </div>
+</ion-content>
+<ion-footer>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0" (click)="okClicked()">View Service History</button>
+</ion-footer>

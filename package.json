@@ -1,0 +1,110 @@
+{
+  "name": "Britam",
+  "version": "0.0.1",
+  "author": "Ionic Framework",
+  "homepage": "http://ionicframework.com/",
+  "private": true,
+  "scripts": {
+    "start": "ionic-app-scripts serve",
+    "clean": "ionic-app-scripts clean",
+    "build": "ionic-app-scripts build",
+    "lint": "ionic-app-scripts lint"
+  },
+  "dependencies": {
+    "@angular/animations": "5.2.11",
+    "@angular/common": "5.2.11",
+    "@angular/compiler": "5.2.11",
+    "@angular/compiler-cli": "5.2.11",
+    "@angular/core": "5.2.11",
+    "@angular/forms": "5.2.11",
+    "@angular/http": "5.2.11",
+    "@angular/platform-browser": "5.2.11",
+    "@angular/platform-browser-dynamic": "5.2.11",
+    "@ionic-native/base64": "^4.20.0",
+    "@ionic-native/call-number": "^4.20.0",
+    "@ionic-native/camera": "^4.20.0",
+    "@ionic-native/core": "~4.20.0",
+    "@ionic-native/device": "^4.20.0",
+    "@ionic-native/file": "^4.20.0",
+    "@ionic-native/file-chooser": "^4.20.0",
+    "@ionic-native/file-picker": "^4.20.0",
+    "@ionic-native/file-transfer": "^4.20.0",
+    "@ionic-native/google-analytics": "^4.20.0",
+    "@ionic-native/google-maps": "^4.8.2",
+    "@ionic-native/in-app-browser": "^4.20.0",
+    "@ionic-native/screen-orientation": "^4.20.0",
+    "@ionic-native/splash-screen": "~4.20.0",
+    "@ionic-native/status-bar": "~4.20.0",
+    "@ionic/storage": "2.2.0",
+    "call-number": "^1.0.1",
+    "chart.js": "^2.9.3",
+    "cordova-android": "^8.1.0",
+    "cordova-ios": "^5.1.1",
+    "cordova-plugin-add-swift-support": "^2.0.2",
+    "cordova-plugin-camera": "^4.1.0",
+    "cordova-plugin-device": "~2.0.2",
+    "cordova-plugin-google-analytics": "^1.8.6",
+    "cordova-plugin-googlemaps": "^2.6.2",
+    "cordova-plugin-inappbrowser": "^3.1.0",
+    "cordova-plugin-ionic-keyboard": "^2.2.0",
+    "cordova-plugin-ionic-webview": "^4.1.1",
+    "cordova-plugin-screen-orientation": "~3.0.2",
+    "cordova-plugin-splashscreen": "^5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
+    "cordova-support-android-plugin": "^1.0.1",
+    "es6-promise-plugin": "^4.2.2",
+    "ionic-angular": "3.9.5",
+    "ionicons": "3.0.0",
+    "jquery": "^3.5.1",
+    "mx.ferreyra.callnumber": "~0.0.2",
+    "rxjs": "5.5.11",
+    "sw-toolbox": "3.6.0",
+    "zone.js": "0.8.29"
+  },
+  "devDependencies": {
+    "@ionic/app-scripts": "3.2.2",
+    "@ionic/lab": "2.0.8",
+    "typescript": "~2.6.2"
+  },
+  "description": "An Ionic project",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-screen-orientation": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {
+        "ANDROID_SUPPORT_ANNOTATIONS_VERSION": "27.+"
+      },
+      "cordova-plugin-ionic-keyboard": {},
+      "mx.ferreyra.callnumber": {},
+      "cordova-plugin-inappbrowser": {},
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyBxcm8s2LPxlRhQgDYCuondz3JTdNW4Vns",
+        "API_KEY_FOR_IOS": "AIzaSyBxcm8s2LPxlRhQgDYCuondz3JTdNW4Vns",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+",
+        "LOCATION_WHEN_IN_USE_DESCRIPTION": "This app wants to get your location while this app runs only.",
+        "LOCATION_ALWAYS_USAGE_DESCRIPTION": "This app wants to get your location always, even this app runs in background."
+      },
+      "cordova-plugin-add-swift-support": {},
+      "cordova-plugin-camera": {
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
+      },
+      "cordova-plugin-google-analytics": {
+        "GMS_VERSION": "11.0.1"
+      },
+      "com-badrit-base64": {},
+      "cordova-plugin-file-transfer": {},
+      "cordova-plugin-filepicker": {},
+      "cordova-plugin-filechooser": {},
+      "cordova-plugin-file": {}
+    },
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  }
+}

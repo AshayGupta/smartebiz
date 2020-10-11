@@ -1,0 +1,304 @@
+page-view-statement {
+  /*header start*/
+  .header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .header-heading {
+      font-size: 20px;
+      font-family: poppins;
+      font-weight: bold;
+      color: #0379bf;
+    }
+    .right-wrapper {
+      display: flex;
+      align-items: center;
+      .input-wrapper {
+        justify-content: center;
+      }
+    }
+    .left-wrapper {
+      display: flex;
+      align-items: center;
+      img.header-arrow {
+        margin-right: 20px;
+      }
+    }
+    ion-item.year {
+      margin-right: 10px;
+      ion-select {
+        max-width: 100%;
+        font-size: 13px;
+        padding: 0px 8px 0px 12px;
+      }
+      width: 105px;
+      margin-left: 10px;
+      .item-inner {
+        border: 1px solid #e3e3e3;
+        border-radius: 4px;
+        align-self: center;
+        min-height: 35px;
+      }
+    }
+    .three-dots {
+      height: 30px;
+    }
+    .dwnld-icon {
+      margin-right: 10px;
+    }
+  }
+  /*header end*/
+
+  .basic-details {
+    .scroll-content {
+      .scroll-content {
+        padding: 0px;
+      }
+      ion-grid,
+      h3 {
+        padding: 15px;
+        margin: 0;
+      }
+    }
+    h3 {
+      font-weight: normal;
+      color: #0077be;
+      font-size: 16px;
+      border-bottom: 1px solid #e3e3e3;
+      padding: 19px 0px;
+      ion-icon {
+        color: #707070;
+      }
+    }
+    h3[name="hide-up"] + ion-grid {
+      display: none;
+    }
+    ion-col {
+      font-size: 12px;
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0.6);
+      padding: 0px;
+    }
+    ion-row {
+      padding: 0px;
+      ion-row {
+        ion-col:nth-child(odd),
+        .top-up-due {
+          font-weight: 500;
+        }
+        .top-up-due {
+          color: #eba300;
+        }
+      }
+    }
+  }
+  .basic-details.content {
+    position: relative;
+  }
+  [col-6] {
+    padding: 5px 0px;
+  }
+  .product-listing {
+    font-size: 14px;
+    color: #000000;
+    line-height: 24px;
+    font-family: inherit;
+    opacity: 0.7;
+  }
+  .product-Detail {
+    line-height: 24px;
+    font-family: inherit;
+  }
+  @media (max-width: 580px) {
+    .basic-left,
+    .basic-right {
+      max-width: 100%;
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+  .padd-0 {
+    padding: 0;
+  }
+  .card-table {
+    padding: 0;
+    .one-card {
+      overflow: auto !important;
+      width: calc(100% - 3px);
+      border-radius: 5px;
+      border: 1px solid #d6d6d6;
+      box-shadow: none;
+
+      table {
+        line-height: 19px;
+        border-collapse: collapse;
+        width: 100%;
+        border-radius: 9px;
+        padding: 10px 0px 10px;
+        min-width: 500px;
+
+        th {
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: 500;
+          text-align: center;
+          padding: 8px;
+          border-right: 1px solid #d6d6d6;
+          color: #707070;
+          height: 32px;
+        }
+        th:first-child {
+          border-right: 1px solid #d6d6d6;
+        }
+        th:last-child {
+          border-right: 1px solid #d6d6d6;
+        }
+        td {
+          font-family: Roboto;
+          font-size: 12px;
+          font-weight: 200;
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+          color: #000000;
+          height: 32px;
+          border-left: 0;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+  h3.drop-wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  h3.drop-wrapper>div {
+    display: flex;
+    align-items: center;
+  }
+  .prod-amnt {
+    color: #E42312;
+    font-size: 14px;
+    margin-right: 10px;
+}
+.previous {
+  color: #00000099;
+  margin-bottom: 11px;
+  font-size: 15px;
+  font-weight: 500;
+}
+.open-bal {
+  margin-left: auto;
+  margin-top: 11px;
+  color: #0077BE;
+  font-weight: bold;
+  font-size: 15px;
+}
+.open-bal span:last-child {
+  color: #E42312;
+  margin-left: 7px;
+}
+ion-header{
+  // height: 61px;
+  // padding-top: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  box-shadow: 0px 1px 3px #00000029;
+  background: #fff;
+  padding-bottom: 10px;
+}
+.scroll-content{
+  margin-top: 60px;
+}
+.toolbar-ios{
+  padding: 13px 10px 0px 10px !important;
+}
+.toolbar-background-ios{
+  box-shadow: none !important;
+}
+ion-icon.ion-ios-information-circle:after {
+  content: '';
+  position: absolute;
+  font-size: 10px;
+  background: #3a3a3a;
+  color: #fff;
+  padding: 9px;
+  margin-right: 10px;
+  margin-left: 2px;
+  border-radius: 5px;
+  line-height: 12px;
+  z-index: 5;
+  transition: .3s;
+  opacity: 0;
+  visibility: hidden;
+  width: 100px;
+  text-align: left;
+  font-family: roboto;
+}
+ion-icon.ion-ios-information-circle:hover:after{
+opacity: 1;
+visibility: visible;
+}
+ion-icon.ion-ios-information-circle {
+  font-size: 13px;
+  margin-left: 3px;
+  color: currentColor !important;
+  position: relative;
+}
+
+.register-info:after{
+  content: 'Registered benefits 
+  are the benefits derived from non-taxed contributions into your 
+  account. The amount accumulates 
+  free of taxation. This amount is 
+  therefore subjected to taxation at 
+  the point of withdrawal' !important;
+}
+.unregister-info:after{
+  content: 'Unregistered 
+  benefits are the benefits derived 
+  from taxed contributions into your 
+  account. The amount accumulates 
+  with corporate tax charged on the 
+  interest. The accumulated benefit 
+  is therefore not subjected to 
+  further taxation at the point of 
+  withdrawal' !important;
+}
+.employee-info:after{
+  content: 'Customer 
+  Contributions' !important;
+}
+.employer-info:after{
+  content: 'Employer 
+  Contributions' !important;
+}
+.date-info:after{
+  content: 'Date of withdrawal' !important;
+}
+.icon-accord:hover:after{
+  display: none !important;
+}
+.tooltip-accord {
+  font-size: 11px;
+  font-size: 10px;
+  background: #3a3a3a;
+  color: #fff;
+  padding: 9px;
+  border-radius: 5px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  position: absolute;
+  // width: 100px;
+  z-index: 5;
+  // left: 133px;
+  font-family: roboto;
+  line-height: 12px;
+  width: 100px;
+}
+.icon-accord:hover>.tooltip-accord{
+  opacity: 1;
+  visibility: visible;
+}
+}

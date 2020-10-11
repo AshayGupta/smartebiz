@@ -1,0 +1,60 @@
+<ion-header>
+  <app-header [headerImg]="headerImg"></app-header>
+</ion-header>
+
+<ion-content padding>
+
+  <form class="main-form" [formGroup]="contactUsForm"
+    (ngSubmit)="contactUsForm.valid ? submitClicked() : submitAttempt = true ">
+    <div class="heading padd-8 ">
+      <h1 text-center class="m-0 font-20 line-ht-26 col-gray-text">Request callback</h1>
+    </div>
+    <div class="form-section">
+
+      <ion-label class="f-w-regular font-13 line-ht-18">Name</ion-label>
+      <ion-input type="text" formControlName="name" placeholder="John Doe"></ion-input>
+      <div *ngIf="(submitAttempt || contactUsForm.controls.name.touched ) && contactUsForm.controls.name.errors">
+        <p class="error">Please enter valid name.</p>
+      </div>
+
+      <ion-label class="f-w-regular font-13 line-ht-18">Email</ion-label>
+      <ion-input type="Email" formControlName="email" placeholder="abc@xyz.com"></ion-input>
+      <div *ngIf="(submitAttempt || contactUsForm.controls.email.touched ) && contactUsForm.controls.email.errors">
+        <p class="error">Please enter valid email.</p>
+      </div>
+
+      <ion-item class="pad-0">
+        <ion-label floating>Choose country code</ion-label>
+        <ion-select name="countryCode" formControlName="countryCode">
+          <ion-option *ngFor="let code of countryCode" [value]="code.countryCode">+{{code.countryCode}}
+            ({{code?.countryName}})</ion-option>
+        </ion-select>
+      </ion-item>
+      <div *ngIf="(submitAttempt || contactUsForm.controls.countryCode.touched ) && contactUsForm.controls.countryCode.errors">
+        <p class="error">Please select country code</p>
+      </div>
+
+      <ion-label class="f-w-regular font-13 line-ht-18">Phone</ion-label>
+      <ion-input type="tel" maxlength="10" formControlName="phone" placeholder="Eg: 0123456789"></ion-input>
+      <div *ngIf="(submitAttempt || contactUsForm.controls.phone.touched ) && contactUsForm.controls.phone.errors">
+        <p class="error">Please enter valid phone.</p>
+      </div>
+
+      <ion-label class="f-w-regular font-13 line-ht-18">Comment</ion-label>
+      <textarea rows="4" cols="36" formControlName="comment" placeholder="Enter something..."></textarea>
+      <div *ngIf="(submitAttempt || contactUsForm.controls.comment.touched ) && contactUsForm.controls.comment.errors">
+        <p class="error">Please enter valid comment.</p>
+      </div>
+
+      <ion-item no-padding>
+        <ion-label>Call me back</ion-label>
+        <ion-checkbox color="dark" checked="false" (ionChange)="callmeback($event)"></ion-checkbox>
+      </ion-item>
+      <p class="call-back-text">We will call you back within 24 hours.</p>
+
+    </div>
+    <button type="submit" text-uppercase ion-button full
+      class="font-14 f-w-semibold line-ht-19 lt-space-2">submit</button>
+  </form>
+
+</ion-content>

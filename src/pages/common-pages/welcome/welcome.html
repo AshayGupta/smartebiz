@@ -1,0 +1,150 @@
+<ion-header>
+  <ion-navbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-row class="first-row">
+            <ion-col col-4>
+              <ion-buttons start>
+                <img src="assets/imgs/Britam_logo_landing.png" alt="Britam_logo_landing" />
+              </ion-buttons>
+            </ion-col>
+            <ion-col col-8 class="p_0">
+              <button ion-button icon-start class="header_button" (click)="buyOnlineClicked()">
+                  <ion-icon class="basket-buy-icon" ios="md-basket" md="md-basket"></ion-icon>
+                <!--<ion-icon name="contact"></ion-icon>-->
+                <!-- <span>
+                    Buy Now
+                </span> -->
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="content-part">  
+  <ion-slides class="sliding-img">
+    <ion-slide>
+      <img src="assets/imgs/slide-image.png" alt="slide_img_one">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/slide-image-1.png" alt="slide_img_one">
+    </ion-slide>
+    <ion-slide>
+      <img src="assets/imgs/slide-image-2.png" alt="slide_img_one">
+    </ion-slide>
+  </ion-slides>
+<div class="ion-main-section-start">
+  <ion-grid class="welcome-text">
+    <div class="main-content">
+        <h3><small>OUR VALUE</small><br/> With you every step <br/> of the way</h3>
+      <!-- <div class="main-content-paragraph">
+          <div class="main-content-block">       
+            <p>
+              Why Do you Need<br> A Britam Cover?
+            </p>
+          <button ion-button (click)="knowWhyClicked()">Know Why?…</button>
+        </div>
+        <div class="main-content-block-two">
+          <p>
+            How to make a<br>claim?
+          </p>
+          <button ion-button (click)="learnHowClicked()">Learn How?…</button>
+        </div>
+      </div> -->
+    </div>
+  </ion-grid>
+
+  
+<div class="bottom-sec-welcome">
+  <ion-grid>
+    <ion-row>
+      <ion-col col-12>
+        <div class="buy-policy-btn" (click)="buyOnlineClicked()">
+          <ion-icon class="basket-buy-icon" ios="md-basket" md="md-basket"></ion-icon>BUY POLicy or Invest
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row class="move-up">
+      <ion-col col-12>
+        <ion-row>
+          <ion-col col-4>
+            <ion-card class="bd-radius" (click)="aboutUsClicked()">
+              <ion-card-header text-center class="cad-header">
+                <img src="assets/imgs/about-us.png">
+              </ion-card-header>
+              <ion-card-content text-center class="cnt-card">
+                <label class="content-paragraph">
+                  <p> About us</p>
+                </label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card class="bd-radius" (click)="contactUsClicked()">
+              <ion-card-header text-center class="cad-header">
+                <img src="assets/imgs/request-callback.png">
+              </ion-card-header>
+              <ion-card-content text-center class="cnt-card">
+                <label class="content-paragraph">
+                  <p>Contact us</p>
+                </label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+          <ion-col col-4>
+            <ion-card class="bd-radius" (click)="faqClicked()">
+              <ion-card-header text-center class="cad-header">
+                <img src="assets/imgs/faq.png">
+              </ion-card-header>
+              <ion-card-content text-center class="cnt-card">
+                <label class="content-paragraph">
+                  <p>FAQ</p>
+                </label>
+              </ion-card-content>
+            </ion-card>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <!--<ion-grid>
+      <ion-row text-center class="move-up">
+        <button ion-button round class="c-button" (click)="buyOnlineClicked()">
+          <ion-icon ios="ios-basket" md="md-basket"></ion-icon>
+          <label class="label">Buy Now</label>
+        </button>
+      </ion-row>
+    </ion-grid>--->
+
+
+    <ion-grid>
+        <ion-row class="move-up">
+          <ion-col col-2>
+            <ion-item class="border-radius">
+              <span>
+                <ion-icon ios="ios-pin" md="md-pin" (click)="goToBranchLocator()"></ion-icon>
+              </span>
+            </ion-item>
+          </ion-col>
+          <ion-col col-8>
+              <button ion-button round class="c-button" (click)="loginClicked()">
+                 <!-- <ion-icon ios="ios-basket" md="md-basket"></ion-icon>-->
+                  <label class="label">Login</label>
+                </button>
+          </ion-col>
+          <ion-col col-2 pull-right>
+            <button ion-button icon-start class="footer-button" (click)="goToChat()">
+               <img src="assets/imgs/chat-icon.png">            
+            </button>
+          </ion-col> 
+          
+        </ion-row>
+      </ion-grid>
+  </div>
+  </div>
+</ion-content>

@@ -1,0 +1,30 @@
+<ion-navbar>
+  <!-- <div class="heading-content" *ngIf="!isLoggedIn">
+    <img [src]="britamLogo">
+  </div> -->
+
+  <div >
+    <div *ngIf="headerTitle" class="heading-content head-cascading">
+      <h3>{{headerTitle}}</h3>
+    </div>
+    <div *ngIf="headerImg" class="heading-content">
+      <img [src]="headerImg">
+    </div>
+    <div *ngIf="headerInput3" class="heading-content" (click)="headerOutput(3)">
+      <img [src]="headerInput3">
+    </div>
+  </div>
+
+  <div>
+    <div *ngIf="subHeaderInput" class="heading-content">
+      <h3 class="sub-header">{{subHeaderInput}}</h3>
+    </div>
+  </div>
+
+  <ion-buttons left>
+    <button ion-button icon-only menuToggle>
+      <ion-icon name='menu'></ion-icon>
+    </button>
+  </ion-buttons>
+
+</ion-navbar>

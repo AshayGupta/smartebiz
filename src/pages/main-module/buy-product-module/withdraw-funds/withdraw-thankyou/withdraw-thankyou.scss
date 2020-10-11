@@ -1,0 +1,125 @@
+page-withdraw-thankyou {
+    ion-content h3{
+        text-align: center;
+        font-weight: bold !important;
+        font-size: 18px;
+        color: #087BC0;
+        font-family: poppins;
+        margin-bottom: 40px;
+    }
+    h2{
+        margin-top: 0;
+        font-weight: normal;
+        font-size: 20px;
+        color: #087BC0;
+        letter-spacing: 1px;
+    }
+    .container {
+        box-shadow: 0px 1px 3px #00000033;
+        border-radius: 4px;
+        padding: 38px 24px 90px 24px;
+        color: #707070;
+        background: #fff;
+        min-height: calc(100vh - 115px);
+    }
+    .policy, .ticket{
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: flex;
+    }
+    .policy>span:first-child,.ticket>span:first-child{
+        font-weight: 500;
+        white-space: nowrap;
+        margin-right: 7px;
+    }
+    ion-content{
+        position: relative;
+        background-image: none;
+    }
+    ion-content:before {
+        background-image: url(../../../../assets/imgs/succesfull-background.svg);
+        /* background-position: -29px 109px; */
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        opacity: 0.05;
+        transform: rotate(-29deg);
+        background-size: contain;
+        left: -20px;
+        top: 151px;
+        z-index: 2;
+        pointer-events: none;
+    }
+    .policy-tick-wrapper {
+        margin-top: 15px;
+        font-size: 16px;
+        letter-spacing: .15px;
+    }
+    p{
+        font-size: 16px;
+        margin-top: 8px;
+    }
+    .red{
+        color: red;
+    }
+    ion-footer{
+        height: 48px;
+        background: #0077be;
+        display: flex;
+        align-items: center;
+    }
+    ion-footer .toolbar-background{
+        background: #0077BE !important;
+    }
+    ion-footer .toolbar-title{
+        font-size: 14px;
+        letter-spacing: 1.25px;
+        color: #fff;
+        font-weight: normal;
+    }
+    ion-title{
+        padding: 0 !important;
+    }
+    .ttl-amnt{
+        font-size: 14px;
+        color: #0077BE;
+        font-weight: bold;
+        font-family: poppins;
+        text-align: center;
+        margin-bottom: 0;
+    }
+    p.kes-amnt {
+        color: #34C409;
+        text-align: center;
+        font-family: poppins;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 3px;
+        margin-bottom: 5px;
+        margin-left: 6px;
+    }
+    p.trans-date {
+        font-size: 16px;
+        font-weight: 400;
+        margin-top: 0;
+        margin-bottom: 0;
+    }  
+    .submitBtn{
+        color: #fff !important;
+    }
+    .withd-amnt {
+        display: flex;
+        align-items: center;
+        p{
+            margin-bottom: 10px !important;
+            margin-top: 0 !important;
+        }
+    }
+    .look-out {
+        margin-bottom: 8px;
+    }
+}

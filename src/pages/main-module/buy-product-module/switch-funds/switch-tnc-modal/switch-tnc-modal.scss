@@ -1,0 +1,28 @@
+page-switch-tnc-modal {
+  ion-header{
+    button{
+        position: absolute !important;
+        top: 8px;
+        left: 10px;
+    }
+    .toolbar-content{
+        margin-left: 35px;
+        margin-top: 2px;
+        h3{
+            font-size: 18px;
+        }
+    }
+    ion-navbar {
+        .button-inner {
+            display: none;
+        }
+    }
+}
+p.withdraw-terms-text {
+    font-size: 13px;
+    color: gray;
+    margin-top: 0;
+    line-height: 16px;
+
+}
+}

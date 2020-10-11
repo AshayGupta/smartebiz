@@ -1,0 +1,111 @@
+page-login {
+
+  .terms-condition-wrap span{
+    color: #0077BE;
+  }
+  .navbar-item {
+    padding: 13px 20px 10px 20px;
+    opacity: 0.25;
+  }
+  form {
+    padding: 8px;
+  }
+  .image-part {
+    margin: 10% 0 0 auto;   
+  }
+  .input-field ion-icon {
+    float: left;
+    padding: 8px 11px 8px 13px;
+    font-size: 30px;
+    color: #716b6b;
+  }
+  .input-field .icon-input-field {
+    height: 54px;
+    border: 1px solid #d4cdcd;
+    padding: 5px 0px 4px 0px;
+    border-radius: 6px;
+  }
+  .input-field .item.item-block.item-ios.item-input {
+    width: calc(100% - 100px);
+    float: left;
+  }
+  input.text-input {
+    font-size: 16px;
+    font-family: roboto;
+    font-weight: 500;
+    color: #00000061;
+    letter-spacing: 0.15px;
+  }
+  .text-p {
+    margin: -14px 0px 0px 0px;
+  }
+  .bg_button button {
+    background: #0077be;
+    color: #d4cdcd;
+    height: 38px;
+    padding: 10px 0px 10px 0px;
+  }
+  .bg_button span.button-inner {
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    color: #FFFFFF;
+    opacity: 1;
+  }
+  .bg_button-two button {
+    background: #e42215;
+    color: #d4cdcd;
+    height: 38px;
+  }
+  .bg_button-two span.button-inner {
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    color: #FFFFFF;
+    opacity: 1;
+  }
+  .wrap {
+    position: relative;
+    height: 2px;
+    margin: 20px auto;
+  }
+
+  .line {
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translateY(-50%);
+    background-image: linear-gradient(to right, transparent 50%, #c7c7c7 50%);
+    background-size: 20px 100%;
+  }
+  .wrap label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    padding: 0 8px;
+    z-index: 1;
+    letter-spacing: 1.25px;
+    color: #D6D6D6;
+    opacity: 1;
+    font-family:roboto;
+    font-weight:500;
+    font-size: 14px;
+  }
+  .ion-md-arrow-round-back:before{
+    top: 0px; 
+  }
+  .color-span{
+    color: #0077BE;
+    font-family: roboto;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 0.15px;
+    margin-top: 30px;
+  }
+}

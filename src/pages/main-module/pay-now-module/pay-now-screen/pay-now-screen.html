@@ -1,0 +1,121 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content class="makepaymentprev">
+  <!-- <h1 class="ref-num">Reference No. #12251546873</h1> -->
+  <div class="policy-detail" *ngFor="let list of paymentList;let i = index">
+    <ion-row>
+      <div class="mr-b policy-sec">
+        <details>
+          <summary>
+            <p class="policyNum">Policy NO. #{{list.accountNumber}} <span class="dw">
+                <ion-icon name="ios-arrow-down"></ion-icon>
+              </span></p>
+            <p class="policyplus">{{list.accountName}}</p>
+          </summary>
+          <p class="policyplus pb-10 border-bottom">Account Number: {{list.accountNumber}}</p>
+
+          <div class="policy-action">
+            <div class="policy-action-sec">
+              <div class="col-1">
+                <ion-checkbox [checked]="list.preminumCheckboxStatus" class="marginTop" id="preminumcheckbox" style="border-style: none;"
+                  [(ngModel)]="list.preminumCheckboxStatus" (ionChange)='onPreminumCheckboxClicked($event, i)'>
+                </ion-checkbox>
+              </div>
+              <div class="col-9">
+                <ion-label fixed class="pay-amount"><i> Pay Premium Amount</i></ion-label>
+              </div>
+              <div class="trash-policy">
+                <ion-icon (click)="deleteList(i)" name="md-trash"></ion-icon>
+              </div>
+            </div>
+          </div>
+
+          <div class="policy-action">
+            <div class="policy-action-sec">
+              <div class="col-1">
+                <ion-checkbox class="marginTop" id="excesscheckbox" style="border-style: none;" [(ngModel)]="list.excessCheckboxStatus"
+                  (ionChange)='onExcessCheckboxClicked($event, i)'>
+                </ion-checkbox>
+              </div>
+              <div class="col-9">
+                <ion-label fixed class="pay-amount"><i> Pay Excess Amount</i></ion-label>
+              </div>
+            </div>
+          </div>
+          <div class="policy-action">
+            <div class="policy-action-sec">
+              <div class="col-1"></div>
+              <div class="col-9">
+                <ion-item>
+                  <ion-input [disabled]="!list.excessCheckboxStatus" type="number" [(ngModel)]="list.excessAmount"
+                    (ionChange)="inputExcessAmt(i)"></ion-input>
+                </ion-item>
+              </div>
+            </div>
+          </div>
+
+          <div *ngFor="let loan of list.loanOutstanding; let j = index">
+            <div *ngIf="loan.amount" class="policy-action">
+              <div class="policy-action-sec m-t-10">
+                <div class="col-1">
+                  <ion-checkbox class="marginTop" id="loancheckbox" style="border-style: none;" [(ngModel)]="loan.loanCheckboxStatus"
+                    (ionChange)='onLoanCheckboxClicked($event, i, j)'>
+                  </ion-checkbox>
+                </div>
+                <div class="col-9">
+                  <span *ngIf="loan.type == 'APL'">Pay APL</span>
+                  <span *ngIf="loan.type == 'POL'">Pay Loan Amount:</span>
+                </div>
+              </div>
+              <div class="policy-action">
+                <div class="policy-action-sec">
+                  <div class="col-1"></div>
+                  <div class="col-9">
+                    <ion-item>
+                      <ion-input [disabled]="!loan.loanCheckboxStatus" type="number" [(ngModel)]="loan.amount"
+                        (ionChange)="inputLoanAmt($event, i, j)"></ion-input>
+                    </ion-item>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <p *ngIf="list.preminumCheckboxStatus" class="st">Premium Amount: <span class="st-sp">+KSH
+              {{list.premiumAmount}}</span></p>
+          <p *ngIf="list.excessCheckboxStatus" class="st">Excess Amount: <span class="st-sp">+KSH
+              {{list.excessAmount}}</span></p>
+          <p *ngIf="list.preminumCheckboxStatus" class="st">Policy Suspense: <span class="st-sp1">-KSH
+              {{list.suspenseAmount}}</span>
+          </p>
+          <div *ngFor="let loan of list.loanOutstanding">
+            <p *ngIf="loan.loanCheckboxStatus" class="st">
+              <span *ngIf="loan.type == 'APL'">APL</span>
+              <span *ngIf="loan.type == 'POL'">Loan Amount:</span>
+              <span class="st-sp1">+KSH {{loan.amount}}</span>
+            </p>
+          </div>
+          <p class="blue-col">Total a<span class="red-col">m</span>ount: <span class="st-sp1">+KSH
+              {{list.productTotalAmount}}</span></p>
+        </details>
+      </div>
+    </ion-row>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <div class="BtnFooter">
+    <div class="btnText">
+      <div class="amt-sec">KSH <span class="view-detail">{{paymentReq.amount}}</span></div>
+      <!--  <div class="view-detail">view detail</div> -->
+    </div>
+    <div class="btnSec">
+      <button [disabled]="paymentReq.amount=='0.00' || paymentReq.amount == '0.0' || paymentReq.amount == '0'" (click)="proceedToPayClicked()">
+        proceed to pay</button>
+    </div>
+  </div>
+</ion-footer>

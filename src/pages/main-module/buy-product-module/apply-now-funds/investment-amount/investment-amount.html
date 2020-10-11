@@ -1,0 +1,93 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="upper-part">
+    <h3 class="bank-detail-head">{{investment.selectedFund.productName}}</h3>
+
+    <ul class="state-line">
+      <li class="active-line done-circle"><Span>Personal</Span></li>
+      <li class="active-line done-circle"><Span>Bank</Span></li>
+      <li class="active-circle"><Span class="active-text">Investment</Span>
+        <ul class="state-line-inner">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </li>
+      <li><Span>Review</Span></li>
+      <li><Span>Payment</Span></li>
+      <li><Span>Thank you</Span></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <form [formGroup]="investmentForm">
+      <h2 class="investment-amount-head">Let’s talk money…</h2>
+      <p>Please enter the amount you want to invest</p>
+      <p class="select-fund">Selected Fund</p>
+      <p class="balance-fund"><span>{{investment.selectedFund.productName}}</span></p>
+
+      <h2 class="how-much-head">How much you want to Invest?</h2>
+      <div class="kes-inest">KES
+        <ion-input type="number" formControlName="investAmount" placeholder="0.00" (ionChange)="calculateAmount()"
+          formControlName="investAmount"></ion-input>
+      </div>
+      <div class="min-invest">
+        <p>Minimum investment</p>
+        <p>KES {{investment.selectedFund.minInvestmentAmnt | number}}</p>
+      </div>
+      <div
+        *ngIf="(submitAttempt || investmentForm.controls.investAmount.touched ) && investmentForm.controls.investAmount.errors">
+        <p class="error">Amount should be more than minimum investment</p>
+      </div>
+
+      <div class="line"></div>
+      <details>
+        <summary>
+          <p class="more-funds">More Funds to invest in</p>
+        </summary>
+        <ng-container formArrayName="otherFunds">
+          <div *ngFor="let fund of fundList; let i = index">
+            <ng-container [formGroupName]="i">
+              <h2 class="how-much-head below-head">{{fund.productName}}</h2>
+              <div class="kes-inest">KES
+                <ion-input type="number" placeholder="0.00" (ionChange)="calculateAmount(fund, i)"
+                  formControlName="investAmount"></ion-input>
+              </div>
+              <div class="min-invest">
+                <p>Minimum investment</p>
+                <p>KES {{fund.minInvestmentAmnt  | number}}</p>
+              </div>
+              <div
+                *ngIf="(submitAttempt || investmentForm.get('otherFunds').controls[i].touched ) && investmentForm.get('otherFunds').controls[i].invalid">
+                <p class="error">Amount should be more than minimum investment</p>
+              </div>
+
+              <!-- <div *ngIf="(submitAttempt || otherFunds.controls[i].investAmount.touched) && otherFunds.controls[i].investAmount.errors">
+              <p class="error">Amount should be more than minimum investment</p>
+            </div> -->
+            </ng-container>
+
+          </div>
+        </ng-container>
+      </details>
+    </form>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <h2 class="total-amount">Total a<Span>m</Span>ount :</h2>
+  <div class="kes-bottom">
+    <p>KES</p>
+    <p>{{investment.totalAmount  | number}}</p>
+  </div>
+  <button ion-button full text-uppercase class="m-0 proceed submitBtn padd-0 active"
+    (click)="investmentForm.valid ? proceedClicked() : submitAttempt = true">Proceed</button>
+</ion-footer>

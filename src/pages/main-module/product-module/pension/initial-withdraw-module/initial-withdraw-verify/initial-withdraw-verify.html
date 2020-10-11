@@ -1,0 +1,90 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle" (headerOutput3)="goToWithdrawHistory($event)">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+
+  <div class="verify-loan">
+    <ion-row>
+     <h1 class="subHeader-Wrap">Product : {{processPartialWithdrawalReq.policyName}} - {{processPartialWithdrawalReq.policyNo}}</h1>
+      <div class="step-sec">
+        <div class="col-3">
+          <img src="assets/imgs/Group%2019341.png">
+        </div>
+        <div class="col-8">
+          <ion-label>step3:</ion-label>
+          <span>Verify Application</span>
+        </div>
+      </div>
+
+      <div class="loan-applica">
+        <div class="loan-text"><label>Pension Partial Withdrawal</label></div>
+        <div class="icon">
+          <button class="modify-btn" ion-button (click)="editClicked()">
+           <img src="assets/imgs/edit%20icon.svg">
+
+          </button>
+          <ion-icon name="md-information-circle" class="info-icon edit-icon-info"></ion-icon>
+          <div class="tooltip-verify modift-tooltip">
+            Modify Withdrawal Request
+           </div>
+          <button ion-button (click)="deleteClicked()">
+            <img src="assets/imgs/delete.svg">
+          </button>
+          <ion-icon name="md-information-circle" class="info-icon delete-icon-info"></ion-icon>
+          <div class="tooltip-verify delete-tooltip">
+            Cancel withdrawal request
+           </div>
+        </div>
+
+      </div>
+      <div class="amountSec">
+        <div class="key">Maximun Amount:</div>
+        <div class="pull-right txt-transfrm green-colr">kes {{processPartialWithdrawalReq.netValue | number}}</div>
+      </div>
+      <div class="amountSec">
+        <div class="key">Total Withdrawal Amount:</div>
+        <div class="pull-right txt-transfrm green-colr">kes {{processPartialWithdrawalReq.withdrawalAmount| number}}</div>
+      </div>
+      <div class="deduction-sec" *ngIf="processPartialWithdrawalReq.paymentMode=='D'">
+        <p>Bank Details</p>
+        <div class="payment-method">
+          <ion-label color="primary">Bank</ion-label>
+          <input type="text" placeholder="Bank Name" [(ngModel)]="processPartialWithdrawalReq.bankName" disabled>
+          <ion-label color="primary">Account Holder Name</ion-label>
+          <input type="text" placeholder="Account Holder Name" [(ngModel)]="processPartialWithdrawalReq.accountName" disabled>
+          <ion-label color="primary">Account No.</ion-label>
+          <input type="text" placeholder="Account No." [(ngModel)]="processPartialWithdrawalReq.bankAccNo" disabled>
+
+          <ion-label color="primary">Branch</ion-label>
+          <input type="text" placeholder="Branch Name" [(ngModel)]="processPartialWithdrawalReq.bankBranch" disabled>
+        </div>
+      </div>
+      <div class="deduction-sec" *ngIf="processPartialWithdrawalReq.paymentMode=='M'">
+        <p>MPESA Details</p>
+        <div class="payment-method">
+          <ion-label color="primary">MPESA Mobile Number</ion-label>
+          <input type="text" placeholder="Bank Name" [(ngModel)]="processPartialWithdrawalReq.mobile" disabled>
+        </div>
+        <p style="color: red;margin-top: 0;">*Max withdrawal amount is 
+          limited to KES 70,000</p>
+      </div>
+    </ion-row>
+  </div>
+
+  <div class="terms-condition">
+    <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+    <label for="payment-checkbox">
+      <!-- <img src="../../../assets/imgs/checkmark.svg"> -->
+    </label>
+    <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+  </div>
+  <div *ngIf="!tnc.checked" class="error-div">
+    <p class="error">Select checkbox to continue</p>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0" (click)="proceedClicked()">Proceed</button>
+</ion-footer>

@@ -1,0 +1,172 @@
+page-otp {
+  .content-sec {
+    width: 100%;
+    padding: 5px 0px 5px 19px;
+  }
+  .ionic-icon ion-icon {
+    display: block;
+    padding: 16px 4px 16px 14px;
+    color: #1e85d6;
+    font-size: 24px;
+  }
+  .form-control {
+    width: calc(100% - 291px);
+    border: none;
+    text-align: center;
+  }
+  .main-form {
+    padding: 20px 0px 0px 0px;
+    margin: 10px 0px 0px 0px;
+  }
+  .enter-otp {
+    margin-top: 25px;
+    padding: 8px;
+    .step-sec {
+      display: flex;
+      margin-bottom: 10px;
+      .col-3 {
+        margin: 0px 10px 10px 0;
+      }
+      .col-8 {
+        padding-top: 10px;
+      }
+      label {
+        color: #0077be;
+        text-transform: capitalize;
+        font-family: inherit;
+        font-size: 16px;
+        padding-right: 5px;
+        font-weight: 500;
+      }
+      span {
+        color: #000000;
+        font-size: 13px;
+        opacity: 0.6;
+        text-transform: capitalize;
+        font-weight: lighter;
+      }
+    }
+    .customer-otp {
+      font-family: roboto;
+      font-size: 14px;
+      font-weight: 400;
+      color: #454545;
+      line-height: 20px;
+      letter-spacing: 0.4px;
+      b {
+        font-size: 14px;
+        font-weight: 400;
+      }
+    }
+  }
+  .enter-otp h1 {
+    font-size: 46px;
+    font-family: Roboto;
+    font-weight: lighter;
+    color: #0071ba;
+    line-height: 35px;
+    letter-spacing: 0.44px;
+  }
+  .enter-otp .wlcm-user,
+  .enter-otp .reg-email {
+    color: #454545;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+  }
+  .enter-otp .reg-email {
+    color: #707070;
+    font-size: 12px;
+  }
+  .otp-num {
+    margin-top: 30px;
+    display: block;
+    padding: 8px;
+    input {
+      // width: calc(100% / 6);
+      // height: 32px;
+      font-size: 32px;
+      margin-right: 15px;
+      text-align: center;
+      color: #0077be;
+      border-bottom: 1px solid#cccccc;
+      border-top: 0;
+      border-left: 0;
+      border-right: 0;
+      // padding-bottom: 8px;
+      width: 100%;
+    }
+    input:last-child {
+      margin-right: 0;
+    }
+    input::placeholder {
+      color: #707070;
+      opacity: 0.1;
+    }
+    .otp-excute {
+      display: flex;
+      .expire-otp {
+        width: 75%;
+        text-align: left;
+        font-size: 14px;
+        color: #454545de;
+        font-family: Roboto;
+        font-weight: 500;
+        padding: 10px 0 0 0;
+        span {
+          color: #e32313;
+          font-size: 14px;
+          font-family: Roboto;
+          font-weight: 500;
+          margin-left: 10px;
+        }
+      }
+      .resend-otp {
+        text-align: right;
+        color: #0077be;
+        font-size: 12px;
+        font-family: Roboto;
+        font-weight: 500;
+        padding: 10px 0 18px 0;
+        background: none;
+      }
+    }
+  }
+  #submitBtn {
+    background: #0077be;
+    font-size: 14px;
+    color: #ffffff;
+    font-family: roboto;
+    font-weight: 400;
+    height: 46px;
+    margin: 0;
+    border-radius: 0;
+    cursor: pointer;
+    box-shadow: none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 3px#00000029;
+  }
+  ion-app.ios [padding] {
+    padding: 24px;
+  }
+  .access-email p {
+    color: #008ce0;
+    font-size: 16px;
+    font-family: roboto;
+    font-weight: 400;
+  }
+
+  #divInner {
+    left: 0;
+    position: sticky;
+  }
+
+  #divOuter {
+    width: 100%;
+    // overflow: hidden;
+  }
+  .col-green {
+    color: green;
+  }
+}

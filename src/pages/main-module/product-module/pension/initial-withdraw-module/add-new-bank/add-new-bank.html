@@ -1,0 +1,139 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+  <div class="add-new-head">Product : &lt;Individual Pension Plan&gt; - {{processInitialWithdrawalReq.policyNo}}</div>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <ion-list>
+      <ion-item no-lines class="add-new-top">
+        <img src="../../../../assets/imgs/Group 19091.png">
+        <span>Step 2 :</span>
+        <span>Select pay out method</span>
+      </ion-item>
+    </ion-list>
+
+    <form [formGroup]="addNewForm">
+      <ion-list>
+        <ion-item no-lines>
+          <ion-label class="">Select Pay-out Method<ion-icon name="information-circle" class="view-stat-info mpesa-tool"></ion-icon></ion-label>
+          <ion-select placeholder="Select Payout" [(ngModel)]="processInitialWithdrawalReq.paymentMode"
+            [ngModelOptions]="{standalone: true}" (ionChange)="payoutSelect(processInitialWithdrawalReq.paymentMode)">
+            <ion-option *ngFor="let list of bankPayoutList" [value]="list.value">{{list.name}}</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <!--Start: For Bank -->
+        <div *ngIf="processInitialWithdrawalReq.paymentMode == bankPayoutTag.BANK">
+
+          <ion-item no-lines>
+            <ion-label>Select Bank</ion-label>
+            <ion-select placeholder="Select Bank" formControlName="bankName"
+              [(ngModel)]="processInitialWithdrawalReq.bankNumber"
+              (ionChange)="selectBank(processInitialWithdrawalReq.bankNumber)">
+              <ion-option *ngFor="let list of bankDetailsList" [value]="list.code">{{list.description}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <div *ngIf="(submitAttempt || addNewForm.controls.bankName.touched ) && addNewForm.controls.bankName.errors">
+            <p class="error">Select Bank</p>
+          </div>
+
+          <ion-item no-lines>
+            <ion-label>Select Branch</ion-label>
+            <ion-select placeholder="Select Branch" formControlName="bankBranch"
+              [(ngModel)]="processInitialWithdrawalReq.branchCode"
+              (ionChange)="selectBranch(processInitialWithdrawalReq.branchCode)">
+              <ion-option *ngFor="let list of bankBranchList" [value]="list.code">{{list.description}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.bankBranch.touched ) && addNewForm.controls.bankBranch.errors">
+            <p class="error">Select Branch</p>
+          </div>
+
+          <ion-item no-lines>
+            <ion-label stacked>Account No.</ion-label>
+            <ion-input  blockCopyPaste
+              type="number" 
+              class="mask-account"
+              placeholder="Account Number"
+              formControlName="accountNumber" 
+              [(ngModel)]="processInitialWithdrawalReq.bankAccNo"
+              (ionChange)="addValidations()"
+            >
+            </ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.accountNumber.touched ) && addNewForm.controls.accountNumber.errors">
+            <p class="error">Enter Account Number</p>
+          </div>
+
+          <ion-item no-lines>
+            <ion-label stacked>Verify Account No.</ion-label>
+            <ion-input type="number" formControlName="verifyAccountNo" placeholder="Verify Account Number"
+              [(ngModel)]="processInitialWithdrawalReq.verifyAccNo" (ionChange)="addValidations()"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.verifyAccountNo.touched ) && addNewForm.controls.verifyAccountNo.errors?.required">
+            <p class="error">Please verify account number</p>
+          </div>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.verifyAccountNo.touched ) && addNewForm.controls.verifyAccountNo.errors?.MatchFields">
+            <p class="error">Account Number does not match</p>
+          </div>
+
+          <ion-item no-lines>
+            <ion-label stacked>Account Holder's Name</ion-label>
+            <ion-input type="text" formControlName="accountHolderName"
+              [(ngModel)]="processInitialWithdrawalReq.accountName" placeholder="Full Name"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.accountHolderName.touched ) && addNewForm.controls.accountHolderName.errors">
+            <p class="error">Enter Account Holder's Name</p>
+          </div>
+
+        </div>
+        <!--End: For Bank -->
+
+        <!--Start: For MPESA -->
+        <div *ngIf="processInitialWithdrawalReq.paymentMode == bankPayoutTag.MPESA">
+          <ion-item>
+            <ion-label color="primary" fixed class="mobile-text">Mobile No.</ion-label>
+            <ion-input 
+              type="tel" 
+              maxlength="10" 
+              class="mask-account"
+              [(ngModel)]="processInitialWithdrawalReq.mobile" 
+              formControlName="mobileNumber"
+              placeholder="Eg: 0123456789">
+            </ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.mobileNumber.touched ) && addNewForm.controls.mobileNumber.errors">
+            <p class="error">Enter 10 digit Mobile No. starts with 0</p>
+          </div>
+
+          <ion-item>
+            <ion-label color="primary" fixed class="mobile-text">Verify Mobile No.</ion-label>
+            <ion-input type="tel" [(ngModel)]="processInitialWithdrawalReq.verifyMobileNo" formControlName="verifyMobileNo"
+              placeholder="Eg: 0123456789"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || addNewForm.controls.verifyMobileNo.touched ) && addNewForm.controls.verifyMobileNo.errors">
+            <p class="error">Mobile Number does not match.</p>
+          </div>
+        </div>
+        <!--End: For MPESA -->
+
+      </ion-list>
+    </form>
+    <div class="proceed-text">Click ‘Proceed’ to verify form</div>
+  </div>
+  <div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0"
+    (click)="addNewForm.valid ? proceedClicked() : submitAttempt = true">Proceed</button>
+</ion-footer>

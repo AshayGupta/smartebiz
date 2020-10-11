@@ -1,0 +1,60 @@
+<ion-header>
+	<app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+	<div class="pay-payment">
+		<ion-row>
+			<div class="payment-method">
+				<h1>Select a payment method</h1>
+				<div tappable [ngClass]="className" class="payment-card" (click)="selectPaymentoption('mpesa')">
+					<img value="mpesa" name="mpesa" id="mpesa" alt="icon_one"
+						src="assets/imgs/bank.png">
+					<p>M-Pesa</p>
+				</div>
+				<!-- <div tappable class="payment-card" (click)="selectPaymentoption('creditcard')">
+					<img  name="creditcard" id="creditcard"
+						value="creditcard" alt="icon_one" src="assets/imgs/credit-card.png">
+					<p>Credit Card</p>
+				</div> -->
+			</div>
+			<div class="payment-process">
+				<div class="payment-cardImg">
+					<img alt="icon_one" src="assets/imgs/Mpesa.jpg">
+				</div>
+				<div class="payment-step">
+					<div class="label">step 1:</div>
+					<div class="textWrap">Click on Proceed to Pay</div>
+				</div>
+				<div class="payment-step">
+					<div class="label">step 2:</div>
+					<div class="textWrap">Confirm the M-Pesa method on the pop-up</div>
+				</div>
+				<div class="payment-step">
+					<div class="label">step 3:</div>
+					<div class="textWrap">Check Mobile phone and enter M-Pesa M-Pin</div>
+				</div>
+				<div class="payment-step">
+					<div class="label">step 4:</div>
+					<div class="textWrap">Wait for the transaction to complete.</div>
+				</div>
+			</div>
+		<!-- 	<div class="support-wrap">
+				<p>support</p>
+			</div> -->
+		</ion-row>
+	</div>
+</ion-content>
+
+<ion-footer>
+	<div class="BtnFooter">
+		<div class="btnText">
+			<div class="amt-sec">KSH {{paymentReq.amount | number : '1.2'}}</div>
+			<!-- <div class="amt-sec">KSH {{paymentReq.amount}}</div> -->
+			<!-- <div (click)="viewPaymentDetails()" class="view-detail">view detail</div> -->
+		</div>
+		<div class="btnSec">
+			<button [disabled]="!isenabled" (click)="paySummary()"> proceed to pay</button>
+		</div>
+	</div>
+</ion-footer>

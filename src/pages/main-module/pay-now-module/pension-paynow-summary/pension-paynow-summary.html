@@ -1,0 +1,36 @@
+<ion-header>
+  <app-header [headerImg]="headerImg"></app-header>
+</ion-header>
+
+<ion-content padding>
+<div class="pay-now">
+  <!-- <div class="black-bg"></div> -->
+  <div class="pay-summary">
+    <ion-row>
+      <div class="policy-listing">
+        <div class="amount-sec">
+          <div class="align-left">Total a<span>m</span>ount</div>
+          <div class="align-right">ksh {{paymentReq.amount | number : '1.2'}} </div>
+        </div>
+        <div *ngFor="let item of paymentList; let i = index">
+          <h1 clas="amt-head"> {{i+1}}. {{item.accountName}}</h1>
+
+          <div class="listing-sec">
+            <div class="align-left">Contributed amount</div>
+            <div class="align-right">ksh {{item.excessAmount | number : '1.2'}}</div>
+          </div>
+
+          <!-- <div class="listing-sec">
+            <div class="align-left">Total amount</div>
+            <div class="align-right">+ksh {{item.productTotalAmount}}</div>
+          </div> -->
+        </div>
+      </div>
+
+      <div class="btnSec">
+        <button (click)="paySummaryClicked()"> proceed to pay</button>
+      </div>
+    </ion-row>
+  </div>
+</div>
+</ion-content>

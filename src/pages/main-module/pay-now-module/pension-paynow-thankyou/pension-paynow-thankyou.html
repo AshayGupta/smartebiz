@@ -1,0 +1,44 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <h3>Payment S<span class="red">u</span>ccessful</h3>
+    <div class="trans-amnt">
+      <p class="">Total Contribution Amount </p>
+      <p class="kes-amnt">KES {{paymentReq.amount | number: '1.2'}}</p>
+    </div>
+    <p class="look-out">
+      <span class="done-here">That’s it! We’re all done here. </span>
+      Your contribution payment has 
+      been completed successfully. Please 
+      check your registered email for your 
+      payment acknowledgement
+    </p>
+    <p class="member">Member | {{transactionDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</p>
+
+    <!-- <p class="trans-date">Transaction Date: {{transactionDate|date}}</p> -->
+    <div class="policy-tick-wrapper">
+      <!-- <div>Reference No: {{paymentResp.srNumber}}</div>
+      <div>CONTRIBUTION</div>
+      <div *ngFor="let posted of paymentReq.postedAmount;let i=index;">{{i+1}}. {{posted.accountNumber}} : KES
+        {{posted.amount | number}}
+      </div> -->
+      <div>Reference No: {{paymentResp.srNumber}}</div>
+      <div *ngFor="let posted of paymentReq.postedAmount;let i=index;">
+        Policy No: {{posted.accountNumber}}
+        Contribution: KES {{posted.amount | number: '1.2'}}
+      </div>
+      <!-- <p>Thank you for choosing us as your investments partner!</p> -->
+
+    </div>
+  </div>
+
+</ion-content>
+<!-- <ion-footer>
+  <ion-toolbar>
+    <ion-title (click)="okClicked()">OK</ion-title>
+  </ion-toolbar>
+</ion-footer> -->

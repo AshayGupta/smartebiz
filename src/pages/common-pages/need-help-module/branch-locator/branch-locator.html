@@ -1,0 +1,47 @@
+<ion-header>
+        <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+        <div class="need-help-branch-locator">
+                <div class="col-12">
+                        <ion-list class="bt">
+                                <ion-item style="border:0 none;">
+                                        <ion-label><span class="txt1">Country</span></ion-label>
+                                        <ion-select [(ngModel)]="selectCountry" (ionChange)="onCountrySelect(selectCountry)">
+                                                <ion-option *ngFor="let country of countryArray" [value]='country'> {{country}}</ion-option>                                                
+                                        </ion-select>
+                                </ion-item>
+                                <!--<ion-label><span class="txt1">Country</span></ion-label>
+                                <ion-item>
+                                        <ion-select [(ngModel)]="selectCountry" (ionChange)="onCountrySelect(selectCountry)">
+                                                <ion-option *ngFor="let country of countryArray" [value]='country'>
+                                                        {{country}}</ion-option>
+                                        </ion-select>
+                                </ion-item>-->
+                        </ion-list>
+
+                        <ion-list>
+                                <ion-item style="border:0 none;">
+                                        <ion-label><span class="txt1">Town/City</span></ion-label>
+                                        <ion-select [(ngModel)]="selectCity"
+                                        (ionChange)="onCitySelect(selectCountry, selectCity)">
+                                                <ion-option *ngFor="let item of cityArray" [value]='item'>
+                                                                {{item}}</ion-option>                                               
+                                        </ion-select>
+                                </ion-item>
+                                <!--<ion-label><span class="txt1">Town/City</span></ion-label>
+                                <ion-item>
+                                        <ion-select [(ngModel)]="selectCity"
+                                                (ionChange)="onCitySelect(selectCountry, selectCity)">
+                                                <ion-option *ngFor="let item of cityArray" [value]='item'>
+                                                        {{item}}</ion-option>
+                                        </ion-select>
+                                </ion-item> -->
+                        </ion-list>
+                </div>
+                <div #map id="map" class="col-12 br1"></div>
+                <!-- <button ion-button class="btn-f" (click)='locateBranch()'>LOCATE NEAREST BRANCH</button> -->
+        </div>
+
+</ion-content> 

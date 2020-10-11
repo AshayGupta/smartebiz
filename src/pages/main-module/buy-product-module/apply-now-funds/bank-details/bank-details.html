@@ -1,0 +1,132 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <h3 class="bank-detail-head">{{buyProductReq.investment.selectedFund.productName}}</h3>
+
+    <!-- <h3 class="bank-detail-head">Balance Fund</h3> -->
+    <ul class="state-line">
+      <li class="active-line done-circle"><Span>Personal</Span></li>
+      <li class="active-circle"><Span class="active-text">Bank</Span></li>
+      <li><Span>Investment</Span>
+        <ul class="state-line-inner">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </li>
+      <li><Span>Review</Span></li>
+      <li><Span>Payment</Span></li>
+      <li><Span>Thank you</Span></li>
+    </ul>
+    <div class="bank-details-inner-wrapper">
+      <h3 class="how-are-head">How are you {{buyProductReq.personalDetail.firstName}}?</h3>
+
+      <!-- <h3 class="how-are-head">How are you Mercy</h3> -->
+      <div>Please enter the bank details</div>
+      <form [formGroup]="bankDetailForm">
+        <ion-list>
+          <ion-item no-lines>
+            <ion-label>Select Bank</ion-label>
+
+            <ion-select placeholder="- Select -" formControlName="bankName" [(ngModel)]="bankDetail.bankCode"
+              (ionChange)="selectBank(bankDetail.bankCode)">
+              <ion-option *ngFor="let list of bankList" [value]="list.bankCode">{{list.bankName}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.bankName.touched ) && bankDetailForm.controls.bankName.errors">
+            <p class="error">Please Select Bank</p>
+          </div>
+          <ion-item no-lines>
+            <ion-label>Select Branch</ion-label>
+            <ion-select placeholder="- Select -" formControlName="bankBranch" [(ngModel)]="bankDetail.branchName">
+              <ion-option *ngFor="let list of branchList" [value]="list.branchName">{{list.branchName}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.bankBranch.touched ) && bankDetailForm.controls.bankBranch.errors">
+            <p class="error">Select Branch</p>
+          </div>
+          <ion-item no-lines>
+            <ion-label stacked>Account No.</ion-label>
+            <ion-input blockCopyPaste type="number" class="" placeholder="Account Number"
+              formControlName="accountNumber" [(ngModel)]="bankDetail.accountNumber"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.accountNumber.touched ) && bankDetailForm.controls.accountNumber.errors">
+            <p class="error">Enter Account Number</p>
+          </div>
+          <ion-item no-lines>
+            <ion-label stacked>Verify Account No.</ion-label>
+            <ion-input type="number" class="" placeholder="Verify Account Number"
+              formControlName="verifyAccountNumber" [(ngModel)]="bankDetail.verifyAccountNumber"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.verifyAccountNumber.touched ) && bankDetailForm.controls.verifyAccountNumber.errors">
+            <p class="error">Account Number does not match</p>
+          </div>
+          <ion-item no-lines>
+            <ion-label stacked>Account Holder's Name</ion-label>
+            <ion-input type="text" placeholder="Full Name" formControlName="accountHolderName"
+              [(ngModel)]="bankDetail.accountName"></ion-input>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.accountHolderName.touched ) && bankDetailForm.controls.accountHolderName.errors">
+            <p class="error">Enter Account Holder's Name</p>
+          </div>
+          <h6 class="proof-head">Proof of Bank</h6>
+          <ion-item no-lines>
+            <ion-label>Bank Proof</ion-label>
+
+            <ion-select placeholder="Doctype" formControlName="documentType" [(ngModel)]="bankDetail.documentType">
+              <ion-option *ngFor="let type of docType" [value]="type.docType">{{type.docType}}</ion-option>
+            </ion-select>
+          </ion-item>
+          <div
+            *ngIf="(submitAttempt || bankDetailForm.controls.documentType.touched ) && bankDetailForm.controls.documentType.errors">
+            <p class="error">Please Select Document Type</p>
+          </div>
+
+          <!-- <ion-item no-lines>
+            <ion-label stacked>Enter Document Number</ion-label>
+            <ion-input type="number"placeholder="Enter Document Number" formControlName="documentNumber"
+            [(ngModel)]="bankDetail.documentNumber"></ion-input>
+          </ion-item>
+          <div *ngIf="(submitAttempt || bankDetailForm.controls.documentNumber.touched ) && bankDetailForm.controls.documentNumber.errors">
+            <p class="error">Please enter valid Document Number</p>
+          </div> -->
+
+          <p class="italic-text">Upload proof of banking( e.g Front image of the bank ATM card , voided cheque or signed bank letter)
+          </p>
+          <ion-item>
+            <input type="file" id="benef-file" (click)="uploadfileClick($event)" (change)="handleFileUpload($event)" />
+            <label for="benef-file">UPLOAD FILES</label>
+            <div class="file-size">Recommended file size less than 5 MB</div>
+            <div class="upload-file-name">
+              <p>{{buyProductReq.bankFileAttach.fileName}}</p>
+            </div>
+            <div *ngIf="(submitAttempt) && bankDetailForm.controls.document.errors">
+              <p class="error">No Document uploaded yet</p>
+            </div>
+          </ion-item>
+
+        </ion-list>
+      </form>
+    </div>
+    <div>
+    </div>
+  </div>
+
+</ion-content>
+
+<ion-footer>
+  <button ion-button full text-uppercase class="m-0 proceed submitBtn padd-0 active"
+    (click)="bankDetailForm.valid ? proceedClicked() : submitAttempt = true">Proceed</button>
+</ion-footer>

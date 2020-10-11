@@ -1,0 +1,64 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle" (headerOutput3)="goToWithdrawHistory($event)">
+  </app-header>
+</ion-header>
+
+<ion-content>
+  <div class="loan-payment">
+    <ion-row>
+     <h1 class="subHeader-Wrap">Product : {{processPartialWithdrawalReq.policyName}} - {{processPartialWithdrawalReq.policyNo}}</h1>
+      <div class="step-sec">
+        <div class="col-3">
+          <img src="assets/imgs/Group%2019091.png">
+        </div>
+        <div class="col-8">
+          <label>step 2:</label>
+          <span>select payment method</span>
+        </div>
+      </div>
+      <div class="payment-method">
+        <ion-label>Select Payout Method</ion-label>
+        <ion-select [(ngModel)]="processPartialWithdrawalReq.paymentMode"
+          (ionChange)="payoutSelect(processPartialWithdrawalReq.paymentMode)">
+          <ion-option *ngFor="let list of bankPayoutList" [value]="list.value">{{list.name}}</ion-option>
+        </ion-select>
+
+
+        <div *ngIf="processPartialWithdrawalReq.paymentMode == bankPayoutTag.BANK">
+           <ion-label>Select Bank</ion-label>
+            <ion-select  placeholder="Select Bank" [(ngModel)]="processPartialWithdrawalReq.bankNumber"
+              (ionChange)="selectBank(processPartialWithdrawalReq.bankNumber)">
+              <ion-option *ngFor="let list of bankAccountsList" [value]="list.bankNumber">{{list.bankName}}</ion-option>
+            </ion-select>
+
+
+          <ion-label color="primary" fixed>Account No.</ion-label>
+          <input type="text" disabled [(ngModel)]="processPartialWithdrawalReq.bankAccNo" placeholder="Tel Input">
+
+          <ion-label color="primary" fixed>Branch</ion-label>
+          <input type="text" disabled [(ngModel)]="processPartialWithdrawalReq.bankBranch" placeholder="Tel Input">
+        </div>
+
+        <!-- <div *ngIf="processPartialWithdrawalReq.paymentMode == bankPayoutTag.MPESA">
+          <ion-item>
+            <ion-label color="primary" fixed>Mobile No.</ion-label>
+            <ion-input type="text" [(ngModel)]="processPartialWithdrawalReq.mobile" placeholder="Mobile No." disabled>
+            </ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label color="primary" fixed>Amount</ion-label>
+            <ion-input type="text" [(ngModel)]="processPartialWithdrawalReq.loanAmount" placeholder="Amount" disabled>
+            </ion-input>
+          </ion-item>
+        </div> -->
+
+      </div>
+    </ion-row>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <p>Click ‘Proceed’ to select payout</p>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0" (click)="proceedClicked()">Proceed</button>
+</ion-footer>

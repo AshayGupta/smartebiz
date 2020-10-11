@@ -1,0 +1,85 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="withdrawForm">
+    <div class="loan-payment">
+      <ion-row>
+        <div class="accnt-no">Account Number : {{this.withdrawReq.accountNumber}}</div>
+        <div class="step-sec">
+          <div class="col-3">
+            <img src="assets/imgs/Group%2019091.png">
+          </div>
+          <div class="col-8">
+            <label>step 2:</label>
+            <span>How would you like to receive the funds?</span>
+          </div>
+        </div>
+
+        <div class="payment-method">
+          <!-- <input type="checkbox" checked id="sel-exist"> -->
+          <!-- <label for="sel-exist" class="sel-exist-label" for="sel-exist"><span>Select Existing</span></label> -->
+
+          <ion-item>
+            <ion-label>Select Payout Method</ion-label>
+            <ion-select placeholder="Bank" [(ngModel)]="withdrawReq.paymentMode" [ngModelOptions]="{standalone: true}"
+              (ionChange)="payoutSelect(withdrawReq.paymentMode)">
+              <ion-option *ngFor="let list of bankPayoutList" [value]="list.value">{{list.name}}</ion-option>
+            </ion-select>
+          </ion-item>
+
+          <div *ngIf="withdrawReq.paymentMode == 'BANK'">
+            <ion-item>
+              <ion-label>Select Bank</ion-label>
+              <ion-select placeholder="Select Account" formControlName="bankNumber" [(ngModel)]="withdrawReq.bankAccNo"
+                (ionChange)="selectBank(withdrawReq.bankAccNo)">
+                <ion-option *ngFor="let list of bankAccountsList" [value]="list.accountNumber">{{list.bankName}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <div *ngIf="(submitAttempt || withdrawForm.controls.bankNumber.touched ) && withdrawForm.controls.bankNumber.errors">
+              <p class="error">Select Account</p>
+            </div>
+            <ion-item>
+              <ion-label color="primary" fixed>Account No.</ion-label>
+              <ion-input type="text" placeholder="Account No." [(ngModel)]="withdrawReq.bankAccNo"
+                [ngModelOptions]="{standalone: true}" disabled>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label color="primary" fixed>Branch</ion-label>
+              <ion-input type="text" placeholder="Branch" [(ngModel)]="withdrawReq.bankBranch"
+                [ngModelOptions]="{standalone: true}" disabled>
+              </ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-label fixed color="primary">Account Holder's Name</ion-label>
+              <ion-input type="text" placeholder="Full Name" [(ngModel)]="withdrawReq.accountName" [ngModelOptions]="{standalone: true}" disabled></ion-input>
+            </ion-item>
+          </div>
+
+          <div *ngIf="withdrawReq.paymentMode == 'MPESA'">
+            <ion-item>
+              <ion-label color="primary" fixed>Mobile No.</ion-label>
+              <ion-input type="text" placeholder="Mobile No." [(ngModel)]="withdrawReq.PhoneNumber"
+                [ngModelOptions]="{standalone: true}" disabled></ion-input>
+
+            </ion-item>
+            <p class="asterik">*M-PESA withdrawal charges will be applicable</p>
+          </div>
+
+        </div>
+      </ion-row>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <p>Click ‘Proceed’ to verify form</p>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0"
+    (click)="withdrawForm.valid ? proceedClicked() : submitAttempt = true">Proceed</button>
+</ion-footer>

@@ -1,0 +1,179 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content class="add-ben-wrapper">
+  <div class="upper-part">
+    <h3 class="bank-detail-head">{{buyProductReq.investment.selectedFund.productName}}</h3>
+    <ul class="state-line">
+      <li class="active-circle"><Span class="active-text">Personal</Span></li>
+      <li><Span>Bank</Span></li>
+      <li><Span>Investment</Span>
+        <ul class="state-line-inner">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </li>
+      <li><Span>Review</Span></li>
+      <li><Span>Payment</Span></li>
+      <li><Span>Thank you</Span></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <p class="hi-there">Hi there!</p>
+    <p class="introduce">Please introduce yourself…</p>
+
+    <form [formGroup]="personalDetailForm" class="add-ben-form-wrapper">
+      <ion-grid padding>
+        <ion-row>
+          <ion-col col-12 class="input-heading">Tell us your name</ion-col>
+          <ion-col col-12>
+            <input type="text" placeholder="First Name" formControlName="firstName"
+              [(ngModel)]="personalDetail.firstName"
+              [ngClass]="!personalDetailForm.controls.firstName.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.firstName=='')?'':'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.firstName.touched) && personalDetailForm.controls.firstName.errors">
+              <p class="error">Please enter valid First Name.</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <input type="text" placeholder="Middle Name" formControlName="middleName"
+              [(ngModel)]="personalDetail.middleName"
+              [ngClass]="!personalDetailForm.controls.middleName.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.middleName=='')?'':'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.middleName.touched) && personalDetailForm.controls.middleName.errors">
+              <p class="error">Please enter valid Middle Name.</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <input type="text" placeholder="Last Name" formControlName="lastName" [(ngModel)]="personalDetail.lastName"
+              [ngClass]="!personalDetailForm.controls.lastName.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.lastName=='')?'':'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.lastName.touched) && personalDetailForm.controls.lastName.errors">
+              <p class="error">Please enter valid Last Name.</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <ion-item>
+              <ion-label class="input-heading top-heading">Date of birth</ion-label>
+              <ion-datetime displayFormat="DD-MM-YYYY" placeholder="DD-MM-YYYY" formControlName="dob"
+                [(ngModel)]="personalDetail.dob"
+                [ngClass]="!personalDetailForm.controls.dob.pristine || buyProductReq.isNewUser ||  (!buyProductReq.isNewUser && personalDetail.dob=='')?'':'readMode'">
+              </ion-datetime>
+            </ion-item>
+            <ion-icon name="md-calendar"></ion-icon>
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.dob.touched) && personalDetailForm.controls.dob.errors">
+              <p class="error">Please Select Date of birth</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <ion-label>Nationality</ion-label>
+            <ion-item>
+              <ion-select placeholder="Select" formControlName="nationality" [(ngModel)]="personalDetail.nationality"
+                (ionChange)="selectNationality(personalDetail.nationality)"
+                [ngClass]="!personalDetailForm.controls.nationality.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.nationality=='')?'':'readMode'">
+                <ion-option *ngFor="let country of countryCodes" [value]="country.countryName">{{country.countryName}}
+                </ion-option>
+              </ion-select>
+            </ion-item>
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.nationality.touched) && personalDetailForm.controls.nationality.errors">
+              <p class="error">Please Select Nationality</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <label class="input-heading">Email ID</label>
+            <input type="email" placeholder="Enter Email" formControlName="email" [(ngModel)]="personalDetail.email"
+              [ngClass]="!personalDetailForm.controls.email.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.email=='')?'':'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.email.touched) && personalDetailForm.controls.email.errors">
+              <p class="error">Please Enter valid Email</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12
+            [ngClass]="!personalDetailForm.controls.gender.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.gender=='')?'':'readMode'">
+            <div class="label input-heading top-heading">Gender</div>
+            <ion-row>
+              <ion-col>
+                <input type="radio" name="gender" value="M" id="male" formControlName="gender"
+                  [(ngModel)]="personalDetail.gender" />
+                <label for="male">
+                  <span class="radio">M</span>
+                </label>
+              </ion-col>
+              <ion-col>
+                <input type="radio" name="gender" value="F" id="female" formControlName="gender"
+                  [(ngModel)]="personalDetail.gender" />
+                <label for="female">
+                  <span class="radio">F</span>
+                </label>
+              </ion-col>
+              <ion-col>
+                <input type="radio" name="gender" value="0" id="others" formControlName="gender"
+                  [(ngModel)]="personalDetail.gender" />
+                <label for="others">
+                  <span class="radio">Other</span>
+                </label>
+              </ion-col>
+            </ion-row>
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.gender.touched) && personalDetailForm.controls.gender.errors">
+              <p class="error">Please Select Gender</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <label class="input-heading">Mobile Number</label>
+            <input type="tel" placeholder="Enter Mobile" formControlName="mobile" [(ngModel)]="personalDetail.mobile"
+              [ngClass]="'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.mobile.touched) && personalDetailForm.controls.mobile.errors">
+              <p class="error">Please Enter valid Mobile Number</p>
+            </div>
+          </ion-col>
+          <ion-col col-12>
+            <label for="first-name" class="input-heading">KRA PIN</label>
+            <input type="text" placeholder="Enter KRA PIN" formControlName="kraPin" [(ngModel)]="personalDetail.kraPin"
+              [ngClass]="!personalDetailForm.controls.kraPin.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.kraPin=='')?'':'readMode'" />
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.kraPin.touched) && personalDetailForm.controls.kraPin.errors">
+              <p class="error">Please Enter valid KRA PIN</p>
+            </div>
+          </ion-col>
+
+          <ion-col col-12>
+            <label for="first-name" class="input-heading top-heading">Physical Address</label>
+            <textarea type="text" placeholder="Please fill your complete address here" rows="5"
+              formControlName="physicalAddress" [(ngModel)]="personalDetail.physicalAddress"
+              [ngClass]="!personalDetailForm.controls.physicalAddress.pristine || buyProductReq.isNewUser || (!buyProductReq.isNewUser && personalDetail.physicalAddress=='')?'':'readMode'"></textarea>
+            <div
+              *ngIf="(submitAttempt || personalDetailForm.controls.physicalAddress.touched) && personalDetailForm.controls.physicalAddress.errors">
+              <p class="error">Please Enter valid Physical Address</p>
+            </div>
+          </ion-col>
+
+        </ion-row>
+      </ion-grid>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="submit">
+    <button type="submit" class="proceed active"
+      (click)="personalDetailForm.valid ? proceedClicked():submitAttempt=true">PROCEED</button>
+  </div>
+</ion-footer>

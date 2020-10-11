@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="icon_action_delete_24px" data-name="icon/action/delete_24px" d="M11,18H3a2,2,0,0,1-2-2V4H13V16A2,2,0,0,1,11,18ZM14,3H0V1H3.5l1-1h5l1,1H14V3Z" transform="translate(5 3)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="delete" transform="translate(-4 -4.055)">
+    <rect id="Box" width="24" height="24" rx="4" transform="translate(4 4.055)" fill="none"/>
+    <g id="icon_action_delete_24px-2" data-name="icon/action/delete_24px" transform="translate(9 7.055)">
+      <path id="icon_action_delete_24px-3" data-name="icon/action/delete_24px" d="M11,18H3a2,2,0,0,1-2-2V4H13V16A2,2,0,0,1,11,18ZM14,3H0V1H3.5l1-1h5l1,1H14V3Z" transform="translate(0 0)" fill="none"/>
+      <g id="Group_18946" data-name="Group 18946" transform="translate(-5 -3)" clip-path="url(#clip-path)">
+        <g id="_Color" data-name="↳ Color">
+          <rect id="_Color_background" data-name="↳ Color background" width="24" height="24" fill="#e42312"/>
+          <rect id="Rectangle" width="24" height="24" fill="#e42312"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

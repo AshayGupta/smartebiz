@@ -1,0 +1,9 @@
+node_modules
+www/
+*.cmd
+*.ps1
+platforms
+plugins
+*.
+atob
+which

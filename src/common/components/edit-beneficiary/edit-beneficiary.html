@@ -1,0 +1,83 @@
+<div class="edit-beneficiary-wrapper">
+  <div class="portion-circle">
+    <canvas #barChart></canvas>
+    <div class="portion-circle-text">
+      <p>{{beneficiaryCount}}</p>
+      <p>Portions</p>
+    </div>
+  </div>
+  <div class="portion-note" *ngIf="beneficiaryMode == 'editMode' && beneficiaryCount > 0">
+    Please start by adjusting the beneficiary portion percentage, to add/edit beneficiaries
+  </div>
+
+  <div class="benef-port-wrapper">
+    <h3>Beneficiaries</h3>
+    <h3>Portions</h3>
+  </div>
+
+  <div class="container benef-marg-rem" *ngFor="let item of beneficiaryAccResp.beneficiaries; let i = index">
+    <div style="display: contents;" *ngIf="item.action != 'delete'">
+      <div class="listing-circle"></div>
+      <label class="label benef-nominee-icon">{{item.beneficiary.firstName}} {{item.beneficiary.middleName}} {{item.beneficiary.lastName}}
+        <div class="icon-text-wrap" *ngIf="item.nominee.firstName">
+          <img src="../../../assets/imgs/benef-hover.svg" />
+          <div class="benef-nominee">
+            Nominee Name:<br />
+            {{item.nominee.firstName}} {{item.nominee.middleName}} {{item.nominee.lastName}}
+          </div>
+        </div>
+      </label>
+      <div class="portion-num-wrapper" [ngClass]="beneficiaryMode == 'viewMode' || beneficiaryMode == 'verifyMode' ? 'readMode': ''">
+        <ion-input type="text" id="lumpsumEntitlement" [(ngModel)]="item.beneficiary.lumpsum_entitlement" (ionChange)="changePercentage(item, $event)">
+          {{item.beneficiary.lumpsum_entitlement}}
+        </ion-input>
+        <span class="portion-percent">%</span>
+
+      </div>
+      <img src="../../../assets/imgs/delete.svg" *ngIf="beneficiaryMode == 'editMode'"
+        (click)="deleteBeneficiaryClicked(i)"><ion-icon name="information-circle" class="view-stat-info delete-info"></ion-icon>
+    </div>
+  </div>
+  <div class="error port-incomp" *ngIf="beneficiaryMode == 'editMode' && beneficiaryCount > 0 && showPortionError">
+    {{portionErrorTxt}}
+  </div>
+  <div *ngIf="beneficiaryMode == 'editMode'">
+    <button ion-button outline
+      [disabled]="disableAddBeneficiary"
+      color="light"
+      (click)="addBeneficiary()">
+      Add Beneficiary
+    </button>
+    <button ion-button class="revert-btn" (click)="revertChangesClicked()">
+      Revert Changes
+    </button>
+  </div>
+
+  <div *ngIf="beneficiaryMode != 'verifyMode'">
+    <ion-card class="card" *ngFor="let item of beneficiaryAccResp.beneficiaries; let i = index">
+      <div *ngIf="item.action != 'delete'">
+        <ion-card-header class="card-header">
+          <h1 class="h1">{{item.beneficiary.lumpsum_entitlement}}<span>%</span></h1>
+          <div class="card-label-container">
+            <label class="beneficiary-name-head">Beneficiary Name:</label>
+            <label class="beneficiary-name">{{item.beneficiary.firstName}} {{item.beneficiary.middleName}} {{item.beneficiary.lastName}}</label>
+            <div class="icon-text-wrap card-icon-wrap" *ngIf="item.nominee.firstName">
+              <img src="../../../assets/imgs/benef-hover.svg" />
+              <div class="benef-nominee">
+                Nominee Name:<br />
+                {{item.nominee.firstName}} {{item.nominee.middleName}} {{item.nominee.lastName}}
+              </div>
+            </div>
+          </div>
+          <ion-icon name="create-outline" float-right class="del-icon-rem"></ion-icon>
+        </ion-card-header>
+
+        <ion-card-content class="card-content" (click)="viewBeneficiary(item, i)">
+          <h2 class="h2" *ngIf="beneficiaryMode == 'viewMode'">View Details</h2>
+          <h2 class="h2" *ngIf="beneficiaryMode == 'editMode'">Edit Details</h2>
+        </ion-card-content>
+      </div>
+    </ion-card>
+  </div>
+
+</div>

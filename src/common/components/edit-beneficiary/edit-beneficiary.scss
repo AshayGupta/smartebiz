@@ -1,0 +1,623 @@
+// edit-beneficiary {
+//   .container {
+//     display: flex;
+//     padding: 0 8px;
+//     align-items: center;
+//     margin-bottom: 8px;
+//   }
+//   .label {
+//     align-self: center;
+//     width: 100%;
+//     font-weight: normal;
+//     text-transform: capitalize;
+//     display: flex;
+//     align-items: center;
+//     position: relative;
+//   }
+//   label img {
+//     margin-left: 3px;
+//     position: relative;
+//     z-index: 4;
+//   }
+//   .input-container {
+//     display: flex;
+//     color: #00000099;
+
+//     span {
+//       align-self: center;
+//     }
+//   }
+
+//   .card-header {
+//     display: flex;
+//     box-shadow: 0px 1px 3px #00000029;
+//     background: #fff;
+
+//     .h1 {
+//       margin-right: 15px;
+//       font-size: 34px;
+//       color: #0077be;
+//     }
+//     span {
+//       font-size: 12px;
+//       color: #666666;
+//       margin-left: 5px;
+//     }
+//     .card-label-container {
+//       flex-direction: column;
+//       display: flex;
+//       width: 100%;
+//     }
+//     .beneficiary-name {
+//       font-size: 16px;
+//       letter-spacing: 0.15px;
+//       font-weight: normal;
+//     }
+//     .beneficiary-name-head {
+//       font-size: 14px;
+//       margin-bottom: 5px;
+//     }
+//   }
+//   ion-card {
+//     background: #fcfcfc !important;
+//     position: relative;
+//     box-shadow: 0px 1px 3px #00000029 !important;
+//   }
+//   ion-card img {
+//     position: absolute;
+//     width: 16px;
+//     height: 16px;
+//     right: 7px;
+//     top: 5px;
+//     max-width: none;
+//     z-index: 4;
+//   }
+
+//   .card-content {
+//     text-align: center;
+//     padding: 0px;
+//     // background: rgba(250, 250, 250, 1);
+//     box-shadow: 1px 2px rgba(232, 232, 232, 0.3);
+//     height: 36px;
+//     padding-top: 4px !important;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+
+//     .h2 {
+//       height: 36px;
+//       text-transform: uppercase;
+//       font-size: 14px;
+//       letter-spacing: 1.25px;
+//       color: #0077be;
+//       font-weight: 500;
+//       display: flex;
+//       align-items: center;
+//       justify-content: center;
+//     }
+//   }
+//   ion-input {
+//     text-align: center;
+//     border-radius: 5px;
+//     width: 48px;
+//     height: 32px;
+//     display: flex;
+//     align-items: center;
+//   }
+//   .input-border {
+//     border: solid 1px #e3e3e3;
+//   }
+//   .text-input {
+//     margin: 0;
+//     text-align: center;
+//   }
+//   h3 {
+//     color: #0077be !important;
+//     padding: 8px;
+//     font-size: 16px !important;
+//     letter-spacing: 0.15px;
+//   }
+//   .trash-icon {
+//     color: #e42312;
+//     font-size: 17px;
+//     margin-left: 20px;
+//   }
+//   button[outline] {
+//     width: calc(100% - 16px);
+//     border: solid 2px #00a9f5;
+//     color: #00a9f5;
+//     height: 36px;
+//     left: 8px;
+//     margin-top: 32px;
+//     margin-bottom: 16px;
+//     letter-spacing: 1.25px;
+//     font-size: 14px;
+//     text-transform: uppercase;
+//     transition: 0.3s !important;
+//     transform-origin: center;
+//     position: relative;
+//     left: 50%;
+//     transform: translateX(-50%);
+//     color: #00a9f5 !important;
+//   }
+//   button[outline]:hover {
+//     width: 60%;
+//     color: #00a9f5;
+//   }
+//   button[outline]:before {
+//     position: absolute;
+//     content: "";
+//     height: 100%;
+//     background: #e1f5fe;
+//     z-index: -1;
+//     transition: 0.3s;
+//     left: 50%;
+//     right: 50%;
+//   }
+//   button[outline]:hover:before {
+//     width: 100%;
+//     left: 0;
+//     right: 0;
+//   }
+//   .portion-circle {
+//     margin-bottom: 24px;
+//     position: relative;
+//   }
+//   .revert-btn {
+//     background: #f0f0f0;
+//     width: calc(100% - 16px);
+//     left: 8px;
+//     color: #6f6f6f;
+//     text-transform: uppercase;
+//     font-size: 14px;
+//     font-weight: 500;
+//     letter-spacing: 1.25px;
+//     margin-bottom: 20px;
+//   }
+//   .portion-circle-text {
+//     position: absolute;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     top: 50%;
+//     text-align: center;
+//   }
+//   .portion-circle-text p {
+//     margin: 0;
+//   }
+//   .portion-circle-text p:first-child {
+//     font-size: 26px;
+//   }
+//   .listing-circle {
+//     width: 8px;
+//     height: 8px;
+//     background: #56b6eb;
+//     border-radius: 50%;
+//     flex-shrink: 0;
+//     margin-right: 10px;
+//   }
+//   .edit-beneficiary-wrapper {
+//     position: relative;
+//   }
+//   .benef-nominee {
+//     background: #162b38;
+//     color: #fff;
+//     padding: 11px;
+//     white-space: nowrap;
+//     border-radius: 5px;
+//     position: absolute;
+//     // right: 0;
+//     top: 0;
+//     // transform: scale(0);
+//     transition: 0.3s;
+//     // transform-origin: 90% 20%;
+//     font-size: 10px;
+//     width: 116px;
+//     white-space: normal;
+//     line-height: 14px;
+//     z-index: 5;
+//     opacity: 0;
+//     visibility: hidden;
+//   }
+//   .benef-nominee-icon img:hover .benef-nominee {
+//     // transform: scale(1);
+//     opacity: 1;
+//     visibility: visible;
+//   }
+//   .icon-text-wrap:hover .benef-nominee {
+//     // transform: scale(1);
+//     opacity: 1;
+//     visibility: visible;
+//   }
+//   .icon-text-wrap {
+//     position: relative;
+//   }
+//   .icon-text-wrap.card-icon-wrap {
+//     position: absolute;
+//     top: 1px;
+//     right: 1px;
+//   }
+//   .benef-marg-rem {
+//     margin-bottom: -5px;
+//   }
+//   .add-benef-remov,
+//   .revert-btn-remov,
+//   .del-icon-rem {
+//     display: none;
+//   }
+//   .card-marg-add {
+//     margin-top: 25px;
+//   }
+//   ion-icon.ion-ios-information-circle:after {
+//     content: '';
+//     position: absolute;
+//     font-size: 10px;
+//     background: #3a3a3a;
+//     color: #fff;
+//     padding: 9px;
+//     margin-right: 10px;
+//     margin-left: 2px;
+//     border-radius: 5px;
+//     line-height: 12px;
+//     z-index: 5;
+// 	transition: .3s;
+// 	opacity: 0;
+// 	visibility: hidden;
+// 	width: 100px;
+//     text-align: left;
+// 	font-family: roboto;
+// }
+// ion-icon.ion-ios-information-circle:hover:after{
+// 	opacity: 1;
+// 	visibility: visible;
+// }
+// ion-icon.ion-ios-information-circle {
+//     font-size: 13px;
+//     margin-left: 3px;
+//     color: currentColor !important;
+// 	position: relative;
+// }
+// .delete-info::after{
+//   content: 'Remove Beneficiary' !important;
+//   left: -120px;
+// }
+// .readMode+ion-icon {
+//   display: none;
+// }
+// .benef-port-wrapper{
+//   display: flex;
+//   align-items: center;
+//     justify-content: space-between;
+//     >h3{
+//       margin-top: 0 ;
+//     }
+// }
+// }
+// ion-icon[float-right] {
+//   position: relative;
+//   z-index: 1;
+// }
+edit-beneficiary {
+  .container {
+    display: flex;
+    padding: 0 8px;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+  .label {
+    align-self: center;
+    width: 100%;
+    font-weight: normal;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+  label img {
+    margin-left: 3px;
+    position: relative;
+    z-index: 4;
+  }
+  .input-container {
+    display: flex;
+    color: #00000099;
+
+    span {
+      align-self: center;
+    }
+  }
+
+  .card-header {
+    display: flex;
+    box-shadow: 0px 1px 3px #00000029;
+    background: #fff;
+
+    .h1 {
+      margin-right: 15px;
+      font-size: 34px;
+      color: #0077be;
+    }
+    span {
+      font-size: 12px;
+      color: #666666;
+      margin-left: 5px;
+    }
+    .card-label-container {
+      flex-direction: column;
+      display: flex;
+      width: 100%;
+    }
+    .beneficiary-name {
+      font-size: 16px;
+      letter-spacing: 0.15px;
+      font-weight: normal;
+    }
+    .beneficiary-name-head {
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+  }
+  ion-card {
+    background: #fcfcfc !important;
+    position: relative;
+    box-shadow: 0px 1px 3px #00000029 !important;
+  }
+  ion-card img {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    right: 7px;
+    top: 5px;
+    max-width: none;
+    z-index: 4;
+  }
+
+  .card-content {
+    text-align: center;
+    padding: 0px;
+    // background: rgba(250, 250, 250, 1);
+    box-shadow: 1px 2px rgba(232, 232, 232, 0.3);
+    height: 36px;
+    padding-top: 4px !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .h2 {
+      height: 36px;
+      text-transform: uppercase;
+      font-size: 14px;
+      letter-spacing: 1.25px;
+      color: #0077be;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  ion-input {
+    text-align: center;
+    border-radius: 5px;
+    width: 48px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+  }
+  .input-border {
+    border: solid 1px #e3e3e3;
+  }
+  .text-input {
+    margin: 0;
+    text-align: center;
+  }
+  h3 {
+    color: #0077be !important;
+    padding: 8px;
+    font-size: 16px !important;
+    letter-spacing: 0.15px;
+  }
+  .trash-icon {
+    color: #e42312;
+    font-size: 17px;
+    margin-left: 20px;
+  }
+  button[outline] {
+    width: calc(100% - 16px);
+    border: solid 2px #00a9f5;
+    color: #00a9f5;
+    height: 36px;
+    left: 8px;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    letter-spacing: 1.25px;
+    font-size: 14px;
+    text-transform: uppercase;
+    transition: 0.3s !important;
+    transform-origin: center;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #00a9f5 !important;
+  }
+  button[outline]:hover {
+    width: 60%;
+    color: #00a9f5;
+  }
+  button[outline]:before {
+    position: absolute;
+    content: "";
+    height: 100%;
+    background: #e1f5fe;
+    z-index: -1;
+    transition: 0.3s;
+    left: 50%;
+    right: 50%;
+  }
+  button[outline]:hover:before {
+    width: 100%;
+    left: 0;
+    right: 0;
+  }
+  .portion-circle {
+    margin-bottom: 24px;
+    position: relative;
+  }
+  .revert-btn {
+    background: #f0f0f0;
+    width: calc(100% - 16px);
+    left: 8px;
+    color: #6f6f6f;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 1.25px;
+    margin-bottom: 20px;
+  }
+  .portion-circle-text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    text-align: center;
+  }
+  .portion-circle-text p {
+    margin: 0;
+  }
+  .portion-circle-text p:first-child {
+    font-size: 26px;
+  }
+  .listing-circle {
+    width: 8px;
+    height: 8px;
+    background: #56b6eb;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+  .edit-beneficiary-wrapper {
+    position: relative;
+  }
+  .benef-nominee {
+    background: #162b38;
+    color: #fff;
+    padding: 11px;
+    white-space: nowrap;
+    border-radius: 5px;
+    position: absolute;
+    // right: 0;
+    top: 0;
+    // transform: scale(0);
+    transition: 0.3s;
+    // transform-origin: 90% 20%;
+    font-size: 10px;
+    width: 116px;
+    white-space: normal;
+    line-height: 14px;
+    z-index: 5;
+    opacity: 0;
+    visibility: hidden;
+  }
+  .benef-nominee-icon img:hover .benef-nominee {
+    // transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  .icon-text-wrap:hover .benef-nominee {
+    // transform: scale(1);
+    opacity: 1;
+    visibility: visible;
+  }
+  .icon-text-wrap {
+    position: relative;
+  }
+  .icon-text-wrap.card-icon-wrap {
+    position: absolute;
+    top: 1px;
+    right: 1px;
+  }
+  .benef-marg-rem {
+    margin-bottom: -5px;
+  }
+  .add-benef-remov,
+  .revert-btn-remov,
+  .del-icon-rem {
+    display: none;
+  }
+  .card-marg-add {
+    margin-top: 25px;
+  }
+  ion-icon.ion-ios-information-circle:after {
+    content: "";
+    position: absolute;
+    font-size: 10px;
+    background: #3a3a3a;
+    color: #fff;
+    padding: 9px;
+    margin-right: 10px;
+    margin-left: 2px;
+    border-radius: 5px;
+    line-height: 12px;
+    z-index: 5;
+    transition: 0.3s;
+    opacity: 0;
+    visibility: hidden;
+    width: 100px;
+    text-align: left;
+    font-family: roboto;
+  }
+  ion-icon.ion-ios-information-circle:hover:after {
+    opacity: 1;
+    visibility: visible;
+  }
+  ion-icon.ion-ios-information-circle {
+    font-size: 13px;
+    margin-left: 3px;
+    color: currentColor !important;
+    position: relative;
+  }
+  .delete-info::after {
+    content: "Remove Beneficiary" !important;
+    left: -120px;
+  }
+  .readMode + ion-icon {
+    display: none;
+  }
+  .benef-port-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    > h3 {
+      margin-top: 0;
+    }
+  }
+  .portion-num-wrapper {
+    display: flex;
+    align-items: center;
+    span.portion-percent {
+      margin-left: -10px;
+    }
+  }
+  .error.port-incomp {
+    margin-top: 10px;
+    margin-left: 13px;
+}
+.portion-note {
+  color: gray;
+  font-style: italic;
+  margin-bottom: 13px;
+  font-size: 12px;
+  margin-top: -10px;
+  margin-left: 15px;
+}
+.port-input-bord{
+  border: solid 1px #bdbdbd;
+  border-radius: 5px;
+  padding-right: 6px;
+  width: 48px;
+  margin-bottom: 8px;
+  height: 29px;
+}
+}
+ion-icon[float-right] {
+  position: relative;
+  z-index: 1;
+}

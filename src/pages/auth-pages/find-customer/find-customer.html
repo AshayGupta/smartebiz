@@ -1,0 +1,23 @@
+<ion-header>
+	<app-header [headerTitle]="pageDetail[index].title"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="otp-p-main">
+    <div class="otp-p-main-inner">
+      <ion-grid>
+        <ion-row class="otp-form">
+          <ion-col col-12 class="outer-div">
+
+            <div text-center class="inner-div">
+              <p class="round-div"><img [src]="pageDetail[index].imagePath"></p>
+              <p class="info-text"> {{pageDetail[index].content}} <br /><br /><span style="font-size:16px;">{{emailAddress}}</span> </p>
+              <button ion-button (click)="submit(index)">{{pageDetail[index].buttonText}}</button>
+            </div>
+
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+</ion-content>

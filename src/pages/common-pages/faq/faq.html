@@ -1,0 +1,11 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-col col-12>
+    <div [innerHTML]="htmlContent | sanitizer" height="100%" width="100%"></div>
+  </ion-col>
+
+</ion-content>

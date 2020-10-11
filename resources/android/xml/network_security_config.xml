@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <base-config cleartextTrafficPermitted="true">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+    <domain-config cleartextTrafficPermitted="true">
+        <domain includeSubdomains="true">localhost</domain>
+        <domain includeSubdomains="true">http://10.10.3.184:9090</domain>
+        <domain includeSubdomains="true">http://mobileuat.britam.com/</domain>
+        <domain includeSubdomains="true">180.179.196.214</domain>
+    </domain-config>
+</network-security-config>

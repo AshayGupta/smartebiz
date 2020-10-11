@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="111" height="111" viewBox="0 0 111 111">
+  <defs>
+    <filter id="Rectangle_377" x="0" y="0" width="111" height="111" filterUnits="userSpaceOnUse">
+      <feOffset dy="1" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feFlood flood-opacity="0.2"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="save" transform="translate(-626.5 -466.5)">
+    <g transform="matrix(1, 0, 0, 1, 626.5, 466.5)" filter="url(#Rectangle_377)">
+      <g id="Rectangle_377-2" data-name="Rectangle 377" transform="translate(4.5 3.5)" fill="none" stroke="#0077be" stroke-width="8">
+        <rect width="102" height="102" rx="51" stroke="none"/>
+        <rect x="4" y="4" width="94" height="94" rx="47" fill="none"/>
+      </g>
+    </g>
+    <text id="SAVE-2" data-name="SAVE" transform="translate(663 526)" fill="#0077be" font-size="14" font-family="Roboto-Medium, Roboto" font-weight="500" letter-spacing="0.089em" opacity="0"><tspan x="0" y="0">SAVE</tspan></text>
+    <g id="Check" transform="translate(493.916 350)">
+      <rect id="Rectangle_1492" data-name="Rectangle 1492" width="34" height="9" rx="4.5" transform="translate(161.87 168.125) rotate(40)" fill="#0077be"/>
+      <rect id="Rectangle_1493" data-name="Rectangle 1493" width="55" height="9" rx="4.5" transform="translate(176.052 190.602) rotate(-45)" fill="#0077be"/>
+    </g>
+  </g>
+</svg>

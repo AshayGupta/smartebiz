@@ -1,0 +1,44 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="m-0">
+    <p class="buy-simple">We make it simple for you. </p>
+    <p class="buyOnline">Support</p>
+  </div>
+
+  <ion-item class="m-0 padd-0">
+
+    <div class="shoping-area">
+      <div class="shop-area-one" (click)="goToRequestCallback()">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/callback.png" alt="" />
+        </div>
+        <p>Request callback</p>
+      </div>
+      <div class="shop-area-two" (click)="goToChat()">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/chat.png" alt="" />
+        </div>
+        <p>Chat</p>
+      </div>
+    </div>
+    <div class="shoping-area">
+      <div class="shop-area-one" (click)="goToBranchLocator()">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/branchLocator.png" alt="" />
+        </div>
+        <p>Branch Locator</p>
+      </div>
+      <div class="shop-area-two" (click)="callClicked()">
+        <div class="set-maxHeight">
+          <img src="assets/imgs/call.png" alt="" />
+        </div>
+        <p>Call</p>
+      </div>
+    </div>
+
+  </ion-item>
+
+</ion-content>

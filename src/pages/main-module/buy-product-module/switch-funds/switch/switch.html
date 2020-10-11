@@ -1,0 +1,103 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content>
+  <div class="container">
+    <div class="accnt-no">
+      Account Number :{{policyData.accountNumber}}
+    </div>
+    <div class="step-1-sec">
+      <img src="../../../assets/imgs/Step One.png">
+      <p><span class="step-1-text">Step 1 :</span> Input Switch Transfer Details</p>
+    </div>
+  </div>
+
+  <div class="fund-sec-wrapper">
+    <form [formGroup]="switchForm">
+      <ng-container formArrayName="switchFund">
+        <section class="fund-sec" *ngFor="let fund of fundsFromList;let i=index;">
+
+          <div class="container">
+            <p class="trans-from">Transfer From</p>
+            <div class="head">
+              <p><span>{{i+1}}.</span>{{fund.schemeName}}</p>
+              <p>KES {{fund.marketValue | number:'1.0':'en-US'}}</p>
+            </div>
+            <div *ngIf="fund.disableFund">
+            <p class="error">Total amount sum is more than holding amount</p>
+          </div>
+            <div class="transfer-icon-wrapper">
+              <ng-container [formGroupName]="i">
+
+                <div class="transfer-wrapper" formArrayName="transferToArr">
+                  <div class="transfer-section"
+                    *ngFor="let count of switchForm.get('switchFund').controls[i].get('transferToArr').controls; let j=index">
+                    <div class="transfer-section-inner" [formGroupName]="j">
+
+                      <div class="transfer-from">
+                        <p>Transfer To</p>
+                        <ion-select formControlName="transferFundList" placeholder="- Select -"
+                          (ionChange)="selectFund(i, j)">
+                          <div *ngFor="let list of productFundsList; let k=index">
+                            <ion-option
+                              [disabled]="disableTransferTo(i, k)"
+                              *ngIf="fund.productCode != list.productCode" [value]="list">
+                              {{list.productName}}
+                            </ion-option>
+                          </div>
+                        </ion-select>
+                        <div
+                          *ngIf="(submitAttempt || switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferFundList.touched ) && switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferFundList.errors">
+                          <p class="error">Select Fund</p>
+                        </div>
+                      </div>
+
+                      <div class="transfer-to">
+                        <p>Transfer Amount</p>
+                        <div class="input-wrapper">
+                          <span>KES</span>
+                          <ion-input type="number" name="amount" formControlName="transferAmount" placeholder="0.00"
+                            (ionChange)="enterAmount(i, j)">
+                          </ion-input>
+                        </div>
+                        <div>Minimum Investment Amt: {{switchForm.get('switchFund').controls[i].value.transferToArr[j].transferFundList.minInvestmentAmnt}}</div>
+                        <!-- Start: Error Blocks -->
+                        <!-- <div>
+                          <p>{{switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.errors | json}}</p>
+                        </div> -->
+                        <div
+                          *ngIf="(submitAttempt || switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.touched ) && switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.errors?.required">
+                          <p class="error">Enter Transfer Amount</p>
+                        </div>
+                        <div
+                          *ngIf="(submitAttempt || switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.touched ) && switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.errors?.min">
+                          <p class="error">Amount should be more than minimum amount</p>
+                        </div>
+                        <div
+                          *ngIf="(submitAttempt || switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.touched ) && switchForm.get('switchFund').controls[i].get('transferToArr').controls[j].controls.transferAmount.errors?.max">
+                          <p class="error">Amount cannot be more than holding value</p>
+                        </div>
+                        <!-- End: Error Blocks -->
+                      </div>
+
+                    </div>
+                    <ion-icon name="md-add" *ngIf="j==0" [ngClass]="((productFundsList.length-1)==switchForm.get('switchFund').controls[i].get('transferToArr').controls.length)?'readMode text-op':''" (click)="plusClicked(i, j, this.switchForm.get('switchFund').controls[i].get('transferToArr').value[j].transferFundList)"></ion-icon>
+                    <ion-icon *ngIf="j>0" name="remove-outline" class="minus-icon" (click)="removeFundClicked(i,j)">
+                    </ion-icon>
+                  </div>
+                </div>
+              </ng-container>
+
+            </div>
+          </div>
+        </section>
+      </ng-container>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <button ion-button [disabled]="disable"
+    (click)="switchForm.valid ? proceedClicked() : submitAttempt = true">PROCEED</button>
+</ion-footer>

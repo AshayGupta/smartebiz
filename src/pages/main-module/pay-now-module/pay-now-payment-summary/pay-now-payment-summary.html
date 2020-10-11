@@ -1,0 +1,54 @@
+<ion-header class="pay-now-head">
+	<ion-row>
+		<ion-col col-12 class="padd-0">
+			<ion-navbar>
+				<ion-row>
+					<ion-col col-2>
+						<ion-buttons left>
+							<button ion-button icon-only (click)="viewCtrl.dismiss()" class="my-style-for-modal">
+								<ion-icon name="arrow-back"></ion-icon>
+							</button>
+						</ion-buttons>
+					</ion-col>
+					<!-- <ion-col col-6>
+						<div class="header-class">
+							<img src="assets/imgs/Britam logo.png" alt="Britam logo" />
+						</div>
+					</ion-col> -->
+					<!-- <ion-col col-2>
+				  <ion-buttons end>
+					<button ion-button icon-only (click)="goToLoanHistory()">
+					  <ion-icon name="search"></ion-icon>
+					</button>
+				  </ion-buttons>
+				</ion-col>
+				<ion-col col-2>
+				  <ion-buttons end>
+					<button ion-button icon-only (click)="goToLoanHistory()">
+					  <ion-icon name="notifications"></ion-icon>
+					</button>
+				  </ion-buttons>
+				</ion-col> -->
+			</ion-row>
+		</ion-navbar>
+	</ion-col>
+</ion-row>
+</ion-header>
+
+<ion-content padding>
+	<div class="alertBx">
+		<div class="black-bg"></div>
+		<div class="custom-alert">
+			<ion-row>
+				<div class="alert-sec">
+					<p>Continue to Pay via : {{paymentOption}} ?</p>
+					<div class="total-sum">Total a<span>m</span>ount :<span class="green-col"> KSH
+					{{paymentReq.amount | number : '1.2'}}</span></div>
+				</div>
+			</ion-row>
+			<div class="btnSec">
+				<button (click)="paynowPaymentTransaction()" class="pay-via"> pay via {{paymentOption}}</button>
+			</div>
+		</div>
+	</div>
+</ion-content>

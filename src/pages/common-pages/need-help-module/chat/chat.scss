@@ -1,0 +1,37 @@
+page-chat {
+    .chat-head{
+		.content-part {
+		    padding: 8px;
+		}
+		.header-class {
+		    font-size: 20px;
+		    font-family: roboto;
+		    font-weight: bold;
+		    color: #0077be;
+		    padding: 2px 0 0 5px;
+		    span {
+		      color: #e42215;
+		    }
+		}
+		.ion-md-arrow-round-back:before {
+		    content: "\f288";
+		    position: relative;
+		    top: 4px;
+		    font-size: 20px;
+		    opacity: 0.6;
+		    color:#0077be;
+		    font-weight: 300;
+		}
+		.ion-md-search:before {
+		    content: "\f274";
+		    font-size: 16px;
+		    color: #000000;
+		    opacity:0.6
+		}
+		.ion-md-notifications{
+			font-size:20px;
+			position: relative;
+    		top: 4px;
+		}
+	}	
+}

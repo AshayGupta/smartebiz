@@ -1,0 +1,77 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="shadow-part">
+      <h5 class="account-no">Account Number :{{withdrawReq.accountNumber}}</h5>
+      <div class="step">
+        <img src="../../../assets/imgs/Step One.png">
+        <div class="step-text">
+          <span>Step1 :</span><span>How much would you like to withdraw?</span>
+        </div>
+      </div>
+      <h3 class="account-no acnt-bal"><span>Available B<span class="red">a</span>lance :</span><Span>KES
+          {{withdrawReq.maximumAmount | number}}</Span></h3>
+    </div>
+    <form [formGroup]="withdrawForm">
+      <ng-container formArrayName="withdrawAmount">
+        <div *ngFor="let fund of fundList; let i = index">
+          <ng-container [formGroupName]="i">
+            <div class="fund-listing">
+              <div class="numbering" *ngIf="fundList.length > 1">{{i+1}}.</div>
+              <div class="fund-kes-wrapper-upper">
+                <div class="fund-kes-wrapper">
+                  <div class="heading">
+                    <h2>{{fundList[i].productName}}</h2>
+                  </div>
+                  <p class="current-holding">KES {{fundList[i].currentHoldingValue | number}} </p>
+                </div>
+
+                <div class="amount-input-wrapper">
+                  <div class="kes-input">
+                    <span>KES</span>
+                    <ion-input type="number" placeholder="0.00" formControlName="amount"
+                      (ionChange)="calculateAmount()"
+                      [disabled]="fund.disableFund"
+                    >
+                    </ion-input>
+                  </div>
+                </div>
+                <p class="min-amount">*Min Amount : KES {{fundList[i].minWithdrawalAmnt | number}} </p>
+                <div class="pend-amnt">
+                  <p class="min-amount">*Pending Amount : KES {{this.fundList[i].pendingAmount | number}} </p><span class="hover-text-icon">
+                    <ion-icon name="information-circle"></ion-icon>
+                    <p>Pending orders are the current outstanding withdrawal requests, which will be accounted at the
+                      time of placing a new withdrawal request</p>
+                  </span>
+                </div>
+                <div *ngIf="(submitAttempt || withdrawForm.get('withdrawAmount')?.controls[i].controls.amount.touched) && withdrawForm.get('withdrawAmount')?.controls[i].controls.amount.errors?.max && !fund.disableFund">
+                  <p class="error">Amount cannot be more than the holding value plus value of pending orders.</p>
+                </div>
+                <div *ngIf="(submitAttempt || withdrawForm.get('withdrawAmount')?.controls[i].controls.amount.touched) && withdrawForm.get('withdrawAmount')?.controls[i].controls.amount.errors?.min && !fund.disableFund">
+                  <p class="error">Amount should be more than minimum amount</p>
+                </div>
+                <div *ngIf="fund.disableFund">
+                  <p class="error">We are facing technical challenges, please try later</p>
+                </div>
+
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </form>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div class="kes-bottom">
+    <h3>Withdrawal A<Span>m</Span>ount</h3>
+    <h2>KES {{amount | number}}</h2>
+  </div>
+  <button type="submit" ion-button full text-uppercase class="m-0 active proceed submitBtn padd-0"
+   [disabled]="amount==0" (click)="this.withdrawForm.valid?proceedClicked():submitAttempt=true;">Proceed</button>
+</ion-footer>

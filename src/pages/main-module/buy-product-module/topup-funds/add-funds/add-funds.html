@@ -1,0 +1,99 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <h5 class="account-no">Account Number :{{topUpReq.accountNumber}}</h5>
+    <form [formGroup]="topUpForm">
+      <ng-container formArrayName="fundAmount">
+        <div *ngFor="let fund of topUpForm.controls.fundAmount?.controls; let i = index">
+          <ng-container [formGroupName]="i">
+            <div class="fund-listing">
+              <div class="numbering" *ngIf="(fundList.length > 1|| investMore)">{{i+1}}.</div>
+              <div>
+                <div class="heading">
+                  <h2>{{fundList[i].productName}}</h2>
+                </div>
+                <p class="current-holding">Current Holding Value: KES {{fundList[i].currentHoldingValue | number}}</p>
+                <div class="amount-input-wrapper">
+                  <p class="topup-amount">Topup Amount</p>
+                  <div class="kes-input">
+                    <span>KES</span>
+                    <ion-input type="number" placeholder="0.00" (ionChange)="calculateAmount()"
+                      formControlName="topUpAmount"></ion-input>
+                  </div>
+
+                </div>
+                <div
+                  *ngIf="(submitAttempt || topUpForm.get('fundAmount')?.controls[i].touched) && topUpForm.get('fundAmount')?.controls[i].invalid">
+                  <p class="error">Amount should be valid and more than minimum amount</p>
+                </div>
+                <p class="min-amount">*Min Amount : KES {{fundList[i].minInvestmentAmnt | number}}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+
+      </ng-container>
+
+      <ng-container *ngIf="investMore" formArrayName="otherFund">
+        <div *ngFor="let fund of topUpForm.controls.otherFund?.controls; let j = index">
+          <ng-container [formGroupName]="j">
+            <div class="fund-listing">
+              <div class="numbering">{{fundList.length+1+j}}.</div>
+              <div>
+                <div class="heading">
+                  <h2>{{otherFundList[j].productName}}</h2>
+                </div>
+                <!-- <p class="current-holding">Current Holding Value: KES 0
+                </p> -->
+                <div class="amount-input-wrapper">
+                  <p class="topup-amount">Topup Amount</p>
+                  <div class="kes-input">
+                    <span>KES</span>
+                    <ion-input type="number" placeholder="0.00" (ionChange)="calculateAmount()"
+                      formControlName="otherTopUp"></ion-input>
+                  </div>
+
+                </div>
+                <div
+                  *ngIf="(submitAttempt || topUpForm.get('otherFund')?.controls[j].touched) && topUpForm.get('otherFund')?.controls[j].invalid">
+                  <p class="error">Amount should be valid and more than minimum amount</p>
+                </div>
+                <p class="min-amount">*Min Amount : KES {{otherFundList[j].minInvestmentAmnt | number}}</p>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </ng-container>
+    </form>
+  </div>
+
+  <div class="terms-condition">
+    <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+    <label for="payment-checkbox">
+      <!-- <ion-icon name="checkmark"></ion-icon> -->
+      <img src="../../../assets/imgs/checkmark.svg">
+    </label>
+    <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+  </div>
+  <div *ngIf="!tnc.checked" class="error-div">
+    <p class="error">Select checkbox to continue</p>
+  </div>
+        <!-- Invest More Start -->
+        <div class="invest-more" [ngClass]="{'hide' : investMore}">
+          <h4>Would you like to invest in another fund under this account? <span (click)="wantInvestMore()"> Click here.</span></h4>
+        </div>
+        <!-- Invest More End -->
+</ion-content>
+
+<ion-footer>
+  <div class="kes-bottom">
+    <h3>Total A<Span>m</Span>ount</h3>
+    <h2>KES {{amount  | number}}</h2>
+  </div>
+  <button type="submit" [disabled]="amount==0" ion-button full text-uppercase class="m-0 active proceed submitBtn padd-0"
+    (click)="proceedClicked()">Proceed</button>
+</ion-footer>

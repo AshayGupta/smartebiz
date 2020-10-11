@@ -1,0 +1,121 @@
+page-account-details {
+  .basic-details {
+    .scroll-content {
+      .scroll-content {
+        padding: 0px;
+      }
+      ion-grid,
+      h3 {
+        padding: 15px;
+        margin: 0;
+      }
+    }
+    h3 {
+      font-weight: normal;
+      color: #0077be;
+      font-size: 16px;
+      border-bottom: 1px solid #e3e3e3;
+      padding: 19px 0px;
+      ion-icon {
+        color: #707070;
+      }
+    }
+    h3[name="hide-up"] + ion-grid {
+      display: none;
+    }
+    ion-col {
+      font-size: 12px;
+      font-weight: normal;
+      color: rgba(0, 0, 0, 0.6);
+      padding: 0px;
+    }
+    ion-row {
+      padding: 0px;
+      ion-row {
+        ion-col:nth-child(odd),
+        .top-up-due {
+          font-weight: 500;
+        }
+        .top-up-due {
+          color: #eba300;
+        }
+      }
+    }
+  }
+  .basic-details.content {
+    position: relative;
+  }
+  [col-6] {
+    padding: 5px 0px;
+  }
+  .product-listing {
+    font-size: 14px;
+    color: #000000;
+    line-height: 24px;
+    font-family: inherit;
+    opacity: 0.7;
+  }
+  .product-Detail {
+    line-height: 24px;
+    font-family: inherit;
+  }
+  @media (max-width: 580px) {
+    .basic-left,
+    .basic-right {
+      max-width: 100%;
+      width: 100%;
+      flex: 0 0 100%;
+    }
+  }
+  .padd-0 {
+    padding: 0;
+  }
+  .card-table {
+    padding: 0;
+    .one-card {
+      overflow: auto !important;
+      width: calc(100% - 3px);
+      border-radius: 5px;
+      border: 1px solid #d6d6d6;
+      box-shadow: none;
+
+      table {
+        line-height: 19px;
+        border-collapse: collapse;
+        width: 100%;
+        border-radius: 9px;
+        padding: 10px 0px 10px;
+        min-width: 500px;
+
+        th {
+          font-family: Roboto;
+          font-size: 14px;
+          font-weight: 500;
+          text-align: center;
+          padding: 8px;
+          border-right: 1px solid #d6d6d6;
+          color: #707070;
+          height: 32px;
+        }
+        th:first-child {
+          border-right: 1px solid #d6d6d6;
+        }
+        th:last-child {
+          border-right: 1px solid #d6d6d6;
+        }
+        td {
+          font-family: Roboto;
+          font-size: 12px;
+          font-weight: 200;
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+          color: #000000;
+          height: 32px;
+          border-left: 0;
+          border-bottom: 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="content-part ">
+    <div class="content-part-text">
+       <h1 class="subHeader-Wrap">Product : {{ processPartialWithdrawalReq.policyName}} - {{processPartialWithdrawalReq.policyNo}}</h1>
+      <ion-row *ngFor="let list of partialWithdrawHistoryList">
+        <div class="loan-history-detail col-12 ">
+          <div class="amountSec">
+            <div class="col-12">Policy No .{{list.policyNo}}</div>
+          </div>
+          <div class="amountSec">
+            <div class="col-12">#1120035</div>
+            <div class="col-12">Date : {{list.valueDate}}</div>
+          </div>
+          <div class="amountSec">
+            <div class="col-6">Withdraw Amount</div>
+            <div class="col-6 pull-right"><span class="loan-approved">{{list.netValue}} KSH</span></div>
+          </div>
+          <div class="amountSec">
+            <div class="col-6">Status</div>
+            <div class="col-6 pull-right"><span class="loan-declined">{{list.status}}</span></div>
+          </div>
+        </div>
+      </ion-row>
+
+    </div>
+  </div>
+</ion-content>

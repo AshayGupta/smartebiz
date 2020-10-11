@@ -1,0 +1,224 @@
+<ion-header>
+  <ion-navbar>
+    <div class="header-wrapper">
+      <div class="left-wrapper">
+        <div class="header-heading">View Statement</div>
+      </div>
+      <div class="right-wrapper">
+        <ion-item class="year">
+          <ion-select [(ngModel)]="selectedYr" (ionChange)="onYrSelect($event)" placeholder="Year">
+            <ion-option *ngFor="let year of yearArray; let i=index;" [value]="year">{{year}}</ion-option>
+          </ion-select>
+        </ion-item>
+        <img src="../../../assets/imgs/download-buy.svg" class="dwnld-icon" (click)="getDownloadUrl()">
+      </div>
+    </div>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="basic-details">
+
+  <div *ngFor="let input of segmentInput">
+    <h3 class="drop-wrapper" [attr.name]="input.selectedTag == selectedTag ? '' : 'hide-up'"
+      (click)="accordionClicked(input.selectedTag)">
+      <span>{{input.name}}
+        <ion-icon name="information-circle" class="icon-accord">
+          <div class="tooltip-accord">
+            {{input.infoTxt}}
+          </div>
+        </ion-icon>
+      </span>
+      <div>
+        <div class="prod-amnt">{{this.pensionProduct.detailObjs[input.selectedTag].detail.sum | number : '1.2'}}</div>
+        <ion-icon name="arrow-dropdown" float-right></ion-icon>
+      </div>
+    </h3>
+
+    <ion-grid>
+      <!-- List -->
+      <!-- <div *ngIf="detailObj && detailObj[input.selectedTag].detail.length > 0 && detailObj[input.selectedTag].isList">
+        <ion-row>
+          <ion-col *ngFor="let item of detailObj[input.selectedTag].detail; let i=index" col-6 class="basic-left">
+            <ng-container *ngIf="item.showInInitial == true">
+              <ion-row *ngIf="i%2 == 0">
+                <ion-col col-6>
+                  <label class="product-listing">{{item.caption.en}} :</label>
+                </ion-col>
+                <ion-col col-6>
+                  <span class="product-Detail">{{item.value}}</span>
+                </ion-col>
+              </ion-row>
+              <ion-row *ngIf="i%2 == 1">
+                <ion-col col-6>
+                  <label class="product-listing">{{item.caption.en}} :</label>
+                </ion-col>
+                <ion-col col-6>
+                  <span class="product-Detail">{{item.value}}</span>
+                </ion-col>
+              </ion-row>
+            </ng-container>
+          </ion-col>
+        </ion-row>
+      </div> -->
+
+      <div *ngIf="pensionProduct.detailObjs[input.selectedTag].isList">
+        <ion-row>
+            <ion-col col-12 class="basic-left">
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Name :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.first_name}} {{pensionDetailsResp.pensionDetailsObj.other_names}} {{pensionDetailsResp.pensionDetailsObj.sur_name}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Tax PIN :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.pin}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col col-12 class="basic-left">
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Scheme :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.scheme_name}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Start Date :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.date_joined_scheme | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col col-12 class="basic-left">
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Date of Birth :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.dob | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Member ID :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{nationalId}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Normal Retirement Date :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.retirementDate | date: 'dd-MMM-yyyy' | uppercase}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Date Of Joining Scheme :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.date_joined_scheme | date: 'dd-MMM-yyyy' | uppercase}}</span>
+                    </ion-col>
+                </ion-row>
+                <ion-row>
+                    <ion-col col-6>
+                        <label class="product-listing">Normal Retirement age :</label>
+                    </ion-col>
+                    <ion-col col-6>
+                        <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.retirementAge}}</span>
+                    </ion-col>
+                </ion-row>
+            </ion-col>
+        </ion-row>
+    </div>
+
+      <!-- Table -->
+      <!-- <ion-grid class="card-table padd-0"
+        *ngIf="detailObj && detailObj[input.selectedTag].detail.length > 0 && !detailObj[input.selectedTag].isList && !detailObj[input.selectedTag].isDoubleRow">
+        <div class="previous">From The Previous Period</div>
+        <ion-card no-padding no-margin class="one-card">
+          <table>
+            <tr>
+              <th text-capitalize *ngFor="let obj of detailObj[input.selectedTag].detail[1]">{{obj.en}}</th>
+            </tr>
+            <tr *ngFor="let details of detailObj[input.selectedTag].detail[0]">
+              <td *ngFor="let obj of details">{{obj.value}}</td>
+            </tr>
+          </table>
+        </ion-card>
+        <div class="open-bal"><span>Opening Balance :</span> {{detailObj[input.selectedTag].detail.sum | number : '1.2'}}</div>
+      </ion-grid> -->
+
+
+      <!-- Double Row Table -->
+      <ion-grid class="card-table padd-0"
+        *ngIf="detailObj && detailObj[input.selectedTag].detail.tableData && detailObj[input.selectedTag].detail.tableData.length > 0 && detailObj[input.selectedTag].isDoubleRow">
+        <!-- <div class="previous">From The Previous Period</div> -->
+        <ion-card no-padding no-margin class="one-card">
+          <table>
+            <thead>
+              <tr>
+                <th>Date
+                  <ion-icon *ngIf="detailObj[input.selectedTag].doubleRowHeader.date"
+                    name="information-circle" 
+                    class="view-stat-info date-info">
+                  </ion-icon>
+                </th>
+                <th>Account</th>
+                <th>Register
+                  <ion-icon
+                    name="information-circle" 
+                    class="register-info">
+                  </ion-icon>
+                </th>
+                <th>Unregister
+                  <ion-icon
+                    name="information-circle" 
+                    class="unregister-info">
+                  </ion-icon>
+                </th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let detail of detailObj[input.selectedTag].detail.tableData">
+              <tr>
+                <td rowspan="2">{{detail.date | date: 'dd-MMM-yyyy' | uppercase}}</td>
+                <td>Employee<ion-icon name="information-circle" class="view-stat-info employee-info icon-accord"><div class="tooltip-accord">
+                  {{ detailObj[input.selectedTag].doubleRowHeader.employee }}
+                </div></ion-icon></td>
+                <td>{{detail.registeredAmount | number : '1.2'}}</td>
+                <td>{{detail.unregisteredAmount | number : '1.2'}}</td>
+                <td>{{detail.totalAmount | number : '1.2'}}</td>
+              </tr>
+              <tr>
+                <td>Employer<ion-icon name="information-circle" class="view-stat-info employer-info icon-accord"><div class="tooltip-accord">
+                  {{ detailObj[input.selectedTag].doubleRowHeader.employer }}
+                </div></ion-icon></td>
+                <td>{{detail.erregisteredAmount | number : '1.2'}}</td>
+                <td>{{detail.erunregisteredAmount | number : '1.2'}}</td>
+                <td>{{detail.ertotalAmount | number : '1.2'}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </ion-card>
+        <!-- <div class="open-bal"><span>Opening Balance :</span> <span>{{detailObj[input.selectedTag].detail.sum | number : '1.2'}}</span>
+        </div> -->
+      </ion-grid>
+      <!-- table new end-->
+
+    </ion-grid>
+  </div>
+
+</ion-content>

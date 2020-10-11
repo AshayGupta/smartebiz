@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect width="24" height="24" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="inbox" clip-path="url(#clip-path)">
+    <g id="Inbox-2" data-name="Inbox" opacity="0.7">
+      <rect id="rectangle" width="24" height="24" fill="none"/>
+      <path id="icon_action_account_balance_24px" data-name="icon/action/account_balance_24px" d="M19,21H0V18H19v3Zm-2-5H14V9h3v7Zm-6,0H8V9h3v7ZM5,16H2V9H5v7ZM19,7H0V5L9.5,0,19,5V7Z" transform="translate(3 2)"/>
+    </g>
+  </g>
+</svg>

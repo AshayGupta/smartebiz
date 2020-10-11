@@ -1,0 +1,90 @@
+page-partial-withdraw-history {
+  .content-part {
+    padding: 8px;
+  }
+  .md-alarm {
+    color: #0077be;
+  }
+  .loan-product {
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #0077be;
+    padding-left: 17px;
+  }
+  .float-right {
+    float: right;
+  }
+  .range-slider {
+    margin: -10px 0 10px 0;
+  }
+  .range-md .range-knob-min.range-knob-min .range-knob {
+    border: 2px solid #0077be;
+    background: #0077be;
+  }
+  .range-md .range-knob,
+  .range-ios .range-knob {
+    width: 20px;
+    height: 20px;
+    top: 12px;
+    background: #0077be;
+  }
+  .amountSec {
+    width: 100%;
+  }
+  .loan-history-detail.col-12 {
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ccc;
+    margin-bottom: 15px;
+  }
+  .amountSec .col-12 {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #707070;
+    padding-bottom: 15px;
+  }
+  .amountSec .col-6 {
+    width: 50%;
+    float: left;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #707070;
+    padding-bottom: 15px;
+  }
+  .amountSec .pull-right {
+    text-align: right;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #0077be;
+  }
+  .submitBtn {
+    background: #d6d6d6;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    height: 48px;
+    border-radius: 0;
+  }
+  .loan-approved {
+    color: #39d50a;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+  .loan-declined {
+    color: #e42215;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+}

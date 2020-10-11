@@ -1,0 +1,57 @@
+page-market-funds {
+  ion-card{
+      border-radius: 15px !important;
+      box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.11) !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      width: 100% !important;
+      margin-bottom: 20px !important;
+      h3{
+          color: #1a84c5;
+          font-size: 16px !important;
+          font-family: poppins;
+      }
+      p{
+          font-size: 13px !important;
+          color: #748A9F !important;
+          font-weight: 300;
+      }
+      a{
+          border: 2px solid #E1F5FE;
+          border-radius: 23px;
+          text-decoration: none;
+          padding: 7px 17px;
+          font-size: 12px;
+          letter-spacing: 1.25px;
+          margin-top: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          img{
+              width: 25px;
+              margin-left: 10px;
+          }
+      }
+  }
+  h3.heading-main{
+      font-size: 20px;
+      color: #1481C3;
+      font-weight: 400;
+      font-family: poppins;
+      margin-top: 14px !important;
+  }
+  .container {
+      margin: 0 8px;
+  }
+  .btn-grp{
+      display: flex;
+      > a{
+          flex-grow: 1;
+      }
+      > a:first-child{
+        // margin-right: 11px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+  }
+}

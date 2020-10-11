@@ -1,0 +1,17 @@
+<svg id="Component_101_33" data-name="Component 101 – 33" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16" height="16" viewBox="0 0 16 16">
+  <defs>
+    <clipPath id="clip-path">
+      <path id="icon_action_supervised_user_circle_24px" data-name="icon/action/supervised_user_circle_24px" d="M6.5,13A6.5,6.5,0,1,1,13,6.5,6.507,6.507,0,0,1,6.5,13ZM8.846,7.644c-1,0-2.86.475-2.86,1.384v2.646A4.473,4.473,0,0,0,6.5,11.7a5.155,5.155,0,0,0,2.963-.93,5.227,5.227,0,0,0,1.88-2.378A4.657,4.657,0,0,0,8.846,7.644Zm-3.9-.5a5.476,5.476,0,0,0-3.342,1.1,5.224,5.224,0,0,0,3.342,3.224V9.028A1.958,1.958,0,0,1,6.182,7.287,6.641,6.641,0,0,0,4.947,7.144Zm3.9-3.023a1.251,1.251,0,0,0-.9.372,1.229,1.229,0,0,0-.359.883A1.255,1.255,0,1,0,8.846,4.121Zm-3.9-1.027A1.534,1.534,0,1,0,6.481,4.628,1.536,1.536,0,0,0,4.947,3.094Z" transform="translate(-0.333 -0.333)" fill="none"/>
+    </clipPath>
+  </defs>
+  <rect id="Rectangle_5557" data-name="Rectangle 5557" width="16" height="16" fill="none"/>
+  <g id="icon_action_supervised_user_circle_24px-2" data-name="icon/action/supervised_user_circle_24px" transform="translate(1.833 1.833)">
+    <path id="icon_action_supervised_user_circle_24px-3" data-name="icon/action/supervised_user_circle_24px" d="M6.5,13A6.5,6.5,0,1,1,13,6.5,6.507,6.507,0,0,1,6.5,13ZM8.846,7.644c-1,0-2.86.475-2.86,1.384v2.646A4.473,4.473,0,0,0,6.5,11.7a5.155,5.155,0,0,0,2.963-.93,5.227,5.227,0,0,0,1.88-2.378A4.657,4.657,0,0,0,8.846,7.644Zm-3.9-.5a5.476,5.476,0,0,0-3.342,1.1,5.224,5.224,0,0,0,3.342,3.224V9.028A1.958,1.958,0,0,1,6.182,7.287,6.641,6.641,0,0,0,4.947,7.144Zm3.9-3.023a1.251,1.251,0,0,0-.9.372,1.229,1.229,0,0,0-.359.883A1.255,1.255,0,1,0,8.846,4.121Zm-3.9-1.027A1.534,1.534,0,1,0,6.481,4.628,1.536,1.536,0,0,0,4.947,3.094Z" transform="translate(-0.333 -0.333)" fill="none"/>
+    <g id="Group_19535" data-name="Group 19535" transform="translate(0 0)" clip-path="url(#clip-path)">
+      <g id="_Color" data-name="↳ Color" transform="translate(-1.333 -1.333)">
+        <rect id="_Color_background" data-name="↳ Color background" width="16" height="16" transform="translate(0 0)" fill="#ccc"/>
+        <rect id="Rectangle" width="16" height="16" transform="translate(0 0)" fill="#ccc"/>
+      </g>
+    </g>
+  </g>
+</svg>

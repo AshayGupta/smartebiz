@@ -1,0 +1,58 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle" (headerOutput3)="goToWithdrawHistory($event)">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <form [formGroup]="applyPartialForm">
+    <div class="content-part ">
+      <div class="content-part-text">
+
+        <h1 class="subHeader-Wrap">Product : {{processPartialWithdrawalReq.policyName}} -
+          {{processPartialWithdrawalReq.policyNo}}
+        </h1>
+
+        <div class="step-sec">
+          <div class="col-3">
+            <img src="assets/imgs/Step%20One.png">
+          </div>
+          <div class="col-8">
+            <label class="col-3">step 1:</label>
+            <span class="col-9">how much loan do you want?</span>
+          </div>
+        </div>
+
+        <ion-row>
+          <div class="amountSec">
+            <div class="col-6">Maximum Amount</div>
+            <div class="col-6 pull-right">{{processPartialWithdrawalReq.netValue}} KSH</div>
+          </div>
+          <div class="amountSec">
+            <div class="col-6">Withdrawal Amount</div>
+            <div class="col-6 pull-right"><span class="loan-approved">{{processPartialWithdrawalReq.withdrawalAmount}}
+                KSH</span></div>
+          </div>
+          <div class="range-slider">
+            <ion-range [(ngModel)]="processPartialWithdrawalReq.withdrawalAmount" [ngModelOptions]="{standalone: true}" min="0"
+              [max]='processPartialWithdrawalReq.netValue || 0' [disabled]="processPartialWithdrawalReq.netValue" snaps="false" pin="true"
+              (ionChange)="rangeSlider($event)">
+            </ion-range>
+            <div *ngIf="(submitAttempt || applyPartialForm.controls.withdrawalAmount.touched) && applyPartialForm.controls.withdrawalAmount.errors">
+              <p class="error">{{applyPartialForm.controls.withdrawalAmount.errors?.partialAmount}}</p>
+            </div>
+          </div>
+        </ion-row>
+
+      </div>
+    </div>
+  </form>
+  <p>Testing</p>
+</ion-content>
+
+<ion-footer>
+  <p>Click ‘Proceed’ to select payout</p>
+  <!-- <button ion-button full text-uppercase [disabled]="true" class="m-0 submitBtn padd-0"
+    (click)="proceedClicked()">Proceed</button> -->
+    <button ion-button full text-uppercase class="m-0 submitBtn padd-0"
+    (click)="proceedClicked()">Proceed</button>
+</ion-footer>

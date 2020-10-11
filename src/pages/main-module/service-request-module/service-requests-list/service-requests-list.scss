@@ -1,0 +1,156 @@
+page-service-requests-list {
+  .scroll-content {
+    padding: 0 !important;
+  }
+
+  .service-req-body {
+    $font-size: 20px;
+    $primary-font-size: 14px;
+    $font-weight: bold;
+    $secondary-color: rgba(0, 0, 0, 0.54);
+    $font-family: poppins;
+    $primary-font-family: roboto;
+    $primary-color: #0077be;
+    $color: #e42215;
+    $float: right;
+    .grid,
+    ion-app.ios [padding] .scroll-content {
+      padding: 0;
+    }
+    .span-based {
+      color: $color;
+      font-family: $font-family;
+      font-weight: $font-weight;
+      font-size: $font-size;
+    }
+    .header-class {
+      font-family: $font-family;
+      font-weight: $font-weight;
+      font-size: $font-size;
+      color: $primary-color;
+      margin: 0;
+      padding-top: 5px;
+      padding-left: 20px;
+    }
+    .sp-p {
+      p {
+        font-size: 12px;
+        font-weight: 500;
+        font-family: roboto;
+        color: #909090;
+        margin-bottom: -10px;
+        letter-spacing: 1.88px;
+        padding-bottom: 3px;
+      }
+      .serial-num {
+        color: #0077be;
+        font-size: 16px;
+        font-family: roboto;
+        font-weight: 500;
+        letter-spacing: 0.49px;
+      }
+      .status-sec {
+        font-size: 14px;
+        color: #00000099;
+        font-weight: 600;
+        font-family: roboto;
+        letter-spacing: 0.11px;
+      }
+      .status-sec1 {
+        font-size: 14px;
+        color: #00000099;
+        font-weight: 200;
+        font-family: roboto;
+        letter-spacing: 0.11px;
+      }
+    }
+    .dt {
+      font-size: 14px;
+      color: $secondary-color;
+      font-family: $primary-font-family;
+      margin-bottom: 8px;
+    }
+    .mr-b {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      width: 100%;
+      padding: 10px 20px 10px 20px;
+    }
+    .st {
+      font-size: $primary-font-size;
+      color: $secondary-color;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .st-sp {
+      color: #5adc33;
+      float: $float;
+      font-weight: $font-weight;
+      font-family: $primary-font-family;
+    }
+    .st-sp1 {
+      color: $secondary-color;
+      float: $float;
+      font-weight: $font-weight;
+      font-family: $primary-font-family;
+    }
+    .dw {
+      float: $float;
+      color: #707070;
+    }
+    .cp-b {
+      border: 1px solid #707070;
+    }
+    p > span {
+      color: $primary-color;
+      font-size: 16px;
+      font-family: $primary-font-family;
+      font-weight: 300;
+    }
+    .p-f {
+      font-size: 16px;
+      font-family: $primary-font-family;
+      font-weight: 600;
+      color: #707070;
+      letter-spacing: 1px;
+    }
+
+    .bar-button-default-ios {
+      color: rgba(0, 0, 0, 0.54);
+    }
+
+    summary::-webkit-details-marker {
+      display: none;
+    }
+    details[open] {
+      .dw {
+        transform: rotate(180deg);
+        color: #0077be;
+      }
+    }
+    .col {
+      padding: 0px;
+    }
+  }
+
+  .service-terms {
+    border-bottom: 1px solid#00000029;
+    padding-bottom: 15px;
+    .service-history-detail {
+      padding: 0px 24px 15px 24px;
+    }
+  }
+
+  .add-btn {
+    background-color: #0077be;
+  }
+  button.view-btn {
+    background: #0077be;
+    margin-top: 16px;
+    padding: 7px 13px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #fff;
+    border-radius: 3px;
+}
+}

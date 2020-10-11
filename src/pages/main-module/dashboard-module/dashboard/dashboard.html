@@ -1,0 +1,81 @@
+<ion-header>
+  <app-header [headerImg]="headerImg"></app-header>
+</ion-header>
+
+<ion-content class="myview">
+  <ion-item no-lines>
+    <ion-col col-12>
+      <img src="assets/imgs/covered.png" alt="covered" />
+    </ion-col>
+  </ion-item>
+  <ion-item no-lines class="paplu">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-col col-2 class="mb_1">
+            <img src="assets/imgs/icon_one.png" alt="icon_one" />
+          </ion-col>
+          <ion-col col-10 class="mb_2">
+            <p class="style-para">Your products at a glance</p>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item no-lines class="paplu" (click)="gotoMyProduct('life')">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-col col-2 class="mb_1">
+            <img src="assets/imgs/icon_two.png" alt="icon_two" /><span [ngClass]="(dashboardResp.LIFECount=='0') ? 'circle gray' : 'circle_red'">{{dashboardResp.LIFECount}}</span>
+          </ion-col>
+          <ion-col col-10 class="mb_2">
+            <p class="style-para"> Protect My Family</p>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item no-lines class="paplu" (click)="gotoMyProduct('gi')">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-col col-2 class="mb_1">
+            <img src="assets/imgs/icon_three.png" alt="icon_three" /><span [ngClass]="(dashboardResp.GICount=='0') ? 'circle gray' : 'circle_red'">{{dashboardResp.GICount}}</span>
+          </ion-col>
+          <ion-col col-10 class="mb_2">
+            <p class="style-para">Insurance Plan</p>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item no-lines class="paplu" (click)="gotoMyProduct('pension')">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-col col-2 class="mb_1">
+            <img src="assets/imgs/icon_four.png" alt="icon_four" /><span [ngClass]="(dashboardResp.pension=='0') ? 'circle gray' : 'circle_red'">{{dashboardResp.pension}}</span>
+          </ion-col>
+          <ion-col col-10 class="mb_2">
+            <p class="style-para">Pension Plan</p>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+  <ion-item no-lines class="paplu" (click)="gotoMyProduct('amc')">
+    <ion-grid>
+      <ion-row>
+        <ion-col col-12>
+          <ion-col col-2 class="mb_1">
+            <img src="assets/imgs/icon_five.png" alt="icon_five" /><span [ngClass]="(dashboardResp.AMCCount=='0') ? 'circle gray' : 'circle_red'">{{dashboardResp.AMCCount}}</span>
+          </ion-col>
+          <ion-col col-10 class="mb_2">
+            <p class="style-para">Investments</p>
+          </ion-col>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-item>
+</ion-content>

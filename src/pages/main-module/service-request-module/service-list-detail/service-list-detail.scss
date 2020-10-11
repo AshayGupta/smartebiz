@@ -1,0 +1,103 @@
+page-service-list-detail {
+  .raise-req {
+    .raise-request-Wrap{
+        padding:8px;
+        h2{
+           color: #0088D2;
+            font-size: 24px;
+            font-family: poppins;
+            font-weight: 400;
+            margin-bottom: 24px;
+            letter-spacing: 0;
+            opacity: 1;
+            text-transform: capitalize;
+        }
+      .confirmation-details{
+          padding:0;
+          .ticket-num{
+              color:#E32313;
+              font-size:18px;
+              font-family:poppins;
+              font-weight:500;
+              display: flex;
+              margin-top: 20px;
+              .ionic-icons{
+                position: relative;
+                top: -6px;
+                padding: 0;
+                font-size: 12px;
+                left: 20px;
+              }
+              .ticketNum{
+                width:75%;
+                font-size: 18px;
+                font-family: poppins;
+                font-weight: 500;
+                letter-spacing: 0;
+              }
+              .edit-icon{
+                color:#0088D2
+              }
+              .trash-icon{
+                color:#E32313;
+                padding:0;
+                ion-icon{
+                  padding-left:10px;
+                }
+              }
+          }
+          .txt1{
+            margin-bottom:0px;
+            text-transform: capitalize;
+          }
+          .sub-label{
+            margin-top: 0;
+            font-size: 13px;
+            font-family: roboto;
+            font-weight: 400;
+            color: #454545;
+            text-transform: capitalize;
+            letter-spacing: 0.12px;
+          }
+      }
+    }
+
+  }
+
+.submit{
+  button{
+    background: #0077be;
+    color: #ffffff;
+    width: 100%;
+    height: 48px;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    letter-spacing: 1.25px;
+  }
+}
+  .raise-request-Wrap{
+    tr{
+      border-bottom: solid 1px #bdbdbd;
+      color: gray;
+      &:last-child{
+        border-bottom: 0;
+      }
+      td{
+        padding: 10px 10px;
+      &:last-child{
+        word-break: break-all;
+      }
+        &:first-child{
+          padding-right: 15px !important;
+        }
+      }
+    }
+    .upper-highlight{
+      background: #f1f1f1;
+      tr:last-child{
+        border-bottom: solid 1px #bdbdbd;
+      }
+    }
+  }
+}

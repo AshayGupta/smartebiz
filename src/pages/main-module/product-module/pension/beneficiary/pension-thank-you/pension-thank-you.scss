@@ -1,0 +1,88 @@
+page-pension-thank-you {
+    h3{
+        text-align: center;
+        font-weight: bold;
+        font-size: 19px;
+        color: #087BC0;
+        font-family: poppins;
+    }
+    h2{
+        margin-top: 45px;
+        font-weight: normal;
+        font-size: 20px;
+        color: #087BC0;
+        letter-spacing: 1px;
+    }
+    .container {
+        box-shadow: 0px 1px 3px #00000033;
+        border-radius: 4px;
+        padding: 50px 24px 24px 24px;
+        color: #707070;
+        background: #fff;
+        min-height: calc(100vh - 115px);
+    }
+    .policy, .ticket{
+        font-size: 18px;
+        margin-bottom: 15px;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .policy>span:first-child,.ticket>span:first-child{
+        font-weight: 500;
+        white-space: nowrap;
+        margin-right: 7px;
+    }
+    ion-content{
+        position: relative;
+        background-image: none;
+    }
+    ion-content:before {
+        background-image: url(../../../../assets/imgs/succesfull-background.svg);
+        /* background-position: -29px 109px; */
+        background-repeat: no-repeat;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        content: '';
+        opacity: 0.05;
+        transform: rotate(-29deg);
+        background-size: contain;
+        left: -20px;
+        top: 151px;
+        z-index: 2;
+    }
+    .policy-tick-wrapper {
+        margin-top: 30px;
+    }
+    p{
+        font-size: 16px;
+        margin-top: 8px;
+    }
+    .red{
+        color: red;
+    }
+    ion-footer{
+        height: 48px;
+        background: #0077be;
+        display: flex;
+        align-items: center;
+    }
+    ion-footer .toolbar-background{
+        background: #0077BE !important;
+    }
+    ion-footer .toolbar-title{
+        font-size: 14px;
+        letter-spacing: 1.25px;
+        color: #fff;
+        font-weight: normal;
+    }
+    ion-title{
+        padding: 0 !important;
+    }
+    ion-footer button{
+        background: #0d7ec1 !important;
+        color: #fff !important;
+    }
+}

@@ -1,0 +1,89 @@
+<ion-header>
+	<app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content>
+	<div class="content-sec">
+		<h1 class="m-top">Hey!</h1>
+	</div>
+	<form class="form-section" [formGroup]="signupForm"
+		(ngSubmit)="signupForm.valid ? nextClicked() : submitAttempt = true ">
+		<div class="identity-wrap">
+			<p>How would you like to be identified ?</p>
+			<ion-row>
+				<ion-col col-12>
+					<div class="form-sec">
+						<ul>
+							<li>
+								<input type="radio" id="f-option" value="nationalId" formControlName="idOptions"
+									[(ngModel)]="signupData.idOptionKey" (change)="onRadioSelect('nationalId')">
+								<label for="f-option">National ID</label>
+
+								<div class="check"></div> 
+							</li> 
+							<!-- <li> 
+								<input type="radio" id="s-option" value="PASSPORT" formControlName="idOptions"
+									[(ngModel)]="signupData.idOptionKey" (change)="onRadioSelect('PASSPORT')">
+								<label for="s-option">Passport</label>
+
+								<div class="check">
+									<div class="inside"></div>
+								</div>
+							</li> -->
+						</ul>
+					</div>
+				</ion-col>
+			</ion-row>
+		</div>
+
+		<div class="input-field">
+			<div class="icon-input-field">
+				<div class="icon-input-field input_ty1 input-icon">
+					<ion-item no-lines class="p_0">
+						<ion-label floating>
+							<ion-icon name="md-contact"></ion-icon> {{idText}}
+						</ion-label>
+						<ion-input type="text" formControlName="idValue"
+							[(ngModel)]="signupData.idValue"></ion-input>
+					</ion-item>
+				</div>
+			</div>
+		</div>
+		<div *ngIf="(submitAttempt || signupForm.controls.idValue.touched ) && signupForm.controls.idValue.errors">
+			<p class="error">Please enter valid details</p>
+		</div>
+
+		<div class="ion-identy">
+			<p class="font m-top-2">Why do I need to provide my identifications details?</p>
+			<div class="customCheckbox">
+				<div class="input-container">
+					<input type="checkbox" formControlName="checkAgreement" [(ngModel)]="signupData.checkAgreement" />
+					<label for="customCheckboxInput"></label>
+				</div>
+				<div class="access-agreement"><span class="ackTxt">I have read and I acknowledge the</span>
+				 <span class="color-span" (click)="openAgreement()">online access agreement.</span></div>
+			</div>
+		</div>
+		<div *ngIf="(submitAttempt || signupForm.controls.checkAgreement.touched ) && signupForm.controls.checkAgreement.errors">
+			<p class="error">Please check agreement</p>
+		</div>
+
+		<ion-row>
+			<ion-col col-12 class="padd-0">
+				<button type="submit" id="NextBtn" ion-button block>Next</button>
+			</ion-col>
+		</ion-row>
+	</form>
+
+</ion-content>
+
+<ion-footer>
+  <div class="copywrite-sec">
+    <p class="reserved-para">Britam© 2020. All Rights Reserved</p>
+    <p class="terms-condition-wrap">
+		<span (click)="openTnC()">
+		  Terms and Conditions
+		</span> | <span (click)="openPrivacyPolicy()">Privacy Policy</span>
+	  </p>
+  </div>
+</ion-footer>  

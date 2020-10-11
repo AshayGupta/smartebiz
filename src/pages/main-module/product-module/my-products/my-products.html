@@ -1,0 +1,35 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content>
+  <!-- Page Segment -->
+  <page-segments [segmentInput]="products" [selectedSegmentName]="selectedSegmentName" (segmentOutput)="segmentToSelect($event)"></page-segments>
+
+  <!-- Can’t see your policy? -->
+  <ion-card *ngIf="hasListData && (!accountsList || accountsList.length==0)" style="background:#0077BE;">
+    <div>
+      <div text-center>
+          <p (click)="requestCallBack()" style="margin:15px; color:#ffffff;  font-size:15px;">Can't see your account?</p>
+      </div>
+    </div>
+  </ion-card>
+  <!-- Coming Soon -->
+  <div *ngIf="selectedTag == 'AMC' && accountsList && accountsList.length>0" text-center style="text-align: center !important; width:100%">
+    <p style="color: #000; margin:15px; font-size:15px; font-weight: bold">Coming Soon: Wealth Management Products</p>
+  </div>
+
+  <!-- My Product Screen -->
+  <page-my-product-screen [inputData]="accountsList" [selectedTag]="selectedTag" (outputData)="goToAccountDetails($event)"></page-my-product-screen>
+</ion-content>
+
+<ion-footer *ngIf="fromPayNow">
+  <ion-row>
+    <ion-col col-12 class="padd-0">
+      <button ion-button full text-uppercase [disabled]="paymentListCount == 0" class="m-0 submitBtn padd-0"
+        (click)="payNowClicked()">
+        Pay Now
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

@@ -1,0 +1,160 @@
+page-apply-loan {
+  .content-part {
+    padding: 8px;
+  }
+     .head-cascading{
+      width:80% ! important;
+      float:left;
+    }
+  .content-part-text{margin-top:0px ! important}
+  .loan-product {
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #0077be;
+        margin-left:-20px;
+  }
+  .float-right {
+    float: right;
+  }
+  .range-slider {
+    margin: -10px 0 10px 0;
+  }
+  .range-md .range-knob-min.range-knob-min .range-knob {
+    border: 2px solid #0077be;
+    background: #0077be;
+  }
+  .range-md .range-knob,
+  .range-ios .range-knob {
+    width: 16px;
+    height: 16px;
+    top: 12px;
+    background: #0077be;
+  }
+  .range-bar{
+    height: 2px ! important;
+    background: #0077BE ! important;
+    opacity: 0.3 ! important;
+  }
+  .range-ios{
+        padding: 17px 0px 10px 17px;
+  }
+  .step-sec {
+    display: flex;
+    margin-bottom: 10px;
+    .col-3 {
+      margin: 0px 16px 10px 0;
+    }
+    .col-8 {
+      padding-top: 10px;
+    }
+    label {
+      color:#0077be;
+      text-transform:capitalize;
+      font-family:inherit;
+      font-size:16px;
+      padding-right:5px;
+      font-weight: 300;
+      letter-spacing: 0.26px;
+    }
+    span {
+        color: #707070;
+          font-size: 13px;
+          text-transform: capitalize;
+          font-weight: 300;
+          font-family: roboto;
+          letter-spacing: 0.26px;
+    }
+  }
+  .amountSec {
+    width: 100%;
+  }
+  .amountSec ion-select{
+    width:100%;
+    border:1px solid #cccccc;
+    border-radius:4px;
+    padding: 5px 10px;
+    font-size: 13px;
+    margin:5px 0 0px 0;
+    max-width:100%;
+    height: 32px;
+    font-family: roboto;
+    font-weight: 500;
+    letter-spacing: 0.12px;
+  }
+  .amountSec .col-6 {
+    width: 50%;
+    float: left;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 500;
+    color: #707070;
+    padding-bottom: 15px;
+    letter-spacing: 0.24px;
+  }
+  .amountSec .col-12 {
+    width: 100%;
+    float: left;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 500;
+    color: #707070;
+    position:relative;
+    padding-bottom: 5px;
+  }
+  .amountSec .col-12 select {
+    width: 100%;
+    height: 32px;
+    background: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid#ccc;
+  }
+  .amountSec .pull-right {
+    text-align: right;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #0077be;
+    letter-spacing: 0.009px;
+  }
+  .submitBtn { 
+    background: #0077be;
+    font-size: 14px;
+    font-family: roboto;
+    font-weight: 400;
+    color: #ffffff;
+    text-transform: uppercase;
+    height: 48px;
+    border-radius: 0;
+    margin: 0;
+    letter-spacing: 1.25px;
+  }
+  .select-text{
+    padding-top:4px;
+  }
+  .loan-approved {
+    color: #39D50A !important;
+    input{
+      margin:0;
+      text-align:right;
+      font-family:roboto;
+      font-size:14px;
+      color:#39D50A;
+      font-weight:500;
+      letter-spacing: 0.09px;
+    }
+  }
+    ion-footer{
+      p{  
+        font-size: 14px;
+        font-family: Roboto;
+        font-weight: 500;
+        letter-spacing: 0.18px;
+        color: rgba(69, 69, 69, 0.8);
+        opacity: 1;
+        text-align: center;
+        margin-bottom: 17px;
+      }
+    }
+}

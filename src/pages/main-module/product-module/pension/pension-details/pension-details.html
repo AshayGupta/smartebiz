@@ -1,0 +1,220 @@
+<ion-header>
+    <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+
+<ion-content class="basic-details">
+
+    <div *ngFor="let input of pensionDetailProduct.segmentList">
+        <h3>
+            {{input.name}}
+        </h3>
+
+        <ion-grid>
+            <!-- List -->
+            <div *ngIf="pensionDetailProduct.detailObjs[input.selectedTag].isList">
+                <!-- <ion-row>
+                    <ion-col *ngFor="let item of pensionDetailProduct.detailObjs[input.selectedTag].detail; let i=index"
+                        col-12 class="basic-left">
+                        <ion-row *ngIf="i%2 == 0">
+                            <ion-col col-6>
+                                <label class="product-listing">{{item.caption.en}} :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{item.value}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row *ngIf="i%2 == 1">
+                            <ion-col col-6>
+                                <label class="product-listing">{{item.caption.en}} :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{item.value}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row> -->
+                <ion-row>
+                    <ion-col col-12 class="basic-left">
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">First Name :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.first_name}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Middle Name :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.other_names}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col col-12 class="basic-left">
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Last Name :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.sur_name}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">DOB :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.dob | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col col-12 class="basic-left">
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Gender :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.gender}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Retirement Age :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.retirementAge}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Account Number :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{policyData.accountNumber}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Benefit Type :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{policyData.productName}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Account Status :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.membership_status}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col col-12 class="basic-left">
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Scheme Name :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.scheme_name}}</span>
+                            </ion-col>
+                        </ion-row>
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Last Contribution Date :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.last_date_paid | date: 'dd-MMM-yyyy' | uppercase}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                    <ion-col col-12 class="basic-left">
+                        <ion-row>
+                            <ion-col col-6>
+                                <label class="product-listing">Last Contribution Amount :</label>
+                            </ion-col>
+                            <ion-col col-6>
+                                <span class="product-Detail">{{pensionDetailsResp.pensionDetailsObj.last_amount_paid}}</span>
+                            </ion-col>
+                        </ion-row>
+                    </ion-col>
+                </ion-row>
+            </div>
+        </ion-grid>
+    </div>
+
+
+    <!-- Beneficiary Table-->
+    <div class="table-container" *ngIf="beneficiaries.length > 0">
+        <h3>Beneficiary Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Middle Name</td>
+                    <td>Last Name</td>
+                    <td>Relationship</td>
+                    <td>Date of Birth</td>
+                    <td>Gender</td>
+                    <td>Document Type</td>
+                    <td>Document Number</td>
+                    <td>Percentage</td>
+                    <td>Mobile No</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of beneficiaries">
+                    <td>{{item.beneficiary.firstName}}</td>
+                    <td>{{item.beneficiary.middleName}}</td>
+                    <td>{{item.beneficiary.surname}}</td>
+                    <td>{{item.beneficiary.relationship}}</td>
+                    <td>{{item.beneficiary.dob | date: 'dd-MMM-yyyy' | uppercase}}</td>
+                    <td>{{item.beneficiary.gender}}</td>
+                    <td></td>
+                    <td></td>
+                    <td>{{item.beneficiary.lumpsumEntitlement}}</td>
+                    <td>{{item.beneficiary.mobile}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    
+    <!-- Nominee Table -->
+    <div class="table-container" *ngIf="beneficiaries.length > 0">
+        <h3>Nominee Details</h3>
+        <table>
+            <thead>
+                <tr>
+                    <td>First Name</td>
+                    <td>Middle Name</td>
+                    <td>Last Name</td>
+                    <td>Relationship</td>
+                    <td>Date of Birth</td>
+                    <td>Percentage</td>
+                    <td>Mobile No</td>
+                    <td>Beneficiary Name</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of beneficiaries; let i = index">
+                    <ng-container *ngIf="item.nominee.firstName != ''">
+                        <td>{{item.nominee.firstName}}</td>
+                        <td>{{item.nominee.middleName}}</td>
+                        <td>{{item.nominee.surname}}</td>
+                        <td>{{item.nominee.relationshipType}}</td>
+                        <td>{{item.nominee.dob | date: 'dd-MMM-yyyy' | uppercase}}</td>
+                        <td>{{item.nominee.lumpsumEntitlement}}</td>
+                        <td>{{item.nominee.mobile}}</td>
+                        <td>{{item.beneficiary.firstName}}</td>
+                    </ng-container>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+</ion-content>

@@ -1,0 +1,365 @@
+page-bank-details {
+  font-family: "Open Sans", sans-serif;
+
+  .add-new-top ion-label {
+    display: flex;
+    align-items: center;
+  }
+  .add-new-top span:nth-of-type(1) {
+    font-size: 16px;
+    letter-spacing: 0.53px;
+    font-weight: 500;
+    color: #0077be;
+    margin-left: 17px;
+    text-transform: capitalize;
+  }
+  .add-new-top span:nth-of-type(2) {
+    color: #707070;
+    font-size: 13px;
+    letter-spacing: 0.26px;
+    font-weight: 300;
+    margin-left: 5px;
+    text-transform: capitalize;
+  }
+  .container {
+    padding: 0 15px;
+  }
+  form {
+    .input-wrapper {
+      display: block;
+    }
+    ion-select {
+      padding: 9px 16px !important;
+      width: 100%;
+      margin: 0;
+      max-width: 100%;
+      border: 1px solid #d6d6d6;
+      border-radius: 4px;
+      height: 32px;
+      font-size: 13px;
+      color: #0077be;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 4px;
+      height: 40px;
+    }
+    .label {
+      text-transform: capitalize;
+      letter-spacing: 0.13px;
+      margin-bottom: 9px !important;
+      font-size: 14px !important;
+      color: #0077be;
+      font-weight: normal;
+    }
+    .item-inner {
+      padding: 0 !important;
+    }
+    ion-item {
+      margin-top: 14px !important;
+    }
+    .item-input ion-input {
+      border-bottom: solid 1px #cccccc;
+      color: #627687;
+      font-size: 13px;
+      padding-left: 16px;
+    }
+  }
+  .proceed-text {
+    font-size: 16px;
+    text-align: center;
+    color: #454545de;
+    margin-top: -10px;
+    margin-bottom: 5px;
+  }
+  // .toolbar-background{
+  //   background: #0077BE;
+  //   height: 48px;
+  // }
+  .toolbar-title {
+    color: #fff !important;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+  }
+  .add-new-head {
+    font-size: 14px;
+    letter-spacing: 0.24px;
+    color: #0077be;
+    font-weight: 500;
+    padding: 16px 25px;
+    box-shadow: 0px 1px 3px #00000029;
+  }
+  ion-option[disabled] {
+    color: gray;
+  }
+  .button {
+    color: white;
+    background-color: #0077be;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    height: 42px;
+    width: 70%;
+    margin: 0 auto;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 8px;
+    margin-top: 32px;
+  }
+  input#benef-file {
+    display: none;
+  }
+  .add-ben-wrapper .label {
+    display: block;
+    margin-top: 0;
+    letter-spacing: 0;
+  }
+  .add-ben-wrapper .label {
+    display: block;
+  }
+  .add-ben-wrapper label[for="benef-file"] {
+    border: solid 2px #4ec3f8;
+    padding: 6px 20px;
+    border-radius: 5px;
+    margin-top: 9px;
+    color: #00a9f5;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    padding: 7px 29px;
+    font-weight: 500;
+  }
+  h3.bank-detail-head {
+    color: #006699;
+    font-size: 30px;
+    letter-spacing: 0.18px;
+  }
+  .bank-details-btn {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    border: 2px solid #e1f5fe;
+    border-radius: 23px;
+    color: #00a9f5;
+    letter-spacing: 1.25px;
+    background: url(../../../assets/imgs/pdf.svg);
+    background-repeat: no-repeat;
+    background-position: 97% 8px;
+  }
+  .bank-detail-head + p {
+    letter-spacing: 0.4px;
+    color: #657d95;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+  }
+  h3.bank-detail-head {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0.18px;
+    color: #006699;
+  }
+  ul.state-line {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+    padding: 0;
+    height: 30px;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-top: 34px;
+    .active-circle:before {
+      width: 6px;
+      height: 6px;
+      top: -4px;
+      border: 3px #0077be solid;
+    }
+    .active-line {
+      background: #0077be !important;
+    }
+    > li:last-child {
+      width: 10%;
+      flex-grow: 0;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      background: #0077be;
+      width: 10%;
+      top: 0px;
+      left: -10%;
+      height: 4px;
+    }
+    li.done-circle:before {
+      border: 2px solid #0077be;
+    }
+    .active-text {
+      color: #0077be;
+    }
+  }
+  ul.state-line li {
+    position: relative;
+    list-style: none;
+    flex-grow: 1;
+    background: #e1f5fe;
+    height: 4px;
+    span {
+      font-size: 9px;
+      position: absolute;
+      top: 15px;
+      font-family: roboto;
+      color: #a4b2be;
+      text-align: center;
+      margin-left: -2px;
+      text-transform: capitalize;
+    }
+  }
+  ul.state-line > li:before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #b2e5fc;
+    top: -2px;
+    background: #e1f5fe;
+    z-index: 1;
+  }
+  ul.state-line li:nth-child(1) span {
+    left: -12px;
+  }
+  ul.state-line li:nth-child(2) span {
+    left: -6px;
+  }
+  ul.state-line li:nth-child(3) span {
+    left: -17px;
+  }
+  ul.state-line li:nth-child(4) span {
+    left: -9px;
+  }
+  ul.state-line li:nth-child(5) span {
+    left: -12px;
+  }
+  ul.state-line li:nth-child(6) span {
+    left: -14px;
+  }
+  ul.state-line-inner {
+    display: flex;
+    padding: 0;
+  }
+  .how-are-head {
+    font-family: poppins;
+    font-weight: bold;
+    font-size: 20px;
+    color: #0077be;
+    margin-bottom: 4px;
+    margin-top: 34px !important;
+  }
+  .how-are-head + div {
+    letter-spacing: 0;
+    color: #657d95;
+    font-size: 16px;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 300;
+  }
+  .bank-details-inner-wrapper {
+    padding: 0;
+  }
+  .proof-head {
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #627687;
+    margin-top: 42px;
+    margin-bottom: 16px;
+  }
+  .italic-text {
+    font-style: italic;
+    font-size: 12px;
+    line-height: 17px;
+    color: #627687;
+    margin-top: 42px;
+    margin-bottom: 16px;
+  }
+  label[for="benef-file"] {
+    width: 180px;
+    height: 36px;
+    border: 2px solid #4ec3f8;
+    display: inline-block;
+    display: flex;
+    align-items: center;
+    letter-spacing: 1.25px;
+    color: #00a9f5;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 8px;
+  }
+  label[for="benef-file"] {
+    background: url(../../../assets/imgs/upload-icon.png);
+    background-repeat: no-repeat;
+    background-size: 23px;
+    padding-left: 41px;
+    background-position: 13px 3px;
+  }
+  form {
+    margin-top: 24px;
+  }
+  .text-input::-moz-placeholder,
+  .select::-moz-placeholder {
+    color: #a4b2be;
+    font-weight: 300;
+  }
+
+  .text-input:-ms-input-placeholder,
+  .select:-ms-input-placeholder {
+    color: #a4b2be;
+    font-weight: 300;
+  }
+
+  .text-input::-webkit-input-placeholder,
+  .select::-webkit-input-placeholder {
+    color: #a4b2be;
+    font-weight: 300;
+  }
+  button.proceed {
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #cfd9e2;
+    margin-top: 16px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    height: 42px;
+    margin-bottom: 16px;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+  }
+  .scroll-content {
+    margin-bottom: 75px !important;
+  }
+  button.proceed.active {
+    background: #0077be;
+  }
+  // .mask-text {
+  //   -webkit-text-security: disc;
+  //   -moz-webkit-text-security: disc;
+  //   -moz-text-security: disc;
+  // }
+  .upload-file-name p {
+    margin-top: 10px;
+    color: #00a9f5 !important;
+  }
+  .file-size {
+    margin-top: 6px;
+    color: red;
+    font-size: 11px;
+    text-transform: none;
+  }
+}

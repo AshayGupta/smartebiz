@@ -1,0 +1,68 @@
+<ion-header >
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+
+<ion-content class="otp-wrapper padd-8" padding>
+  <h1 class="subHeader-Wrap">{{subTitle}}</h1>
+  <div class="enter-otp">
+    <h1 *ngIf="isSignupFlow">Enter OTP</h1>
+    <div class="step-sec" *ngIf="!isSignupFlow">
+      <div class="col-3">
+        <!-- <img src="assets/imgs/Step%20One.png"> -->
+        <img src="{{stepUrl}}">
+      </div>
+      <div class="col-8">
+        <label>step {{stepCount}}:</label>
+        <!-- <label>step 1:</label> -->
+        <span>Verify OTP</span>
+      </div>
+    </div>
+
+    <!-- <p class="customer-otp"><b>Dear Customer Please Enter OTP</b><br/>
+     Check your registered <span class="Email">Email ID <span class="col-green">{{email | emailMasking}}</span> </span> or
+      <span class="phone-no"> Phone <span class="col-green">{{mobile | mobileMasking}} </span></span> for the OTP.
+    </p> -->
+
+    <p class="customer-otp"><b>Dear Customer, Please check your registered email ID or Phone <span>{{mobile | mobileMasking}} </span> for the OTP and enter it below</b><br/>
+       <!-- <span class="phone-no"> Please enter the code below </span> -->
+     </p>
+
+  </div>
+
+  <form class="main-form otp-num" [formGroup]="otpForm">
+    <!-- <input class="form-control" placeholder="X" maxlength="1" /> -->
+    <!-- <input type="tel" maxlength="4" class="form-control" id="partitioned" name="sendotp" value=""  /> -->
+
+    <!-- <ion-input type="tel" [ngClass]="{'bot-red' : invalidotp === true }" class="border-light " text-center
+      formControlName="otp" (focus)="selectALL2($event,3)" maxlength="1" #mobOtp4
+      (keyup)="onKeyUp2($event,$event.target.value,4)" [disabled]="validateicon">
+    </ion-input> -->
+
+    <div id="divOuter">
+      <div id="divInner">
+        <input id="partitioned" type="tel" maxlength="6" placeholder="X" formControlName="otp"
+          [(ngModel)]="verifyOtpReq.otp" />
+      </div>
+    </div>
+    <div *ngIf="(submitAttempt || otpForm.controls.otp.touched) && otpForm.controls.otp.errors">
+			<p class="error">Please enter 6 digits otp</p>
+    </div>
+
+    <div class="otp-excute col-12">
+      <div class="expire-otp col-6">OTP expires in<span>{{resendOtpTxt | formatTime}}</span></div>
+      <button class="resend-otp col-6" [disabled]="resendOtpTxt != 0" (click)="resendOtp()">Resend OTP</button>
+    </div>
+  </form>
+
+  <span *ngIf="!isProdEnv">{{otpTxt}}</span>
+
+</ion-content>
+
+<ion-footer>
+  <ion-row>
+    <ion-col col-12 class="padd-0">
+      <button type="submit" id="submitBtn" ion-button block (click)="otpForm.valid ? clickSubmit() : submitAttempt = true">submit</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

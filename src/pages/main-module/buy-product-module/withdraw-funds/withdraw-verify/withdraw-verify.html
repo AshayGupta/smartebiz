@@ -1,0 +1,129 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="container">
+    <div class="verify-loan">
+      <h1 class="subHeader-Wrap">Account Number : {{withdrawReq.accountNumber}}</h1>
+      <div class="step-sec">
+        <div class="col-3">
+          <img src="assets/imgs/Group%2019341.png">
+        </div>
+        <div class="col-8">
+          <label>step 3 :</label>
+          <span>Verify Application</span>
+        </div>
+      </div>
+
+
+      <div class="loan-applica">
+        <div class="loan-text">Partial Withdraw</div>
+        <div class="icon">
+          <button ion-button (click)="editClicked()">
+            <img src="assets/imgs/edit%20icon.svg">
+          </button>
+          <button ion-button (click)="deleteClicked()">
+            <img src="assets/imgs/delete.svg">
+          </button>
+        </div>
+      </div>
+
+      <div class="total-with">
+        <p>Total Withdrawal Amount:</p>
+        <p>KES {{withdrawReq.amount | number}}</p>
+      </div>
+      <section>
+        <div class="head">
+          Fund Details
+        </div>
+        <div class="two-sec" *ngFor="let fund of withdrawReq.postedAmount; let i=index;">
+          <p><span>{{i+1}}. </span> {{fund.fundName}}</p>
+          <p>KES {{fund.amount | number}}</p>
+        </div>
+      </section>
+
+      <section class="ded-sec">
+        <details>
+          <summary>
+        <div class="head">
+          <p>Deductions</p>
+          <p>KES {{withdrawReq.totalCharges | number}}</p>
+        </div>
+        </summary>
+        <div class="fund-dec-container">
+          <div class="fund-ded-wrapper" *ngFor="let fund of withdrawReq.postedAmount;let i=index;">
+            <div class="two-sec fund-ded">
+              <p><span>{{i+1}}.</span><span>{{fund.fundName}}</span></p>
+              <p>KES {{fund.totalDeduction}}</p>
+            </div>
+            <div class="fund-ded-detail">
+              <div class="two-sec">
+                <p><span>1.</span><span>Double Withdrawal Charge</span></p>
+                <p>KES {{fund.deduction.doubleWithdrawalCharge | number}}</p>
+              </div>
+              <!-- <div class="two-sec">
+                <p>2. Initail Fees</p>
+                <p>KES {{tranChrge.initialFees | number}}</p>
+              </div> -->
+              <div class="two-sec">
+                <p>2. Fund Transfer Charge</p>
+                <p>KES {{fund.deduction.fundTransfer | number}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </details>
+      </section>
+      <section class="bank-sec" *ngIf="withdrawReq.paymentMode == 'BANK'">
+        <div class="head">
+          Bank Details
+        </div>
+        <ion-item>
+          <ion-label color="primary" stacked>Bank</ion-label>
+          <ion-input type="text" placeholder="Enter Bank" value="{{withdrawReq.bankName}}" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Account No.</ion-label>
+          <ion-input type="text" placeholder="Enter Account No." value="{{withdrawReq.bankAccNo}}" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Branch</ion-label>
+          <ion-input type="text" placeholder="Enter Branch" value="{{withdrawReq.bankBranch}}" disabled></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Account Holder Name</ion-label>
+          <ion-input type="text" placeholder="Enter Branch" value="{{withdrawReq.accountName}}" disabled></ion-input>
+        </ion-item>
+
+      </section>
+
+
+
+      <section class="m-pesa" *ngIf="withdrawReq.paymentMode == 'MPESA'">
+        <p>M-PESA</p>
+        <p>Mobile Number</p>
+        <p>{{withdrawReq.PhoneNumber}}</p>
+        <p>*M-PESA withdrawal charges will be applicable</p>
+      </section>
+    </div>
+    <div class="terms-condition">
+      <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+      <label for="payment-checkbox">
+        <!-- <ion-icon name="checkmark"></ion-icon> -->
+        <img src="../../../assets/imgs/checkmark.svg">
+      </label>
+      <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+    </div>
+    <div *ngIf="!tnc.checked" class="error-div">
+      <p class="error">Select checkbox to continue</p>
+    </div>
+
+  </div>
+</ion-content>
+
+<ion-footer>
+  <p class="proceed-text">Click ‘Proceed’ to Verify application</p>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0" (click)="proceedClicked()">Proceed</button>
+</ion-footer>

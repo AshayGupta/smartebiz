@@ -1,0 +1,6 @@
+target=android-28
+android.library.reference.1=CordovaLib
+storePassword=britamia
+keyPassword=britamia
+keyAlias=britam
+storeFile=../../resources/android-release-key.jks

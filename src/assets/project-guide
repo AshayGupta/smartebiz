@@ -1,0 +1,143 @@
+IONIC INFO:-
+
+Ionic:
+
+   Ionic CLI          : 5.2.3 (/usr/local/lib/node_modules/ionic)
+   Ionic Framework    : ionic-angular 3.9.5
+   @ionic/app-scripts : 3.2.2
+
+Cordova:
+
+   Cordova CLI       : 8.1.2 (cordova-lib@8.1.1)
+   Cordova Platforms : android 7.1.4, ios 4.5.5
+   Cordova Plugins   : cordova-plugin-ionic-keyboard 2.2.0, cordova-plugin-ionic-webview 4.1.1, (and 5 other plugins)
+
+Utility:
+
+   cordova-res : 0.6.0
+   native-run  : 0.2.8
+
+System:
+
+   ios-deploy : 1.9.4
+   NodeJS     : v10.14.1 (/usr/local/bin/node)
+   npm        : 6.9.0
+   OS         : macOS Mojave
+   Xcode      : Xcode 9.4.1 Build version 9F2000
+
+
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+PLUGIN'S LIST:-
+
+//---- Screen Orientation ----//
+$ ionic cordova plugin add cordova-plugin-screen-orientation
+$ npm install --save @ionic-native/screen-orientation@4
+
+//---- call-number ----//
+$ ionic cordova plugin add call-number
+$ npm install --save @ionic-native/call-number@4
+
+//---- statusbar ----//
+$ ionic cordova plugin add cordova-plugin-statusbar
+$ npm install --save @ionic-native/status-bar@4
+
+//---- inappbrowser ----//
+$ ionic cordova plugin add cordova-plugin-inappbrowser
+$ npm install --save @ionic-native/in-app-browser@4
+
+// ---  Device plugimn ---//
+ionic cordova plugin add cordova-plugin-device
+npm install @ionic-native/device@4 
+ 
+//---- google-map ----//
+Step 1: 
+   (remove plugin if exist from config.xml and package.json)
+   ionic cordova platform remove ios
+   ionic cordova platform add ios@latest
+Step 2:
+   $ cordova plugin add cordova-plugin-googlemaps --variable API_KEY_FOR_ANDROID="..." --variable API_KEY_FOR_IOS="..."
+   $ npm install --save @ionic-native/google-maps@4.8.2
+Step 3:
+   <preference name="GOOGLE_MAPS_IOS_API_KEY" value="AIzaSyBxcm8s2LPxlRhQgDYCuondz3JTdNW4Vns" />
+   <plugin name="cordova-plugin-googlemaps" spec="^2.6.2">
+      <variable name="API_KEY_FOR_ANDROID" value="AIzaSyBxcm8s2LPxlRhQgDYCuondz3JTdNW4Vns" />
+      <variable name="API_KEY_FOR_IOS" value="AIzaSyBxcm8s2LPxlRhQgDYCuondz3JTdNW4Vns" />
+      <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
+      <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+      <variable name="LOCATION_WHEN_IN_USE_DESCRIPTION" value="This app wants to get your location while this app runs only." />
+      <variable name="LOCATION_ALWAYS_USAGE_DESCRIPTION" value="This app wants to get your location always, even this app runs in background." />
+   </plugin>
+
+
+//---- camera ----//
+$ ionic cordova plugin add cordova-plugin-camera
+$ npm install --save @ionic-native/camera@4
+
+// ---  base64 ---//
+$ ionic cordova plugin add com-badrit-base64
+$ npm install --save @ionic-native/base64@4
+
+// ---  chart ---//
+$ npm install --save chart.js 
+
+// -- Firbase Analytics -- //
+$ ionic cordova plugin add cordova-plugin-firebase-analytics@1.1.1
+$ npm install --save @ionic-native/firebase-analytics@4 
+ 
+// --- Google analytics --- //
+$ ionic cordova plugin add cordova-plugin-google-analytics
+$ npm install --save @ionic-native/google-analytics@4
+ 
+// --- File Transfer --- //
+$ ionic cordova plugin add cordova-plugin-file-transfer
+$ npm install --save @ionic-native/file-transfer@4
+
+// --- File Chooser Android --- //
+$ ionic cordova plugin add cordova-plugin-filechooser
+$ npm install --save @ionic-native/file-chooser@4
+
+// --- File Picker IOS --- //
+$ ionic cordova plugin add cordova-plugin-filepicker
+$ npm install --save @ionic-native/file-picker@4
+
+// --- File --- //
+$ ionic cordova plugin add cordova-plugin-file
+$ npm install --save @ionic-native/file@4
+
+// --- jquery --- //
+$ npm install jquery --save
+$ npm install -g typings
+$ typings install dt~jquery --global --save
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+IONIC COMMANDS
+
+-  ionic serve
+-  ionic cordova build android/ios --prod --release
+-  ionic cordova prepare android/ios
+-  ionic cordova resources android/ios
+
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+SOME PROJECT CONFIGURATION
+
+- put google-services.json file -  platforms\android\app
+- cordova.system.library.6=com.google.android.gms:play-services-analytics:16.0.3  --> project.properties
+- remove xxhdpi img from platform and resources folder -> if build does not create
+- googleServices { disableVersionCheck = true }  -> in platform->build.gradle
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+IONIC BUILD CONFIGURATION
+
+- android-release-key.jks (keystore file) -> This file is stored in resources folder.
+- release-signing.properties -> This file should be kept in platforms/android folder.
+
+----------------------------------------------------------------------------------------------------------------------------------

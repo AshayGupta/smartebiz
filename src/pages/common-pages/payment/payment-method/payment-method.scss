@@ -1,0 +1,238 @@
+page-payment-method {
+    .pay-now-head{
+		.content-part {
+		    padding: 8px;
+		}
+		.header-class {
+		    font-size: 20px;
+		    font-family: roboto;
+		    font-weight: bold;
+		    color: #0077be;
+		    padding: 2px 0 0 5px;
+		    text-align:center;
+		    span {
+		      color: #e42215;
+		    }
+		}
+		.ion-md-arrow-round-back:before {
+		    content: "\f288";
+		    position: relative;
+		    top: 4px;
+		    font-size: 20px;
+		    opacity: 0.6;
+		    color:#0077be;
+		    font-weight: 300;
+		}
+		.ion-md-search:before {
+		    content: "\f274";
+		    font-size: 16px;
+		    color: #000000;
+		    opacity:0.6
+		}
+		.ion-md-arrow-down{
+		   color:#0077be;
+			font-size:20px;
+			position: relative;
+    		font-weight: bold;
+		}
+		.ion-md-print{
+		    color:#0077be;
+			font-size:20px;
+			position: relative;
+    		font-weight: bold;
+		}
+		ion-icon{
+			color:#000000;
+			opacity:0.7
+		}
+	}
+	.pay-payment{
+		padding:8px;
+		.payment-method{
+			h1{
+				color:#0077BE;
+				font-size:20px;
+				font-family:poppins;
+				font-weight:400;
+				margin-bottom:20px;
+			}
+			.payment-card{
+				width:35%;
+				float:left;
+				padding:17px 0 5px 0;
+				margin-right: 20px;
+			    border-radius: 4px;
+				text-align: center;
+				box-shadow: 0 0 5px #8a8a8a;
+				background: #f7f7f7;
+				border: solid 1px #b3b3b3;
+				// box-shadow:0px 1px 3px #707070;
+				img{
+					max-height:55px;
+				}
+				p{
+				 font-size:9px;
+				//  color:#00000099;
+				color: #000;
+				 font-family:roboto;
+				 font-weight:500;
+				}
+			}
+			.payment-card.active{
+				background:#0077BE;
+			 	p{
+			 		color:#ffffff;
+			 	}
+			}
+		}
+		.payment-process{
+			width:100%;
+			margin-top:15px;
+			padding:24px;
+			border-radius: 4px;
+			box-shadow:0px 1px 3px #707070;
+			.payment-cardImg{
+				width:100%;
+				text-align:left;
+				margin-bottom:20px;
+				img{
+					max-height:76px;
+				}
+			}
+			.payment-step{
+				width:100%;
+				margin-bottom: 19px;
+				.label{
+					width: 28%;
+				    float: left;
+				    color: #8ABB2A;
+				    font-size: 14px;
+				    font-family: roboto;
+				    font-weight: bold;
+				    padding: 0;
+				    letter-spacing:0.46px;
+				}
+				.textWrap{
+					color:#707070;
+					font-size:14px;
+					font-family:roboto;
+					font-weight:400;
+					letter-spacing:0.46px;
+					display: flex;				
+				}
+			}
+		}
+		.support-wrap{
+			width:100%;
+		 	margin-top:35px;
+			p{
+			color:#0077BE;
+				color: #0077BE;
+			    font-size: 14px;
+			    font-family: roboto;
+			    font-weight: 500;
+			    text-align: center;
+			    text-transform: uppercase;
+			}
+	
+		}
+	}
+	// ion-footer{
+	// 	.BtnFooter{
+	// 	   	width:100%;
+	// 		height:64px;
+	// 		background:#ffffff;
+	// 		padding:12px 24px 14px 23px;
+	// 		border-radius:16px 16px 0px 0px;
+	// 		box-shadow:3px 3px 5px 6px #ccc;
+	// 		border:1px solid rgba(0, 0, 0, 0.16);
+	// 		display:flex;
+	// 		.btnText{
+	// 			width:45%;
+	// 			.amt-sec{
+	// 				font-size:18px;
+	// 				color:#000000;
+	// 				font-family:roboto;
+	// 			}
+	// 			.view-detail{
+	// 				color:#34C409;
+	// 				font-size:10px;
+	// 				text-align:center;
+	// 				font-family:roboto;
+	// 				line-height:11px;
+	// 			}
+	// 		}
+	// 		.btnSec{
+	// 			width:55%;
+	// 			text-align:center;
+	// 			button{
+	// 			    height:36px;
+	// 			    width:169px;
+	// 			    color:#ffffff;
+	// 			    background:#34C409;
+	// 			    font-size:14px;
+	// 			    font-family:roboto;
+	// 			    border-radius:18px;
+	// 			    letter-spacing:1.25px;
+	// 			    text-transform:uppercase;
+	// 			}
+	// 		}
+	// 	}  
+	// }
+	
+		.BtnFooter{
+		   	width:100%;
+			height:120px;
+			background:#ffffff;
+			padding:12px 10px 14px 10px;
+			border-radius:7px;
+			box-shadow:0px 1px 3px #707070;
+			border:1px solid rgba(0, 0, 0, 0.16);
+			display:flex;
+			align-items: center;
+			justify-content: center;
+			margin-top: 15px;
+			flex-direction: column;
+		
+			.btnText{
+				// width:45%;
+				.amt-sec{
+					font-size:24px;
+					// color:#000000;
+					font-family:roboto;
+					font-weight: bold;
+					color: #34c409;
+					margin-bottom: 15px;
+					
+				}
+				.view-detail{
+					color:#34C409;
+					font-size:10px;
+					text-align:center;
+					font-family:roboto;
+					line-height:11px;
+				}
+			}
+			.btnSec{
+				// width:55%;
+				text-align:center;
+				width: 70%;
+				button{
+				    height:36px;
+				    width:100%;
+				    color:#ffffff;
+				    background:#34C409;
+				    font-size:12px;
+				    font-family:roboto;
+				    border-radius:18px;
+				    letter-spacing:1.25px;
+					text-transform:uppercase;
+					opacity: 1;
+				}
+			}
+		}  
+	
+	ion-footer{
+		bottom: unset;
+	}
+}

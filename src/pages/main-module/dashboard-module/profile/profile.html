@@ -1,0 +1,116 @@
+<ion-header >
+	<app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+	<form class="profile-wrap">
+		<div class="profile-pic">
+			<!-- <img alt="email_photo" src="assets/imgs/email_photo.png"> -->
+			<img alt="" [src]='img'>
+			<h1>{{profileDetail.initials}} {{profileDetail.firstName}}</h1>
+			<div class="flex-profile">
+				<div class="update-profile"><a (click)="updateProfilePic()">Update Profile Picture</a></div>
+				<div class="update-profile"><a (click)="updatePassword()">Update Password</a></div>
+			</div>
+		</div>
+
+		<div class="profile-summary">
+			<div class="profile-detail">
+				<p>Personal Details</p>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Date of Birth :</div>
+					<div class="wrap-detail">{{profileDetail.dateOfBirth}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Sex :</div>
+					<div class="wrap-detail">{{profileDetail.gender}}</div>
+				</div>
+			</div>
+			<div class="profile-detail">
+				<p>Contact Information</p>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Phone No :</div>
+					<div class="wrap-detail">{{profileDetail.phone}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Email ID :</div>
+					<div class="wrap-detail">{{profileDetail.email}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Address :</div>
+					<div class="wrap-detail">{{profileDetail.address}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Postal Code :</div>
+					<div class="wrap-detail">{{profileDetail.postalCode}}</div>
+				</div>
+			</div>
+			<div class="profile-detail">
+				<p>Identification Details</p>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Tax No :</div>
+					<div class="wrap-detail">{{profileDetail.taxNo}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">National ID :</div>
+					<div class="wrap-detail">{{profileDetail.nationalID}}</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform">Passport No:</div>
+					<div class="wrap-detail">{{profileDetail.passportNo}}</div>
+				</div>
+			</div>
+			<!-- <div class="profile-detail">
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform preferDetail">Preferred Mode of communication</div>
+					<div class="wrap-detail">
+						<label class="container"><span>Email</span>
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform preferDetail"></div>
+					<div class="wrap-detail">
+						<label class="container"><span>Phone Number</span>
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform preferDetail">Preferred Statement Delivery Method</div>
+					<div class="wrap-detail">
+						<label class="container"><span>Email</span>
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform preferDetail"></div>
+					<div class="wrap-detail">
+						<label class="container"><span>Phone Number</span>
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+				<div class="flex-profile">
+					<div class="wrap-detail text-transform preferDetail"></div>
+					<div class="wrap-detail">
+						<label class="container"><span>Phone Number</span>
+							<input type="checkbox" checked="checked">
+							<span class="checkmark"></span>
+						</label>
+					</div>
+				</div>
+			</div> -->
+		</div>
+
+		<!-- <div class="updateBtn">
+			<button>UPDATE INFORMATION</button>
+		</div> -->
+	</form>
+</ion-content>

@@ -1,0 +1,65 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content class="makepaymentprev">
+  <!-- <h1 class="ref-num">Reference No. #12251546873</h1> -->
+  <div class="policy-detail" *ngFor="let list of paymentList;let i = index">
+    <ion-row>
+      <div class="mr-b policy-sec">
+        <details>
+          <summary>
+            <p class="policyNum">Policy NO. #{{list.accountNumber}} <span class="dw">
+                <ion-icon name="ios-arrow-down"></ion-icon>
+              </span></p>
+            <p class="policyplus">{{list.accountName}}</p>
+          </summary>
+          <p class="policyplus pb-10 border-bottom">Account Number: {{list.accountNumber}}</p>
+
+
+          <div class="policy-action">
+            <div class="policy-action-sec">
+              <div class="col-9">
+                <ion-label fixed class="pay-amount"><i> CONTRIBUTION </i></ion-label>
+              </div>
+            </div>
+          </div>
+          <div class="policy-action">
+            <div class="policy-action-sec">
+              <div class="col-9">
+                <ion-item>
+                  <ion-input type="text" placeholder="0" [(ngModel)]="list.excessAmount" (ionChange)="inputExcessAmt($event)"></ion-input>
+                  <!-- <ion-input type="number" placeholder="0" [(ngModel)]="list.excessAmount" (ionChange)="inputExcessAmt($event)" (keypress)="numberOnlyValidation($event)"></ion-input> -->
+                </ion-item>
+              </div>
+              <div class="trash-policy">
+                <ion-icon (click)="deleteList(i)" name="md-trash"></ion-icon>
+                <ion-icon name="information-circle" class="delete-info"></ion-icon>
+              </div>
+            </div>
+          </div>
+
+<!--
+          <p class="st">CONTRIBUTION: <span class="st-sp">+KSH
+              {{list.excessAmount}}</span></p>
+
+          <p class="blue-col">Total a<span class="red-col">m</span>ount: <span class="st-sp1">+KSH
+              {{list.productTotalAmount}}</span></p> -->
+        </details>
+      </div>
+    </ion-row>
+  </div>
+</ion-content>
+
+
+<ion-footer>
+  <div class="BtnFooter">
+    <div class="btnText">
+      <div class="amt-sec">KSH <span class="view-detail">{{amount | number : '1.2'}}</span></div>
+     </div>
+    <div class="btnSec">
+      <button [disabled]="amount=='0.00' || amount == '0.0' || amount == '0'" (click)="proceedToPayClicked()">
+        proceed to pay</button>
+    </div>
+  </div>
+</ion-footer>

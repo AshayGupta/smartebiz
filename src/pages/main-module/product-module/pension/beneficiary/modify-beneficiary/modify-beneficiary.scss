@@ -1,0 +1,29 @@
+page-modify-beneficiary {
+  .scroll-content {
+    margin-top: 108px;
+  }
+  .pension-plan {
+    height: 48px;
+    background: white;
+    color: #0077be;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 1px 3px #00000029;
+    font-weight: 500;
+  }
+  ion-footer .toolbar-background {
+    background: none !important;
+  }
+  ion-footer {
+    height: 48px;
+    background: #0077be;
+  }
+  ion-footer .toolbar-title {
+    color: #fff;
+    font-weight: normal;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    text-transform: uppercase;
+  }
+}

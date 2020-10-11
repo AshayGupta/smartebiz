@@ -1,0 +1,70 @@
+<ion-header>
+    <app-header [headerTitle]="headerTitle"></app-header>
+  </ion-header>
+
+  <ion-content class="raise-req">
+    <div class="raise-request-Wrap">
+      <!-- <h2> Service Request Summary</h2>
+      <ion-card-content class="confirmation-details">
+        <div class="ticket-num">
+          <div class="ticketNum">SR No.<span>#{{serviceList.srNumber}}</span></div>
+        </div> -->
+        <!-- <div>
+          <ion-label class="txt1">SR Type</ion-label>
+          <ion-label class="sub-label">{{serviceList.srType}}</ion-label>
+        </div> -->
+        <!-- <div>
+          <ion-label class="txt1">Category</ion-label>
+          <ion-label class="sub-label">{{serviceList.category}}</ion-label>
+        </div>
+        <div>
+            <ion-label class="txt1">Status</ion-label>
+            <ion-label class="sub-label">{{serviceList.srStatus}}</ion-label>
+          </div>
+        <div>
+          <ion-label class="txt1">Summary</ion-label>
+          <p class="sub-label">{{serviceList.summary}}</p>
+        </div>
+      </ion-card-content> -->
+      <table>
+        <tbody class="upper-highlight">
+        <tr>
+          <td>Ticket No</td>
+          <td>SR {{serviceList.srNumber}}</td>
+        </tr>
+        <tr>
+          <td>To</td>
+          <td>Britam Group</td>
+        </tr>
+        <tr>
+          <td>From</td>
+          <td>{{serviceList.owner}}</td>
+        </tr>
+        </tbody>
+        <tbody>
+        <tr *ngIf="policyNo">
+          <td>Policy Number</td>
+          <td>{{serviceList.policyNo}}</td>
+        </tr>
+        <tr>
+          <td>Category</td>
+          <td>{{serviceList.category}}</td>
+        </tr>
+        <tr>
+          <td>Sub Category</td>
+          <td>{{serviceList.subCategory}}</td>
+        </tr>
+        <tr>
+          <td>Status</td>
+          <td>{{serviceList.srStatus}}</td>
+        </tr>
+        <tr>
+          <td>Description</td>
+          <!-- <td>PolicyNumber:-BPPF51767<br> Excess Amount:-1<br> PremiumAmount:-0.0,<br> Total Amount:- 1 </td> -->
+          <td>{{serviceList.summary}}</td>
+        </tr>
+      </tbody>
+      </table>
+    </div>
+  </ion-content>
+

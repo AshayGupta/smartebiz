@@ -1,0 +1,43 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+  
+  <div class="serial">SR-{{num}}</div>
+  <div *ngIf="!doHaveComment" text-center style="text-align: center !important; width:100%">
+    <p style="color: #000; margin:15px; font-size:15px; font-weight: bold">No Comments Available</p>
+  </div>
+  <!-- <div *ngFor="let details of activity">{{details.summary}}</div> -->
+  <table class="history-table" *ngIf ="doHaveComment">
+    <thead>
+      <tr>
+        <td>S.NO</td>
+        <td>Comment</td>
+      </tr>
+    </thead>
+    <tbody >
+      <tr *ngFor="let details of activity; let i= index">
+        <td>{{i+1}}</td>
+         <td >{{details.summary}}</td>
+      </tr> 
+      <!-- <tr>
+        <td>2</td>
+        <td>This is another comment</td>
+      </tr>  -->
+    </tbody>
+
+    <!-- <tbody *ngIf ="!doHaveComment">
+      <tr> -->
+        <!-- <td>1</td> -->
+        <!-- <td>No Comments Available</td>
+      </tr> -->
+      <!-- <tr>
+        <td>2</td>
+        <td>This is another comment</td>
+      </tr> -->
+    <!-- </tbody> -->
+
+  </table>
+
+</ion-content>

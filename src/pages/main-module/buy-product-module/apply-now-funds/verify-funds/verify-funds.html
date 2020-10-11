@@ -1,0 +1,110 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content padding>
+  <div class="upper-part">
+    <h3 class="bank-detail-head">{{buyProductReq.investment.selectedFund.productName}}</h3>
+    <ul class="state-line">
+      <li class="active-line done-circle"><Span>Personal</Span></li>
+      <li class="active-line done-circle"><Span>Bank</Span></li>
+      <li class="active-line done-circle"><Span>Investment</Span>
+        <ul class="state-line-inner">
+          <li class="active-line"></li>
+          <li class="active-line"></li>
+          <li class="active-line"></li>
+          <li class="active-line"></li>
+          <li class="active-line"></li>
+          <li class="active-line"></li>
+        </ul>
+      </li>
+      <li class="active-circle"><Span class="active-text">Review</Span></li>
+      <li><Span>Payment</Span></li>
+      <li><Span>Thank you</Span></li>
+    </ul>
+  </div>
+  <div class="container">
+    <h2 class="before-you">Before you pay!</h2>
+    <p>Please verify all the details</p>
+    <section class="personal-details">
+      <p class="pers-detail-head">Personal Details</p>
+      <p class="name">{{buyProductReq.personalDetail.fullName()}}</p>
+      <div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/phone-buy.svg">
+          <p>{{buyProductReq.personalDetail.mobile}}</p>
+        </div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/email-buy.svg">
+          <p>{{buyProductReq.personalDetail.email}}</p>
+        </div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/kra-buy.svg">
+          <p>{{buyProductReq.personalDetail.kraPin}}</p>
+        </div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/date-buy.svg">
+          <p>{{buyProductReq.personalDetail.dob | date}}</p>
+        </div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/location-buy.svg">
+          <p>{{buyProductReq.personalDetail.physicalAddress}}</p>
+        </div>
+      </div>
+    </section>
+    <div class="line"></div>
+
+    <section class="personal-details bank-details">
+      <p class="pers-detail-head">Bank Details</p>
+      <p class="name">{{buyProductReq.bankDetail.bankName}}</p>
+      <div>
+        <div class="personal-detail-list">
+          <img src="../../../assets/imgs/location-buy.svg">
+          <p>{{buyProductReq.bankDetail.branchName}}</p>
+        </div>
+        <div class="personal-detail-list hash">
+          <p>#</p>
+          <p>{{buyProductReq.bankDetail.accountNumber}}</p>
+        </div>
+      </div>
+      <p class="bank-detail-name">{{buyProductReq.bankDetail.accountHolderName}}</p>
+      <p class="bank-detail-name" *ngIf="buyProductReq.bankDetail.documents.length > 0">
+        {{buyProductReq.bankFileAttach.fileName}}</p>
+      <!-- <button class="download" (click)="OpenInBrowser()">Download Document<img src="../../../assets/imgs/download-buy.svg"></button> -->
+    <!-- <button class="dwnld-doc">Download Document<ion-icon name="download"></ion-icon></button> -->
+    </section>
+
+    <div class="line"></div>
+    <section class="personal-details bank-details">
+      <p class="pers-detail-head">Investment Details</p>
+      <div class="amount-invest">
+        <p>{{buyProductReq.investment.selectedFund.productName}}</p>
+        <p>KES {{buyProductReq.investment.selectedFund.investedAmount  | number}}</p>
+      </div>
+      <div class="amount-invest" *ngFor="let fund of buyProductReq.investment.moreFunds; let i=index;">
+        <p>{{fund.productName}}</p>
+        <p>KES {{fund.investedAmount  | number}}</p>
+      </div>
+    </section>
+    <div class="line"></div>
+    <h2 class="total-amount">Total a<Span>m</Span>ount :</h2>
+    <div class="kes-bottom">
+      <p>KES</p>
+      <p>{{buyProductReq.investment.totalAmount  | number}}</p>
+    </div>
+    <div class="terms-condition">
+      <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+      <label for="payment-checkbox">
+        <ion-icon name="checkmark"></ion-icon>
+      </label>
+      <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+    </div>
+    <div *ngIf="!tnc.checked" class="error-div">
+      <p class="error">Select checkbox to continue</p>
+    </div>
+  </div>
+
+  <button type="submit" ion-button full text-uppercase class="proceed m-0 submitBtn padd-0 active"
+    (click)="proceedClicked()">Proceed</button>
+</ion-content>

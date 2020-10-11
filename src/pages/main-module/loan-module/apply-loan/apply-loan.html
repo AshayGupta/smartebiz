@@ -1,0 +1,91 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"
+    (headerOutput3)="goToLoanHistory($event)">
+  </app-header>
+</ion-header>
+
+<!-- Contect Section -->
+<ion-content padding>
+  <form [formGroup]="applyLoanForm" >
+    <div class="content-part ">
+      <div class="content-part-text">
+        <ion-row>
+          <h1 class="subHeader-Wrap">Product : {{this.advanceQuoteReq.policyName}} - {{this.advanceQuoteReq.policyNo}}</h1>
+          <div class="step-sec">
+            <div class="col-3">
+              <img src="assets/imgs/Step%20One.png">
+            </div>
+            <div class="col-8">
+
+              <label>step 1:</label>
+              <span>how much loan do you want?</span>
+            </div>
+          </div>
+
+          <div class="amountSec">
+            <div class="col-6">Maximum Amount:</div>
+            <div class="col-6 pull-right">KSH {{advanceQuoteReq.availableAmount}}</div>
+          </div>
+
+          <div class="amountSec">
+            <div class="col-6">Loan Amount:</div>
+            <div class="col-6 pull-right">
+              <div class="col-6 pull-left loan-approved">KSH</div>
+              <ion-input 
+                type="number" 
+                placeholder="0.00" 
+                class="col-6 loan-approved"
+                formControlName="loanAmount" 
+                min='0' 
+                [(ngModel)]="advanceQuoteReq.loanAmount" 
+                (ionChange)="changeLoanAmt()"
+              ></ion-input>
+            </div>
+            <div *ngIf="(submitAttempt || applyLoanForm.controls.loanAmount.touched ) && applyLoanForm.controls.loanAmount.errors">
+              <p class="error">{{applyLoanForm.controls.loanAmount.errors?.loanAmount}}</p>
+            </div>
+          </div>
+          <!-- advanceQuoteReq.availableAmount || 0 -->
+          <div class="range-slider">
+            <ion-range 
+              [(ngModel)]="advanceQuoteReq.loanAmount" 
+              [ngModelOptions]="{standalone: true}" 
+              [min]="0"
+              [max]='advanceQuoteReq.availableAmount || 0'
+              snaps="false" 
+              pin="true"
+              [disabled]="advanceQuoteReq.availableAmount || advanceQuoteReq.availableAmount == '0'"  
+              (ionChange)="rangeSlider($event)"
+            >
+            </ion-range>
+          </div>
+          
+          <div class="amountSec">
+            <div class="col-6">Rate of Interest:</div>
+            <div class="col-6 pull-right">{{advanceQuoteReq.rateOfInterest}} %</div>
+          </div>
+
+          <div class="amountSec">
+            <div class="col-12">Tenure</div>
+            <div class="col-12">
+              <ion-select formControlName="loanPeriod" [(ngModel)]="advanceQuoteReq.loanPeriod">
+                <!-- <ion-option value='3'>3 Months</ion-option> -->
+                <ion-option value='6'>6 Months</ion-option>
+                <ion-option value='12'>12 Months</ion-option>
+                <ion-option value='18'>18 Months</ion-option>
+                <ion-option value='24'>24 Months</ion-option>
+                <ion-option value='30'>30 Months</ion-option>
+                <ion-option value='36' selected>36 Months</ion-option>
+              </ion-select>
+            </div>
+          </div>
+
+        </ion-row>
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<ion-footer>
+  <button ion-button full text-uppercase class="m-0 submitBtn padd-0" (click)="applyLoanForm.valid ? proceedClicked() : submitAttempt = true">Proceed</button>
+</ion-footer>

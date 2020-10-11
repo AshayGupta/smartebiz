@@ -1,0 +1,32 @@
+app-header {
+  ion-navbar {
+    padding: 13px 10px 10px 21px!important;
+    box-shadow: 0px 1px 3px #00000029;
+    .heading-content {
+      padding-top: 10px;
+      h3 {
+        color: #0077be;
+        font-size: 20px;
+        font-family: poppins;
+        font-weight: bold !important;
+        margin-top: -7px;
+      }
+      .sub-header{
+        color:#0077BE;
+        font-size:14px;
+        font-family:roboto;
+        font-weight:500;
+        letter-spacing:0.24px;
+        margin:0 0 0 -12%;
+        clear:both;
+      }
+    }
+    .menuToggle{
+      padding-top:12px
+    }
+    .head-cascading{
+      width:85%;
+      float:left;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+<ion-menu [content]="content" type="overlay">
+    <ion-header class="nav-header">
+        <ion-grid>
+            <ion-row>
+                <ion-col col-12>
+                    <ion-row>
+                        <ion-col col-2>
+                            <button ion-button menuToggle start>
+                                <ion-icon name="md-arrow-back"></ion-icon>
+                            </button>
+                        </ion-col>
+                        <ion-col col-8 class="img_p">
+                            <img [src]="headerTitle">
+                        </ion-col>
+                    </ion-row>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-header>
+
+    <ion-content class="content-mt-60">
+        <div class="main-div"></div>
+
+        <ion-grid class="padd-0">
+            <ion-row>
+                <ion-col col-12 class="padd-0">
+
+                    <ion-row (click)="goToProfile()">
+                        <ion-col col-4 class="image-email padd-0">
+                            <img alt="" [src]='img'>
+                        </ion-col>
+                        <ion-col col-8 padding-vertical class="Email_caps">
+                            <h1 class="font-14 line-ht-20 f-w-semibold text-md-color">{{email}}</h1>
+                        </ion-col>
+                    </ion-row>
+
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+
+        <ion-list>
+            <ion-item menuClose no-lines *ngFor="let page of pages" (click)="openPage(page)">
+                <ion-grid>
+                    <ion-row>
+                        <ion-col col-2 class="icon_sec">
+                            <img src='{{page.img}}' alt="product" />
+                        </ion-col>
+                        <ion-col col-10>
+                            <h3 class="m-0">{{page.title}}</h3>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </ion-item>
+        </ion-list>
+
+    </ion-content>
+</ion-menu>
+
+<!-- main navigation -->
+<ion-nav [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

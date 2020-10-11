@@ -1,0 +1,84 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding>
+
+  <edit-beneficiary [beneficiaryMode]="beneficiaryMode" [beneficiaryDetails]="beneficiaryDetails"
+    (beneficiaryAction)="beneficiaryAction($event)"></edit-beneficiary>
+
+  <div class="cancel-mod">
+    <span class="can-btn" (click)="cancelClick()">CANCEL</span>
+    <button ion-button outline (click)="modifyClick()">MODIFY</button>
+  </div>
+
+  <!-- Beneficiary Table-->
+  <div class="table-container" *ngIf="beneficiaries.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <td>Beneficiary Name</td>
+          <td>Date of Birth</td>
+          <td>Portion</td>
+          <td>Relationship</td>
+          <td>Gender</td>
+          <td>Nationality</td>
+          <!-- <td>Document No.</td>
+            <td>Document Type</td> -->
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of beneficiaries">
+          <td>{{item.beneficiary.firstName}} {{item.beneficiary.middleName}} {{item.beneficiary.lastName}}</td>
+          <td>{{item.beneficiary.birthDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</td>
+          <td>{{item.beneficiary.lumpsum_entitlement}}</td>
+          <td>{{item.beneficiary.relationshipType}}</td>
+          <td>{{item.beneficiary.gender}}</td>
+          <td>{{item.beneficiary.nationality}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Nominee Table -->
+  <div class="table-container" *ngIf="beneficiaries.length > 0">
+    <table>
+      <thead>
+        <tr>
+          <td>Nominee Name</td>
+          <td>Date of Birth</td>
+          <td>Nominee For</td>
+          <td>Relationship</td>
+          <td>Gender</td>
+          <td>Nationality</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of beneficiaries; let i = index">
+          <ng-container *ngIf="item.nominee.firstName && item.nominee.firstName != ''">
+            <td>{{item.nominee.firstName}} {{item.nominee.middleName}} {{item.nominee.lastName}}</td>
+            <td>{{item.nominee.birthDate | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</td>
+            <td>{{item.beneficiary.firstName}}</td>
+            <td>{{item.nominee.relationshipType}}</td>
+            <td>{{item.nominee.gender}}</td>
+            <td>{{item.nominee.nationality}}</td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="terms-condition">
+    <input type="checkbox" id="payment-checkbox" [(ngModel)]="tnc.checked">
+    <label for="payment-checkbox">
+      <ion-icon name="checkmark"></ion-icon>
+    </label>
+    <p>Do you agree to our <span (click)="openTncModal()">Terms and Conditions ?</span></p>
+  </div>
+
+  <div *ngIf="!tnc.checked" class="error-div">
+    <p class="error">Select checkbox to continue</p>
+  </div>
+
+  <button ion-button class="verify-btn" (click)="verifyOtp()">SUBMIT</button>
+
+</ion-content>

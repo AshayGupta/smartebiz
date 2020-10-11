@@ -1,0 +1,34 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+
+<ion-content class="service-req-body">
+
+  <div class="service-terms" *ngFor="let list of serviceHistoryList">
+    <div class="col-12 service-history-detail">
+      <ion-col>
+        <div class="sp-p">
+          <!-- <p>REQUEST NO. #{{list.requestNo}}</p> -->
+          <!-- <span class="dw">
+                  <ion-icon name="ios-arrow-down"></ion-icon>
+                </span> -->
+          <p class="serial-num">SR NO. #{{list.srNumber}} </p>
+          <!-- <p class="sp-p">SR Type {{list.srType}}</p> -->
+          <p class="status-sec">Category: {{list.category}}</p>
+          <p class="status-sec">Sub Category: {{list.subCategory}}</p>
+          <p class="status-sec">Requested Date: {{list.startStamp | date: 'dd-MMM-yyyy':'UTC' | uppercase}}</p>
+          <p class="status-sec">Status: {{list.srStatus}}</p>
+          <button class="view-btn" (click)='serviceListDetails(list)'>View</button>
+        </div>
+      </ion-col>
+    </div>
+  </div>
+
+  <ion-fab right bottom>
+    <button ion-fab class="add-btn" (click)="createRequest()">
+      <ion-icon name="add"></ion-icon>
+    </button>
+  </ion-fab>
+
+</ion-content>

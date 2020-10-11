@@ -1,0 +1,33 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle">
+  </app-header>
+</ion-header>
+<ion-content padding>
+
+  <div class="container">
+    <h3>Transaction S<span class="red">u</span>ccessful</h3>
+    <!-- <p class="ttl-amnt">Total Amount</p>
+    <p class="kes-amnt">KES {{paymentReq.amount}}</p>
+    <h2>has been transferred to your account(s)</h2> -->
+    <p class="look-out">Look out for the official confirmation notices to be shared via SMS and Email. <br>Here are your payment details:
+    </p>
+    <div class="trans-amnt">
+      <p class="">Investment Amount: </p>
+      <p class="kes-amnt">KES {{paymentReq.amount | number}}</p>
+    </div>
+    <p class="trans-date">Transaction Date: {{transactionDate|date}}</p>
+    <div class="policy-tick-wrapper">
+      <div>Reference No: {{paymentResp.srNumber}}</div>
+      <div *ngFor="let fund of paymentReq.postedAmount;let i=index;">{{i+1}}. {{fund.fundName}} : KES {{fund.amount | number}}
+      </div>
+      <p>Thank you for choosing us as your investments partner!</p>
+
+    </div>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title (click)="okClicked()">OK</ion-title>
+  </ion-toolbar>
+</ion-footer>

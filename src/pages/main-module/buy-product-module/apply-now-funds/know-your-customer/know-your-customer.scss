@@ -1,0 +1,107 @@
+.action-sheet-container{
+    justify-content: center;
+    width: 90%;
+    margin: auto;
+}
+page-know-your-customer {
+  .scroll-content{
+      padding: 24px !important;
+  }
+  ion-item{
+      margin-top: 16px;
+  }
+  h2{
+      color: #0077BE;
+      font-family: poppins;
+      font-weight: 200;
+      margin-top: 25px !important;
+      margin-bottom: 40px;
+      font-size: 20px;
+  }
+  .container{
+      margin: 0 16px;
+  }
+  ion-item{
+      margin-top: 16px !important;
+  }
+  .input-wrapper{
+      display: block;
+      font-size: 14px;
+      letter-spacing: 0.13px;
+      .label{
+          color: #0077BE;
+          font-weight: 400;
+          margin-bottom: 9px !important;
+          text-transform: capitalize;
+          font-size: 14px;
+      }
+      ion-select{
+          border: 1px solid #CFD9E2;
+          border-radius: 4px;
+          max-width: 100%;
+          padding-right: 15px;
+      }
+  }
+  ion-input{
+      border-bottom: 1px solid #CFD9E2;
+  }
+  button.proceed{
+      width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+      background: #CFD9E2;
+      margin-top: 22px;
+      color: #fff;
+      font-weight: 400;
+      font-size: 14px;
+      letter-spacing: 1.25px;
+      height: 42px;
+      margin-bottom: 40px;
+      box-shadow: none;
+      border: none;
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+  }
+  button.proceed.active{
+      background: #0077BE;
+  }
+}
+// /* Alert Customization*/
+// .know-custom-alert{
+// .alert-wrapper .alert-button {
+//     background: #D6D6D6;
+//     color: #fff;
+//     font-weight: 500;
+//     font-family: roboto;
+//     font-size: 14px;
+//     text-transform: uppercase;
+//     letter-spacing: 1.25px;
+// }
+// .alert-wrapper .alert-button-group>.alert-button:last-child {
+//     background: #0077BE !important;
+//     color: #fff;
+//     font-weight: 500;
+//     font-family: roboto;
+//     font-size: 14px;
+//     text-transform: uppercase;
+//     letter-spacing: 1.25px;
+// }
+// .alert-button{
+//     height: 36px !important;
+// }
+// .alert-title{
+//     font-size: 20px !important;
+//     color: #0077BE !important;
+//     font-weight: 500 !important;
+//     margin-top: 3px !important;
+// }
+// .alert-head{
+//     padding: 12px 16px 0px !important;
+// }
+// }
+// /* Alert Customization End*/

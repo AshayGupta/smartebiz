@@ -1,0 +1,427 @@
+page-personal-details {
+  .add-ben-wrapper input[type="text"],
+  input[type="tel"],
+  input[type="email"],
+  input[type="number"] {
+    width: 100%;
+    height: 33px;
+    border-radius: 5px;
+    padding-left: 10px;
+    border: none;
+    border-bottom: 1px solid #cfd9e2;
+    border-radius: 0;
+  }
+  .container {
+    padding: 34px 31px 0 31px;
+  }
+  .input-heading {
+    letter-spacing: 0.13px !important;
+    color: #0077be !important;
+    padding-bottom: 4px !important;
+    font-size: 14px !important;
+  }
+  .top-heading {
+    margin-top: 37px !important;
+  }
+  textarea {
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    padding-left: 10px;
+    border-bottom: 1px solid #cfd9e2;
+    height: 50px;
+  }
+  .add-ben-wrapper label,
+  .label {
+    font-size: 16px;
+    color: #0077be;
+    margin-bottom: 8px;
+    display: inline-block;
+    font-weight: normal;
+    text-transform: capitalize;
+  }
+  span.radio:before {
+    position: absolute;
+    content: "";
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    left: 0px;
+    top: 4px;
+    border: solid 2px #e0e0e0;
+  }
+  input[type="radio"] {
+    display: none;
+  }
+  span.radio {
+    margin-left: 22px;
+    color: #657d95;
+    font-size: 14px;
+  }
+  input[type="radio"]:checked + label > span.radio:after {
+    width: 9px;
+    height: 9px;
+    background: #5894ff;
+    left: 5px;
+    top: 9px;
+    border-radius: 50%;
+    content: "";
+    position: absolute;
+  }
+  input[type="radio"]:checked + label > span.radio:before {
+    border-color: #5894ff;
+  }
+  .add-ben-wrapper .input-wrapper {
+    display: block;
+  }
+  ion-datetime {
+    padding: 12px 10px !important;
+    border: 1px solid #cfd9e2;
+    border-radius: 5px;
+    height: 40px;
+    font-size: 14px;
+  }
+  .add-ben-wrapper .item-block .item-inner {
+    border-bottom: none;
+    padding: 0;
+  }
+  ion-select {
+    max-width: 100%;
+    border: 1px solid #cfd9e2;
+    border-radius: 5px;
+    height: 40px;
+    padding: 10px 10px 5px 10px !important;
+    font-size: 14px;
+  }
+  input#benef-file {
+    display: none;
+  }
+  .add-ben-wrapper .label {
+    display: block;
+    margin-top: 0;
+    letter-spacing: 0;
+  }
+  .add-ben-wrapper .label {
+    display: block;
+  }
+  .add-ben-wrapper label[for="benef-file"] {
+    border: solid 2px #4ec3f8;
+    padding: 6px 20px;
+    border-radius: 5px;
+    margin-top: 9px;
+    color: #00a9f5;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    padding: 7px 29px;
+    font-weight: 500;
+  }
+  .segment-button {
+    height: 40px !important;
+    font-size: 15px !important;
+    color: #666666 !important;
+    letter-spacing: 1px;
+  }
+  .segment-button.segment-activated {
+    color: #0077be !important;
+    background: none !important;
+    // border-bottom: solid 4px #488aff !important;
+    border-radius: 0 !important;
+    position: relative;
+  }
+  .segment-button.segment-activated:before {
+    content: "";
+    position: absolute;
+    height: 4px;
+    background: #0077be;
+    top: 36px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  ion-segment-button {
+    border: 0 !important;
+  }
+  .tab-wrapper {
+    box-shadow: 2px 2px 3px #dcdcdc;
+    padding: 16px 16px 0 16px;
+    // height: 68px;
+  }
+  ion-title {
+    padding: 0 !important;
+  }
+  .toolbar-title {
+    color: #0077be !important;
+    font-size: 21px !important;
+  }
+  input::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    letter-spacing: 0.13px;
+    color: #a4b2be;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  input::-moz-placeholder,
+  textarea::-moz-placeholder {
+    /* Firefox 19+ */
+    letter-spacing: 0.13px;
+    color: #a4b2be;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  input:-ms-input-placeholder,
+  textarea:-ms-input-placeholder {
+    /* IE 10+ */
+    letter-spacing: 0.13px;
+    color: #a4b2be;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  input:-moz-placeholder,
+  textarea:-moz-placeholder {
+    /* Firefox 18- */
+    letter-spacing: 0.13px;
+    color: #a4b2be;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  input::placeholder,
+  textarea::placeholder {
+    /* Most modern browsers support this now. */
+    letter-spacing: 0.13px;
+    color: #a4b2be;
+    font-size: 14px;
+    font-weight: 400;
+  }
+  ion-header {
+    border-bottom: solid 1px #f7f7f7;
+    padding: 4px 0;
+  }
+  .underage-red {
+    color: red;
+    font-size: 13px;
+  }
+  .title-red {
+    color: red;
+  }
+  // button.proceed{
+  //   width: 100%;
+  //   border-radius: 0;
+  //   background: #278cc8;
+  //   color: #fff;
+  //   margin-top: 30px;
+  //   font-size: 15px;
+  //   // padding: 24px 0 !important;
+  //   letter-spacing: 1px;
+  // }
+
+  .bar-button ion-icon[name="md-notifications"] {
+    color: #707070;
+    font-size: 24px !important;
+    margin: -2px 19px 0 0 !important;
+  }
+  ion-icon[name="md-calendar"] {
+    position: absolute;
+    top: 82px;
+    right: 15px;
+    font-size: 26px;
+    color: #a4b2be;
+  }
+  ion-footer {
+    height: unset;
+    background: unset;
+  }
+  // .fixed-content,.scroll-content{
+  //   margin-bottom: 45px !important;
+  // }
+  .add-ben-form-wrapper [col-12] {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .add-ben-form-wrapper .col {
+    padding-bottom: 0;
+  }
+  input[type="radio"] + label {
+    margin-bottom: 0;
+  }
+  .grid {
+    padding: 8px !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .item-block {
+    min-height: 33px;
+  }
+  button.proceed {
+    width: 77%;
+    margin-left: auto;
+    margin-right: auto;
+    background: #cfd9e2;
+    margin-top: 16px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    letter-spacing: 1.25px;
+    height: 42px;
+    margin-bottom: 16px;
+    box-shadow: none;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
+  .scroll-content{
+    margin-bottom: 75px !important
+  }
+  button.proceed.active {
+    background: #0077be;
+  }
+  /*Upper part*/
+  ul.state-line {
+    display: flex;
+    justify-content: space-between;
+    margin-left: 0;
+    padding: 0;
+    height: 30px;
+    position: relative;
+    width: 90%;
+    margin-left: auto;
+    margin-top: 34px;
+    margin-bottom: 0;
+    .active-circle:before {
+      width: 6px;
+      height: 6px;
+      top: -4px;
+      border: 3px #0077be solid;
+    }
+    .active-line {
+      background: #0077be !important;
+    }
+    > li:last-child {
+      width: 10%;
+      flex-grow: 0;
+    }
+    &:before {
+      content: "";
+      position: absolute;
+      background: #0077be;
+      width: 10%;
+      top: 0px;
+      left: -10%;
+      height: 4px;
+    }
+    li.done-circle:before {
+      border: 2px solid #0077be;
+    }
+    .active-text {
+      color: #0077be;
+    }
+  }
+  ul.state-line li {
+    position: relative;
+    list-style: none;
+    flex-grow: 1;
+    background: #e1f5fe;
+    height: 4px;
+    span {
+      font-size: 9px;
+      position: absolute;
+      top: 15px;
+      font-family: roboto;
+      color: #a4b2be;
+      text-align: center;
+      margin-left: -2px;
+      text-transform: capitalize;
+    }
+  }
+  ul.state-line > li:before {
+    content: "";
+    width: 4px;
+    height: 4px;
+    position: absolute;
+    border-radius: 50%;
+    border: 2px solid #b2e5fc;
+    top: -2px;
+    background: #e1f5fe;
+    z-index: 1;
+  }
+ul.state-line li:nth-child(1) span {
+    left: -12px;
+}
+ul.state-line li:nth-child(2) span {
+    left: -6px;
+}
+ul.state-line li:nth-child(3) span {
+    left: -17px;
+}
+ul.state-line li:nth-child(4) span {
+    left: -9px;
+}
+ul.state-line li:nth-child(5) span {
+    left: -12px;
+}
+ul.state-line li:nth-child(6) span {
+  left: -14px;
+}
+  ul.state-line-inner {
+    display: flex;
+    padding: 0;
+  }
+  h3.bank-detail-head {
+    color: #006699;
+    font-size: 30px;
+    letter-spacing: 0.18px;
+  }
+  .bank-details-btn {
+    text-decoration: none;
+    padding: 10px;
+    display: block;
+    text-align: center;
+    border: 2px solid #e1f5fe;
+    border-radius: 23px;
+    color: #00a9f5;
+    letter-spacing: 1.25px;
+    background: url(../../../assets/imgs/pdf.svg);
+    background-repeat: no-repeat;
+    background-position: 97% 8px;
+  }
+  .bank-detail-head + p {
+    letter-spacing: 0.4px;
+    color: #657d95;
+    font-family: "Open Sans", sans-serif;
+    font-size: 12px;
+    margin-bottom: 20px;
+    margin-top: 16px;
+  }
+  h3.bank-detail-head {
+    font-size: 30px;
+    font-weight: bold;
+    letter-spacing: 0.18px;
+    color: #006699;
+    margin-top: 16px;
+  }
+  .upper-part {
+    padding: 0 24px;
+    margin-top: 16px;
+  }
+
+  /*Upper part end*/
+}
+.hi-there {
+  margin-top: 0;
+  color: #0077be;
+  font-weight: bold;
+  font-size: 24px;
+  font-family: poppins;
+  margin-bottom: 0;
+}
+.introduce {
+  color: #657d95;
+  font-size: 16px;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom: 16px;
+}

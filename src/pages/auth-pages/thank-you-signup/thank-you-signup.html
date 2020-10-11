@@ -1,0 +1,36 @@
+<ion-header>
+  <app-header [headerTitle]="headerTitle"></app-header>
+</ion-header>
+
+<ion-content padding text-center>
+  <form>
+    <div class="image-part thankyou-icon">
+    <!--  <img src="assets/imgs/Britam InControl Logo.png" alt="Britam InControl Logo" />-->
+       <img class="m-t-30" src="assets/imgs/save.svg" alt=""/>
+    </div>
+
+    <div class="thank-you">
+      <p>Thank you for signing up! We’ll take you back to the login screen.</p>
+
+      <ion-list>
+        <div class="icon-input-field">
+          <ion-icon name="md-contact" class="email-sec icon-one"></ion-icon>
+          <ion-item no-lines>
+            <ion-input type="text" class="emailId" value="{{email}}" readonly></ion-input>
+          </ion-item>
+        </div>
+
+        <div class="icon-input-field m-t-12">
+          <ion-icon name="md-key" class="icon-one key-icon"></ion-icon>
+          <ion-item no-lines class="item-input-icon">
+            <ion-input type="password" class="password" value="{{password}}" readonly></ion-input>
+          </ion-item>
+        </div>
+        
+        <p class="thanksEmail">For more information please refer to the E-mail sent to you on your Email ID</p>
+      </ion-list>
+    </div>
+  </form>
+
+ <a (click)="goToWelcomePage()" class="gotologin"> Go to login</a>
+</ion-content>
